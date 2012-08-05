@@ -1,0 +1,2 @@
+module JobExpensesHelper
+end

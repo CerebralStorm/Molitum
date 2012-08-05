@@ -1,0 +1,56 @@
+<table class="table table-bordered table-condensed span8 shadow" cellpadding="5">
+  <th colspan="4">Invoice Number: <%= @invoice.id %></th>
+  <tr>
+    <td>
+      <table class="table-left" cellpadding="5">
+        <tr>
+          <td class="highlight">Customer</td>
+          <td class="highlight">Billing Start</td>
+          <td class="highlight">Billing End</td>
+          <td class="highlight">Status</td>
+        </tr>
+        <tr>
+          <td><%= link_to @invoice.customer.name, customer_path(@invoice.customer) %></td>
+          <td><%= @invoice.billing_start.to_date %></td>
+          <td><%= @invoice.billing_end.to_date  %>
+          <td><%= @invoice.status %></td>
+        </tr>
+      </table>
+      <table class="table table-bordered table-condensed table-left span8" cellpadding="5">
+        <%= render 'invoices/invoiceitems' %>
+        </tr>
+        <tr>
+          <td class="highlight" colspan="4"></td>
+        </tr>
+      </table>
+        <table class="table table-bordered table-condensed table-left span8" cellpadding="5">
+        <tr>
+          <td width="80%"></td>
+          <td>Total</td>
+          <td><%= @invoice.total_due %></td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <%= link_to "Download Invoice (PDF)", invoice_path(@invoice, :format => "pdf"), class: "btn" %>
+          </td>
+        </tr>
+        <tr>
+          <% if @invoice.paid == false %>
+            <%= form_for(@invoice) do |f| %>
+              <td colspan="3">
+                <%= f.hidden_field :paid, value: true%>
+                <%= f.submit "Mark as Paid", class: "btn btn-primary" %>
+              </td>
+            <% end %>
+          <% end %>
+      </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+

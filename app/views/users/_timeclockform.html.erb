@@ -1,0 +1,18 @@
+<table id="time_clocks_form" width="100%" cellpadding="5">
+  <%= simple_form_for TimeClock.new do |f| %>
+  <tr>
+    <td>
+      <%= f.label :job, "Select Job" %>
+      <%= f.grouped_collection_select :job_id, Customer.order(:name), :jobs, :name, :id, :location, include_blank: false %>
+    </td>
+    <td><%= f.input :hours, :required => false %></td>
+    <td id="time_clock_date"><%= f.input :work_date %></td> 
+  </tr>        
+  <tr>
+    <td colspan="3"><%= f.button :submit, class: "btn-primary" %></td>
+  </tr>
+  <% end %>
+</table>
+
+
+ 

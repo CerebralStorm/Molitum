@@ -1,0 +1,61 @@
+<%= render "jobs/budgetinfo" %>
+<table class="table table-bordered table-condensed span6 shadow" cellpadding="5">
+  <th class="header">Job Information</th>
+  <tr>
+    <td>
+			<table class="table table-bordered table-condensed" cellpadding="5">
+				<tr>
+					<td class="highlight">Customer</td>
+					<td class="highlight">Location</td>
+					<td class="highlight">Status</td>
+				</tr>
+				<tr>
+					<td><%= @job.customer.name %></td>
+					<td><%= @job.location %></td>
+					<td><%= @job.status_in_words %>
+				</tr>
+				<tr>
+					<td class="highlight">Estimated Start Date</td>
+					<td class="highlight">Estimated Finish Date</td>
+				</tr>
+				<tr>
+					<td><%= @job.estimated_start_date.to_date %></td>
+					<td><%= @job.estimated_finish_date.to_date %></td>
+				</tr>
+				<% if @job.started? %>
+					<%= render 'jobs/jobexpense' %>
+			  <% end %>
+				</tr>
+				<tr>
+					<table width="100%">
+						<tr>
+							<td class="highlight">Description</td>
+						</tr>
+						<tr>
+							<td><%= @job.description %></td>
+						</tr>
+						<tr>
+							<%= form_for(@job) do |f| %>
+								<% if @job.started? %>
+									<td colspan="3">
+										<%= f.hidden_field :status, :value => 4 %>
+							      <%= f.submit "Finish", class: "btn btn-primary" %>
+							    </td>
+								<% else %>
+									<td colspan="3">
+										<%= f.hidden_field :status, :value => 1 %>
+							      <%= f.submit "Start", class: "btn btn-primary" %>
+							    </td>
+							  <% end %>
+						  <% end %>
+						</tr>
+					</table>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+
+
+

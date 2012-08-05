@@ -1,0 +1,41 @@
+// Place all the styles related to the bids controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#bids_form {
+
+  label {
+    padding-left: 100px;
+    float: left;
+    width: 100px;
+    text-align: left;
+    margin: 2px 10px;
+    }
+
+  INPUT { 
+    float: left; 
+  }
+
+   .hint, .error {
+    clear: left;
+    font-size: 12px;
+    color: #D00;
+    display: block;
+  }
+
+  .submit {
+    margin-left: 220px;
+    margin-bottom: 20px;
+  }
+
+  SELECT { 
+    float: left;
+    width: 140px;
+  }
+
+  textarea {
+    float: left;
+    width: 400px;
+    height: 120px;
+  }
+}

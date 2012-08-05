@@ -1,0 +1,23 @@
+<table id= "invoice_form" class="span8 shadow" cellpadding="5">
+  <th class="header"><%= @head %> Invoice</th>
+  <tr>
+    <td>
+      <%= simple_form_for(@invoice) do |f| %>
+      <table  width="100%" cellpadding="5">
+        <tr>
+          <td><%= f.association :customer , include_blank: false, :required => false %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :billing_start,  label: "Billing Start Date" %></td>
+        </tr>
+        <tr>
+          <td> <%= f.input :billing_end, label: "Billing End Date" %></td>
+        </tr>
+        <tr>
+          <td><%= f.button :submit, class: "submit btn btn-large btn-primary" %></td>
+        </tr>
+      </table>
+      <% end %>
+    </td>
+  </tr>
+</table>

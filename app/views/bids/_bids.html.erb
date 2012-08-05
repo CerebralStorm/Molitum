@@ -1,0 +1,30 @@
+<table class="table table-bordered table-condensed" cellpadding="5">
+	<% unless @bids.empty? %>
+		<tr>
+			<td class="highlight">Created</td>
+			<td class="highlight" colspan="3">Customer</td>
+		</tr>
+		<%  @bids.each do |bid| %>
+			<tr>
+				<td><%= link_to bid.created_at.to_date, bid_path(bid) %></td>
+				<td><%=link_to bid.customer.name, customer_path(bid.customer) %></td>
+				<td width="20%"><% if can? :edit, bid %><%= link_to "Edit", edit_bid_path(bid), class: "btn" %><% end %></td>
+				<td width="20%"><% if can? :delete, bid %><%= link_to "Delete", bid_path(bid), confirm: "You Sure?", class: "btn", method: :delete %><% end %></td>
+			</tr>
+			<% end %>
+			<tr>
+        <td colspan="4">
+          <div class="digg_pagination">
+              <%= will_paginate @bids, :container => false %>
+          </div>
+        </td>
+      </tr>
+	<% else %>
+	<tr>
+		<td>There are currently no bids</td>
+	</tr>
+	<% end %>
+	<tr>
+		<td colspan="4"><%= link_to "New Bid", new_bid_path, class: "btn" %></td>
+	</tr>
+</table>

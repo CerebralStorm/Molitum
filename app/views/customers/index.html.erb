@@ -1,0 +1,37 @@
+<table class="table table-bordered table-condensed span8 shadow" cellpadding="5">
+	<th class="header">Customers</th>
+	<tr>
+		<td>
+			<table class="table table-bordered table-condensed" cellpadding="5">
+				<% unless @customers.empty? %>
+				<tr>
+					<td class="highlight" width="20%"><b>Name</b></td>
+					<td class="highlight" colspan="3"><b>Number of Jobs</b></td>
+				</tr>
+					<% @customers.each do |customer| %>
+					<tr>
+						<td><%= link_to customer.name, customer_path(customer) %></td>
+						<td><%= customer.jobs.count %>
+						<td width="20%"><% if can? :edit, customer %><%= link_to "Edit", edit_customer_path(customer), class: "btn" %><% end %></td>
+						<td width="20%"><% if can? :delete, customer %><%= link_to "Delete", customer_path(customer), class: "btn", method: :delete %><% end %></td>
+					</tr>
+					<% end %>
+					<tr>
+            <td colspan="4">
+              <div class="digg_pagination">
+                  <%= will_paginate @customers, :container => false %>
+              </div>
+            </td>
+          </tr>
+				<% else %>
+						<tr>
+							<td>There are currently no customers</td>
+						</tr>
+				<% end %>
+				<tr>
+					<td colspan="4"><%= link_to "New Customer", new_customer_path, class: "btn" %></td>
+				</tr>
+			</td>
+		</tr>
+	</table>
+</table>

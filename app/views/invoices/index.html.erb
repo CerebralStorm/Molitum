@@ -1,0 +1,42 @@
+<table class="table table-bordered table-condensed span8 shadow" cellpadding="5">
+  <th class="header">Invoices</th>
+  <tr>
+    <td>
+      <table class="table table-bordered table-condensed" cellpadding="5">
+        <% unless @invoices.empty? %>
+          <tr>
+            <td class="highlight">Created At</td>
+            <td class="highlight">Invoice Number</td>
+            <td class="highlight">Customer</td>
+            <td class="highlight">Status</td>
+            <td class="highlight" colspan="2"></td>
+          </tr>
+          <%  @invoices.each do |invoice| %>
+            <tr>
+              <td><%= link_to invoice.created_at.to_date, invoice_path(invoice) %></td>
+              <td><%= invoice.id %>
+              <td><%= link_to invoice.customer.name, customer_path(invoice.customer) %></td>
+              <td><%= invoice.status %>
+              <td><% if can? :edit, invoice %><%= link_to "Edit", edit_invoice_path(invoice), class: "btn" %><% end %></td>
+              <td><% if can? :delete, invoice %><%= link_to "Delete", invoice_path(invoice), confirm: "You Sure?", class: "btn", method: :delete %><% end %></td>
+            </tr>
+            <% end %>
+            <tr>
+              <td colspan="6">
+                <div class="digg_pagination">
+                    <%= will_paginate @invoices, :container => false %>
+                </div>
+              </td>
+            </tr>
+        <% else %>
+        <tr>
+          <td>There are currently no invoices</td>
+        </tr>
+        <% end %>
+        <tr>
+          <td colspan="6"><%= link_to "New Invoice", new_invoice_path, class: "btn" %></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

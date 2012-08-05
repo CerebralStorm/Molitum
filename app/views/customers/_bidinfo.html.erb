@@ -1,0 +1,15 @@
+<table class="table table-bordered table-condensed span8" cellpadding="5">
+<% unless @customer.bids.empty? %>
+	<% @customer.bids.each do |b| %>
+	<tr>
+		<td><%= link_to b.created_at.to_date, bid_path(b) %></td>
+		<td width="20%"><% if can? :edit, b %><%= link_to "Edit", edit_bid_path(b), class: "btn" %><% end %></td>
+		<td width="20%"><% if can? :delete, b %><%= link_to "Delete", bid_path(b), method: :delete, class: "btn" %><% end %></td>
+	</tr>
+	<% end %>
+<% else %>
+<tr>
+	<td>There are currently no bids for this customer</td>
+</tr>
+<% end %>
+</table>

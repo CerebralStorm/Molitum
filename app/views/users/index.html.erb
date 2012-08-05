@@ -1,0 +1,36 @@
+<table class="table table-bordered table-condensed span8 shadow" cellpadding="5">
+	<th class="header" colspan="3">Employees</th>
+	<tr>
+		<td>
+			<table class="table table-bordered table-condensed" cellpadding="5">
+				<% unless @users.empty? %>
+				<tr>
+					<td class="highlight" colspan="3"><b>Name</b></td>
+				</tr>
+					<% @users.each do |employee| %>
+						<tr>
+							<td><%=link_to employee.name, user_path(employee) %></td>   
+							<td width="20%"><% if can? :edit, employee %><%= link_to "Edit", edit_user_path(employee), confirm: "You Sure?", class: "btn" %><% end %></td>
+							<td width="20%"><% if can? :delete, employee %><%= link_to "Delete", user_path(employee), confirm: "You Sure?", class: "btn", method: :delete %><% end %></td>
+						</tr>
+					<% end %>
+					<tr>
+						<td colspan="3">
+							<div class="digg_pagination">
+	            	<%= will_paginate @users, :container => false %>
+	          	</div>
+        		</td>
+        	</tr>
+				<% else %>
+					<td> There are currently no employees</td>
+				<% end %>
+				<tr>
+					<td colspan="3"><%= link_to "New Employee", new_user_path, class: "btn" %></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+
+

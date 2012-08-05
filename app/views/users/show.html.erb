@@ -1,0 +1,52 @@
+<%= render 'shared/accordianscript' %>
+<table class="table table-bordered table-condensed span8 shadow">
+   <tr>
+    <th class="header">Account Information</th>
+  </tr>
+  <tr>
+    <td><%= render 'users/accountinfo' %></td>
+  </tr>
+  <tr>
+    <th class="header">Personal Information</th>
+  </tr>
+    <td><%= render 'users/personalinfo' %>
+  <% if current_user.admin? %>
+  <tr>
+    <th class="header">Company Information</th>
+  </tr>
+  <tr>
+    <td><%= render 'users/companyinfo' %>
+  </tr>
+  <% end %>
+  <tr>
+    <th class="header">Time Clock Information</th>
+  </tr>
+  <tr>
+    <td>
+      <%= render 'users/showtimeclocks' %>
+    </td>
+  </tr>
+  <% if current_user == @user %>
+  <tr>
+    <th class="header" width="100%">Time Clock Form</th>
+  </tr>
+  <tr>
+    <td><%= render 'users/timeclockform' %></td>
+  </tr>
+  <% end %>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

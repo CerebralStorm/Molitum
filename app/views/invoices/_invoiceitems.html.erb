@@ -1,0 +1,34 @@
+  <tr>
+    <td class="highlight">Activity</td>
+    <td class="highlight">Description</td>
+    <td class="highlight" colspan ="2">Amount</td>
+  </tr>
+  <% if @invoice_items.empty? %>
+  <% else %>
+    <%  @invoice_items.each do |invoice_item| %>
+      <tr>
+        <td><%= invoice_item.activity %></td>
+        <td><%= invoice_item.description %></td>  
+        <td ><%= invoice_item.amount %></td>
+        <td>
+          <% if can? :delete, invoice_item %><%= link_to "Delete", invoice_item_path(invoice_item), method: :delete %></td><% end %>        
+      </tr> 
+    <% end %>
+  <% end %>
+
+  <%= form_for InvoiceItem.new do |f| %>
+  <tr>
+    <td>
+      <%= f.text_field :activity, class: "span2" %>
+    </td>
+    <td>
+      <%= f.text_field :description, class: "span4"%>
+    </td>
+    <td>
+      <%= f.text_field :amount, class: "span1" %>
+    </td>
+    <td>
+      <%= f.submit "Add", class: "btn" %>
+    </td> 
+  </tr>
+<% end %>

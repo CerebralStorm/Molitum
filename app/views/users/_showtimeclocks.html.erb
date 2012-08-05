@@ -1,0 +1,51 @@
+<table class="table table-bordered table-condensed submenu" cellpadding="5">
+    <% if @time_clocks.empty? %>
+     <tr>
+      <td>No Time Clock Entries</td>
+    </tr>
+    <% else %>
+      <tr>
+          <td class="highlight">Date</td>
+          <td class="highlight">Hours</td>
+          <td class="highlight">Customer</td>
+          <td class="highlight">Job</td>
+          <td class="highlight" colspan="3">Status</td>
+      </tr>
+      <% @time_clocks.each do |time_clock|%>
+      <tr>
+        <td><%= time_clock.work_date %></td>
+        <td><%= time_clock.hours %></td>
+        <td><%= time_clock.job.customer.name %></td>
+        <td><%= time_clock.job.location %></td>
+        <td><% if time_clock.paid == false %>
+              Not Paid
+            <% else %> 
+              Paid
+            <% end %>
+        </td> 
+        <td>
+          <% if can? :delete, time_clock %><%= link_to "Delete", time_clock_path(time_clock), method: :delete, confirm: "You Sure?", :class => "btn" %><%  end %>
+        </td>
+        <td><% if time_clock.paid == false && can?(:edit, time_clock)%>
+                <%= link_to "Pay", time_clock_path(time_clock), :method => :put, :class => "btn" %>
+            <% end %>
+        </td>
+      </tr>
+      <% end %>
+      <tr>
+        <td colspan="7">
+          <div class="digg_pagination">
+            <div class="page_info">
+              <%= page_entries_info @time_clocks %>
+            </div>
+            <%= will_paginate @time_clocks, :container => false %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="7"><%= link_to "Download Hours (PDF)", user_path(@user, :format => "pdf"), class: "btn" %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <button class="btn submenuheader">show / hide</button>

@@ -1,0 +1,199 @@
+@import "twitter/bootstrap/bootstrap";
+
+#main {
+	margin:0 auto;
+	float:none;	
+	text-align: center !important;
+
+	background: #c6c6c6; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  #c6c6c6 35%, #fefefe 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(35%,#c6c6c6), color-stop(100%,#fefefe)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  #c6c6c6 35%,#fefefe 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  #c6c6c6 35%,#fefefe 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  #c6c6c6 35%,#fefefe 100%); /* IE10+ */
+	background: radial-gradient(ellipse at center,  #c6c6c6 35%,#fefefe 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c6c6c6', endColorstr='#fefefe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+body { 
+	padding-top: 60px;
+	font-size: 90%;
+}
+
+textarea {
+	width: 400px;
+	height: 120px;
+}
+
+table{
+	margin:0 auto !important;	
+	float:none !important;	
+	background: #F0F0F0;
+}
+
+.table-left {
+	float:left !important;
+}
+
+.blue-gradient { 
+	/* default background colour, for all layout engines that don't implement gradients */
+	background: #2a6da9;
+
+	/* gecko based browsers */
+	background: -moz-linear-gradient(top, #55aaee, #003366);
+
+	/* webkit based browsers */
+	background: -webkit-gradient(linear, left top, left bottom, from(#55aaee), to(#003366));
+
+	color: #FFFFFF; /* text colour (black) */
+	height: auto; /* gradient uses the full height of the element */
+	padding: 5px; /* distance from border edge to text */
+}
+
+th{ 
+	color: #FFFFFF;
+	background: #2a6da9;
+}
+
+th:hover { 
+		color: #FFFFFF;
+		background: #2a6da9 !important;
+}
+
+// Utilites
+.highlight {
+	font-weight:bold;
+	background: #C0C0C0 !important;
+}
+
+.highlight:hover {
+	background: #C0C0C0 !important;
+}
+
+.header {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+	height: 50px;
+}
+
+.shadow {
+	box-shadow: 5px 5px 2px #888888;
+}
+
+.alert {
+	position: absolute;
+	top: 2px;
+	left: 41%;
+	width: 200px;
+	text-align: center;
+}
+
+// Footer
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a {
+  color: #555;
+}  
+
+footer a:hover { 
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+// Pagination
+.digg_pagination {
+  cursor: default;
+  /* self-clearing method: */ }
+  .digg_pagination a, .digg_pagination span, .digg_pagination em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .digg_pagination .disabled {
+    color: #999999;
+    border: 1px solid #dddddd; }
+  .digg_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #2a6da9;
+    color: white;
+    border: 1px solid #2a6da9; }
+  .digg_pagination a {
+    text-decoration: none;
+    color: #105cb6;
+    border: 1px solid #9aafe5; }
+    .digg_pagination a:hover, .digg_pagination a:focus {
+      color: #000033;
+      border-color: #000033; }
+  .digg_pagination .page_info {
+    background: #2a6da9;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center; }
+    .digg_pagination .page_info b {
+      color: #000033;
+      background: #2a6da9;
+      padding: 0.1em 0.25em; }
+  .digg_pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .digg_pagination {
+    height: 1%; }
+  *:first-child + html .digg_pagination {
+    overflow: hidden; }
+
+
+
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
+@iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+// Note: If you use asset_path() here, your compiled boostrap_and_overrides.css will not 
+//       have the proper paths. So for now we use the absolute path.
+@fontAwesomeEotPath: '/assets/fontawesome-webfont.eot';
+@fontAwesomeWoffPath: '/assets/fontawesome-webfont.woff';
+@fontAwesomeTtfPath: '/assets/fontawesome-webfont.ttf';
+@fontAwesomeSvgPath: '/assets/fontawesome-webfont.svg';
+
+// Font Awesome
+@import "fontawesome";
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/less.html for their names and documentation
+//
+// Example:
+// @linkColor: #ff0000;

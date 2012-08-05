@@ -1,0 +1,33 @@
+	<tr>
+		<td class="highlight">Job Expense</td>
+		<td class="highlight">Cost</td>
+	</tr>
+	<tr>
+		<td>Labor</td>
+		<td><%= @job.labor_cost %></td>
+	</tr>
+	<% if @job_expenses.empty? %>
+	<% else %>
+		<%  @job_expenses.each do |job_expense| %>
+			<tr>
+				<td><%= job_expense.name %></td>
+				<td><%= job_expense.cost %></td>  
+				<td>
+					<% if can? :delete, job_expense %><%= link_to "Delete", job_expense, method: :delete %></td><% end %>        
+			</tr>	
+		<% end %>
+	<% end %>
+
+	<%= form_for JobExpense.new do |f| %>
+	<tr>
+    <td>
+      <%= f.text_field :name %>
+    </td>
+    <td>
+      <%= f.text_field :cost %>
+    </td>
+    <td>
+     	<%= f.submit "Add", class: "btn" %>
+    </td>	
+  </tr>
+<% end %>

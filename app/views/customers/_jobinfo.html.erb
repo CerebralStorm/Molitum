@@ -1,0 +1,25 @@
+<table class="table table-bordered table-condensed span8" cellpadding="5">
+	<% unless @customer.jobs.empty? %>
+		<tr>
+			<td>Location</td>
+			<td>Created At</td>
+			<td>Estimated Start Date</td>
+			<td colspan="3">Estimated Finish Date</td>
+		</tr>
+		<% @customer.jobs.each do |job| %>
+		<tr>
+			<td><%= link_to job.location %></td>
+			<td><%= link_to job.created_at.to_date, job_path(job) %></td>
+			<td><%= job.estimated_start_date.to_date unless job.estimated_start_date.nil? %></td>
+			<td><%= job.estimated_finish_date.to_date unless job.estimated_finish_date.nil? %></td>
+			<td><% if can? :edit, job %><%= link_to "Edit", edit_job_path(job), class: "btn" %><% end %></td>
+			<td><% if can? :delete, job %><%= link_to "Delete", job_path(job), method: :delete , class: "btn" %><% end %></td>
+		</tr>
+		<% end %>
+	<% else %>
+	<tr>
+		<td>There are currently no Jobs for this customer</td>
+	</tr>
+	<% end %>
+		</tr>
+	</table>

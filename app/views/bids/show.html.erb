@@ -1,0 +1,128 @@
+<table class="table table-bordered table-condensed span8 shadow" cellpadding="5">
+	<th class="header">Bid Information</th>
+	<tr>
+		<td>
+			<table class="table table-bordered table-condensed" cellpadding="5">
+				<tr>	
+					<td class="highlight">Customer</td>
+					<td class="highlight">Location</td>
+					<td class="highlight">Budget</td>
+				</tr>
+				<tr>
+					<td><%= @bid.customer.name %></td>
+					<td><%= @bid.location %></td>
+					<td><%= @bid.budget %></td>
+				</tr>
+			</table>
+		</br>
+			<table class="table table-bordered table-condensed" cellpadding="5">
+				<tr>
+					<td class="highlight" width="50%">Estimated Start Date</td>
+					<td class="highlight">Estimated Finish Date</td>
+				</tr>
+				<tr>
+					<td><%= @bid.estimated_start_date.to_date %></td>
+					<td><%= @bid.estimated_finish_date.to_date %></td>
+				</tr>
+				<tr>
+					<td class="highlight" width="50%">Scope of Work</td>
+					<td class="highlight">Detail of Work</td>
+				</tr>
+				<tr>
+					<td><%= @bid.scope_of_work %></td>
+					<td><%= @bid.detail_of_work %></td>
+				</tr>
+			</table>
+			</br>
+			<table class="table table-bordered table-condensed" cellpadding="5">
+				<% if @bid_items.present? %>
+					<% category = "" %>
+					<%  @bid_items.each do |b| %>
+						<% if category != b.item_type %>
+							<tr>
+								<td class="highlight span6"><%= b.item_type %><% category = b.item_type %></td>
+								<td class="highlight">Hours</td>
+								<td class="highlight" colspan="2">Materials</td>
+							</tr>
+						<% end %>
+						<tr>
+							<td><%= b.description %></td>
+							<td><%= b.hours %></td>
+							<td><%= b.materials %></td>  
+							<td><% if can? :delete, b %><%= link_to "Delete", b, method: :delete, class: "btn"  %></td><% end %>        
+						</tr>	
+					<% end %>
+				<% end %>
+			</table>
+			<table width="100%" id="bid_items_form">
+				<tr>
+			  	<td class="highlight">Category</td>
+			  	<td class="highlight">Description</td>
+			  	<td class="highlight">Hours</td>
+			  	<td class="highlight" colspan="2">Materials</td>
+				</tr>
+				<%= form_for @bid_item do |f| %>
+					<tr>
+				    <td><%= f.collection_select :item_type, Bid::CATEGORIES, :to_s, :to_s, include_blank: false %> </td>
+				    <td><%= f.text_field :description, class: "span4" %></td>
+				    <td><%= f.text_field :hours, class: "span1" %></td>
+				    <td><%= f.text_field :materials, class: "span1" %></td>
+				    <td><%= f.submit "Add", class: "btn" %></td>
+				  </tr>
+				<% end %>
+			</table>
+			<table width="100%" cellpadding="5">
+			  <tr>
+			  	<td class="highlight"></td>
+				</tr>
+			</table>
+		</br>
+			<table class="table-left table table-bordered table-condensed" cellpadding="5">
+				<tr>
+					<td width="20%">Hours</td>
+					<td width="20%" colspan="2"><%= @bid.total_hours %></td>
+				</tr>
+				<tr>
+					<td width="20%">Hourly Rate</td>
+					<td width="20%" colspan="2"><%= @bid.hourly_rate %> Dollars Per Hour</td>
+				</tr>
+				<tr>
+					<td width="20%">Hours Dollar Amount</td>
+					<td width="20%" colspan="2"><%= @bid.hours_cost %></td>
+				<tr>
+					<td width="20%">Materials</td>
+					<td width="20%" colspan="2"><%= @bid.total_materials %></td>
+				</tr>
+				<tr>
+					<td class="highlight" width="100%" colspan="3"></td>
+				</tr>
+				<tr>
+					<td width="20%">Subtotal</td>
+					<td width="20%" colspan="2"><%= @bid.compute_subtotal %></td>
+				</tr>
+				<tr>
+					<td width="100%" colspan="3"></td>
+				</tr>
+				<tr>
+					<td width="20%">Discount</td>
+					<td width="20%">-<%= @bid.discount %></td>
+					<td><%= @bid.discount_description %></td>
+				</tr>
+				<tr>
+					<td width="20%">Down Payment</td>
+					<td width="20%" colspan="2">-<%= @bid.down_payment %></td>
+				</tr>
+				<tr>
+					<td class="highlight" width="20%">Total</td>
+					<td width="20%" colspan="2"><%= @bid.compute_total %></td>
+				</tr>
+				<tr>
+					<td><%= link_to "Download Bid (PDF)", bid_path(@bid, :format => "pdf"), class: "btn" %></td>
+					<td><% if can? :edit, @bid %><%= link_to "Edit This Bid", edit_bid_path(@bid), class: "btn"  %></td><% end %> 
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+

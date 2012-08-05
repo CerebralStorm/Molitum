@@ -1,0 +1,34 @@
+<table class="table table-bordered table-condensed" cellpadding="5">
+	<% unless @jobs.empty? %>
+		<tr>
+			<td class="highlight">Location</td>
+			<td class="highlight">Customer</td>
+			<td class="highlight">Created</td>
+			<td class="highlight" colspan="3">Status</td>
+		</tr>
+		<%  @jobs.each do |job| %>
+			<tr>
+				<td><%= link_to job.location, job_path(job) %></td>
+				<td><%=link_to job.customer.name, customer_path(job.customer) %></td>
+				<td><%= job.created_at.to_date %></td>
+				<td width="20%"><%= job.status_in_words %>
+				<td><% if can? :edit, job %><%= link_to "Edit", edit_job_path(job), class: "btn" %><% end %></td>
+				<td><% if can? :delete, job %><%= link_to "Delete", job_path(job), confirm: "You Sure?", class: "btn", method: :delete %><% end %></td>
+			</tr>
+			<% end %>
+			<tr>
+				<td colspan="6">
+					<div class="digg_pagination">
+	         	<%= will_paginate @jobs, :container => false %>
+	       	</div>
+	      </td>
+			</tr>
+	<% else %>
+	<tr>
+		<td>There are currently no jobs</td>
+	</tr>
+	<% end %>
+	<tr>
+		<td colspan="6"><%= link_to "New Job", new_job_path, class: "btn" %></td>
+	</tr>
+</table>

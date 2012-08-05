@@ -1,0 +1,47 @@
+<table id="bids_form" class="span8 shadow" cellpadding="5">
+  <th class="header"><%= @head %> Bid</th>
+  <tr>
+    <td>
+      <%= simple_form_for(@bid) do |f| %>
+      <table width = "100%" cellpadding="5">
+        <tr>
+          <td><%= f.association :customer, :include_blank => false, :required => false %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :location, :required => false %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :budget %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :estimated_start_date, :as => :date, label: "Start Date" %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :estimated_finish_date, :as => :date, label: "Finish Date"  %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :scope_of_work, :as => :text %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :detail_of_work, :as => :text %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :hourly_rate, :required => false %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :down_payment %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :discount %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :discount_description, label: "Discount Description" %></td>
+        </tr>
+        <tr>
+          <td><%= f.button :submit, class: "submit btn btn-large btn-primary" %></td>
+        </tr>
+      </table>
+      <% end %>
+    </td>
+  </tr>
+</table>
