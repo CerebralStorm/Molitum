@@ -7,6 +7,7 @@ class Ability
 		else
 			can :read, :all
 			can :update, User, :id => user.id
+      can :delete, TimeClock, :user_id => user.id
 		end
 	end
 end

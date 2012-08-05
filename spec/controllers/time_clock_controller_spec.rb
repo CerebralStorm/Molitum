@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe TimeClockController do
+describe TimeClocksController do
 
 end

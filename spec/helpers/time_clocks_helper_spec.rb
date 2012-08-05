@@ -10,6 +10,6 @@ require 'spec_helper'
 #     end
 #   end
 # end
-describe TimeClockHelper do
+describe TimeClocksHelper do
   pending "add some examples to (or delete) #{__FILE__}"
 end

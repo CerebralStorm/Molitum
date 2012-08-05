@@ -1,5 +1,5 @@
 class Job < ActiveRecord::Base
-  attr_accessible :subtotal,  :location, :budget, :description, :total, :labor_cost, :estimated_start_date, 
+  attr_accessible :subtotal,  :location, :budget, :description, :total_cost, :labor_cost, :estimated_start_date, 
   								:estimated_finish_date, :status, :customer_id
   belongs_to :customer
   belongs_to :company
@@ -22,21 +22,21 @@ class Job < ActiveRecord::Base
 	end
 
 	def add_to_total(amount)
-			self.total += amount
+			self.total_cost += amount
 			self.save
 	end	
 
 	def subtract_from_total(amount)
-			self.total -= amount
+			self.total_cost -= amount
 			self.save
 	end
 
 	def remaining_budget
-		amount = budget - self.total
+		amount = budget - self.total_cost
 	end 
 
 	def check_timeframe_for_job
-		if Time.now - estimated_finish_date < 1000
+		if Time.now - finish_date < 1000
 			"Ugent"
 		else
 			"On Schedule"
