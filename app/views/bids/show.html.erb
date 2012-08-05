@@ -6,23 +6,20 @@
 				<tr>	
 					<td class="highlight">Customer</td>
 					<td class="highlight">Location</td>
-					<td class="highlight">Budget</td>
 				</tr>
 				<tr>
 					<td><%= @bid.customer.name %></td>
 					<td><%= @bid.location %></td>
-					<td><%= @bid.budget %></td>
 				</tr>
 			</table>
-		</br>
 			<table class="table table-bordered table-condensed" cellpadding="5">
 				<tr>
-					<td class="highlight" width="50%">Estimated Start Date</td>
-					<td class="highlight">Estimated Finish Date</td>
+					<td class="highlight" width="50%">Start Date</td>
+					<td class="highlight">Finish Date</td>
 				</tr>
 				<tr>
-					<td><%= @bid.estimated_start_date.to_date %></td>
-					<td><%= @bid.estimated_finish_date.to_date %></td>
+					<td><%= @bid.start_date.to_date %></td>
+					<td><%= @bid.finish_date.to_date %></td>
 				</tr>
 				<tr>
 					<td class="highlight" width="50%">Scope of Work</td>
@@ -33,14 +30,13 @@
 					<td><%= @bid.detail_of_work %></td>
 				</tr>
 			</table>
-			</br>
 			<table class="table table-bordered table-condensed" cellpadding="5">
 				<% if @bid_items.present? %>
 					<% category = "" %>
 					<%  @bid_items.each do |b| %>
-						<% if category != b.item_type %>
+						<% if category != b.category %>
 							<tr>
-								<td class="highlight span6"><%= b.item_type %><% category = b.item_type %></td>
+								<td class="highlight span6"><%= b.category %><% category = b.category %></td>
 								<td class="highlight">Hours</td>
 								<td class="highlight" colspan="2">Materials</td>
 							</tr>
@@ -63,7 +59,7 @@
 				</tr>
 				<%= form_for @bid_item do |f| %>
 					<tr>
-				    <td><%= f.collection_select :item_type, Bid::CATEGORIES, :to_s, :to_s, include_blank: false %> </td>
+				    <td><%= f.collection_select :category, Bid::CATEGORIES, :to_s, :to_s, include_blank: false %> </td>
 				    <td><%= f.text_field :description, class: "span4" %></td>
 				    <td><%= f.text_field :hours, class: "span1" %></td>
 				    <td><%= f.text_field :materials, class: "span1" %></td>

@@ -14,13 +14,16 @@
           <td><%= f.input :budget, :required => false %></td>
         </tr>
         <tr>
-          <td><%= f.input :estimated_start_date, :as => :date, :label => 'Start Date' %></td>
+          <td><%= f.input :start_date, :as => :date, :label => 'Start Date' %></td>
         </tr>
         <tr>
-          <td><%= f.input :estimated_finish_date, :as => :date, :label => 'Finish Date' %></td>
+          <td><%= f.input :finish_date, :as => :date, :label => 'Finish Date' %></td>
         </tr>
         <tr>
-          <td><%= f.input :description, :as => :text %></td>
+          <td><%= f.input :scope_of_work, :as => :text %></td>
+        </tr>
+        <tr>
+          <td><%= f.input :detail_of_work, :as => :text %></td>
         </tr>
         <tr>
           <td><%= f.button :submit, class: "submit btn btn-large btn-primary" %></td>

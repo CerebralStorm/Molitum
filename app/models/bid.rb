@@ -1,5 +1,5 @@
 class Bid < ActiveRecord::Base
-  attr_accessible :budget, :estimated_start_date, :estimated_finish_date, :location, :total, :customer_id, :accepted, :total_materials, 
+  attr_accessible :budget, :start_date, :finish_date, :location, :total, :customer_id, :accepted, :total_materials, 
   :scope_of_work, :detail_of_work, :total_hours, :discount, :down_payment, :discount_description, :subtotal, :hourly_rate
   
   belongs_to :customer

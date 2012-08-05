@@ -15,12 +15,12 @@
 					<td><%= @job.status_in_words %>
 				</tr>
 				<tr>
-					<td class="highlight">Estimated Start Date</td>
-					<td class="highlight">Estimated Finish Date</td>
+					<td class="highlight">Start Date</td>
+					<td class="highlight">Finish Date</td>
 				</tr>
 				<tr>
-					<td><%= @job.estimated_start_date.to_date %></td>
-					<td><%= @job.estimated_finish_date.to_date %></td>
+					<td><%= @job.start_date.to_date %></td>
+					<td><%= @job.finish_date.to_date %></td>
 				</tr>
 				<% if @job.started? %>
 					<%= render 'jobs/jobexpense' %>
@@ -29,10 +29,16 @@
 				<tr>
 					<table width="100%">
 						<tr>
-							<td class="highlight">Description</td>
+							<td class="highlight">Scope of Work</td>
 						</tr>
 						<tr>
-							<td><%= @job.description %></td>
+							<td><%= @job.scope_of_work %></td>
+						</tr>
+						<tr>
+							<td class="highlight">Detail of Work</td>
+						</tr>
+						<tr>
+							<td><%= @job.detail_of_work %></td>
 						</tr>
 						<tr>
 							<%= form_for(@job) do |f| %>

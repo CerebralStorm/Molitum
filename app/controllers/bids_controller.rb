@@ -18,7 +18,7 @@ class BidsController < ApplicationController
 		@bid = Bid.find(params[:id])
 		remember_bid(@bid)
 		@bid_item = BidItem.new
-		@bid_items = @bid.bid_items.find(:all, :order => 'item_type')
+		@bid_items = @bid.bid_items.find(:all, :order => 'category')
 	end
 
 	def edit

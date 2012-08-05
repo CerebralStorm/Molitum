@@ -19,13 +19,13 @@
   <%= form_for InvoiceItem.new do |f| %>
   <tr>
     <td>
-      <%= f.text_field :activity, class: "span2" %>
+      <%= f.text_field :category, class: "span2" %>
     </td>
     <td>
       <%= f.text_field :description, class: "span4"%>
     </td>
     <td>
-      <%= f.text_field :amount, class: "span1" %>
+      <%= f.text_field :cost, class: "span1" %>
     </td>
     <td>
       <%= f.submit "Add", class: "btn" %>

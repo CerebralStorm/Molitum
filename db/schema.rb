@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20120720020036) do
   end
 
   create_table "invoice_items", :force => true do |t|
+    t.integer  "invoice_id"
     t.string   "category"
     t.string   "description"
     t.float    "hours",       :default => 0.0

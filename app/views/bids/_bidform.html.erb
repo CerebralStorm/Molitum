@@ -11,13 +11,10 @@
           <td><%= f.input :location, :required => false %></td>
         </tr>
         <tr>
-          <td><%= f.input :budget %></td>
+          <td><%= f.input :start_date, :as => :date, label: "Start Date" %></td>
         </tr>
         <tr>
-          <td><%= f.input :estimated_start_date, :as => :date, label: "Start Date" %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :estimated_finish_date, :as => :date, label: "Finish Date"  %></td>
+          <td><%= f.input :finish_date, :as => :date, label: "Finish Date"  %></td>
         </tr>
         <tr>
           <td><%= f.input :scope_of_work, :as => :text %></td>
