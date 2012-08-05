@@ -1,7 +1,7 @@
 class CreateBids < ActiveRecord::Migration
   def change
     create_table :bids do |t|
-    	t.string   :customer
+    	t.integer  :customer_id
     	t.string   :time_estimate
       t.string   :materials_estimate
       t.datetime :start_date

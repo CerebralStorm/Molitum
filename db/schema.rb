@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20120720020036) do
   end
 
   create_table "bids", :force => true do |t|
-    t.string   "customer"
+    t.integer  "customer_id"
     t.string   "time_estimate"
     t.string   "materials_estimate"
     t.datetime "start_date"

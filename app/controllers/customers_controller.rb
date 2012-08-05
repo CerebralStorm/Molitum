@@ -36,8 +36,9 @@ class CustomersController < ApplicationController
 		end
 	end
 
-	def create	
-		@customer = current_user.customers.build(params[:customer])
+	def create
+		@company = current_user.company	
+		@customer = @company.customers.create(params[:customer])
 	    if @customer.save
 	      flash[:success] = "Customer Created"
 	      redirect_to customer_path(@customer)
