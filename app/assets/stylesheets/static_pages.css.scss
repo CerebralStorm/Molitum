@@ -7,7 +7,15 @@
   border-style: dashed;
   border-color: #999;
   border-radius: 5px;
-  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.centered-image {
+  text-align:center;
+  margin-top:0px;
+  margin-bottom:0px;
+  padding:0px;
 }
 
 #home_sign_in {
@@ -15,11 +23,19 @@ padding: 10px;
 }
 
 #home_table {
-width: 65%;
+  width: auto;
 }
 
 .home-div {
   margin-top: 10px;
+}
+
+.home-img-outer {
+  height: 292px;
+  position:relative
+}
+.home-img-inner {
+  position:absolute; 
 }
 
 .pop-text-outer {
@@ -28,8 +44,10 @@ width: 65%;
   position:relative
 }
 .pop-text-inner {
-  margin-right: 5px;
-  margin-left: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: auto;
+  margin-left: auto;
   float:left !important;
   position:absolute;
   top: 20%; 
