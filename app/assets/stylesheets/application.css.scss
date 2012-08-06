@@ -15,6 +15,7 @@
 // Container
 #main {
   margin: 0 auto;
+  padding-bottom: 40px;
   float: none; 
   overflow: auto;
   min-height: 100% !important;
@@ -30,9 +31,10 @@
   float:none; 
 }
 
-
 body { 
   padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 100px;
 }
 
 //footer

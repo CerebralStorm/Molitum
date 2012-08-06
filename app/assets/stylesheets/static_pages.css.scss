@@ -16,5 +16,26 @@ padding: 10px;
 
 #home_table {
 width: 65%;
+}
 
+.pop-text-outer {
+  width: 150px;
+  height: 90px;
+  position:relative
+}
+.pop-text-inner {
+  position:absolute;
+  top: 20%; 
+  height: auto; 
+}
+.pop-img-outer {
+  width: 90px;
+  height: 90px;
+  position:relative
+}
+.pop-img-inner {
+  position:absolute; 
+  margin-top: 5px;
+  margin-left: 5px;
+  height: auto; 
 }
