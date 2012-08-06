@@ -1,41 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
-  <title>Molitum | <%= @title %></title>
-=======
   <title>Molitum | <%= yield(:title) %></title>
->>>>>>> static_pages
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %> 
 </head>
 <body>
-<<<<<<< HEAD
-  <div class="navbar navbar-fixed-top">
-    <div>
-        <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-        <% end %>
-    </div>
-    <div class="navbar-inner">
-      <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <h1 class="brand">Molitum</h1>
-        <div class="nav-collapse">
-          <ul class="nav pull-right">
-            <% if user_signed_in? %>
-              <li><%= link_to "Home", user_path(current_user) %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to "Sign in", new_user_session_path %></li>
-            <% end %>
-=======
   <div id="logo" class="span10" >
     <h1>Molitum</h1>
     </br>
@@ -48,8 +20,14 @@
           <ul class="nav">
             <li><%= link_to "Home", root_path, class: "brand" %></li>
             <li class="divider-vertical"></li>
-
->>>>>>> static_pages
+          </ul>
+          <div class="container pull-right">
+          <ul class="nav">
+            <% if user_signed_in? %>
+              <li class="divider-vertical"></li>
+              <li><%= link_to "Account Settings", root_path %></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+            <% end %>
           </ul>
         </div>
       </div>

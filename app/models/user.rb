@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
   has_many :customers
   has_many :time_clocks, dependent: :destroy
 
+  before_save :set_blank_attributes
+
   def unpaid_dollar_amount
     amount = self.unpaid_hours * self.pay_rate
   end
@@ -55,6 +57,14 @@ class User < ActiveRecord::Base
 
   def full_address
     self.address + "  |  " + self.city + ", " + self.state + ", " + self.zip.to_s 
+  end
+
+  def set_blank_attributes
+    address.nil? ? "" : address
+    city.nil? ? "" : city
+    state.nil? ? "" : state
+    zip.nil? ? "" : zip
+    phone.nil? ? "" : phone
   end
 
 end

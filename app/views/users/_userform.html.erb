@@ -1,32 +1,14 @@
 <table id="users_form" class="span8 shadow" cellpadding="5">
-  <th class="header"><%= @head %> Employee</th>
+  <th class="header">New User</th>
   <tr>
     <td>
       <table class="table-bordered table-condensed" width="100%" cellpadding="5">
         <%= simple_form_for(@user) do |f| %>
         <tr>
-          <td><%= f.input :name, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :pay_rate, :required => false %></td>
+          <td><%= f.input :name, required: false %></td>
         </tr>
         <tr>
           <td><%= f.input :email %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :address, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :city, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :state, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :zip, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :phone, :required => false %></td>
         </tr>
         <tr>
           <td><%= f.input :password %></td>

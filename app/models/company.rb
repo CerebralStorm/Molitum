@@ -1,9 +1,5 @@
 class Company < ActiveRecord::Base
-<<<<<<< HEAD
   attr_accessible :expense, :income, :name, :email, :address, :phone, :city, :state, :zip
-=======
-  attr_accessible :expense, :income, :name, :address, :city, :state, :zip, :phone
->>>>>>> static_pages
 
   has_many :users
   has_many :customers

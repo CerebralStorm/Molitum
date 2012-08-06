@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :authenticate_user!
+	before_filter :authenticate_user!, except: [:new]
 	load_and_authorize_resource
 	require 'will_paginate/array'
 	
@@ -9,8 +9,6 @@ class UsersController < ApplicationController
 	end
 
 	def new
-		@title = 'Employees'
-		@head = 'Add'
 	end
 
 	def show

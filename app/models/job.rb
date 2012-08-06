@@ -1,11 +1,7 @@
 class Job < ActiveRecord::Base
-<<<<<<< HEAD
   attr_accessible :subtotal,  :location, :budget, :scope_of_work, :detail_of_work, :total, :labor_cost, :start_date, 
   								:finish_date, :status, :customer_id
-=======
-  attr_accessible :subtotal,  :location, :budget, :description, :total_cost, :labor_cost, :estimated_start_date, 
-  								:estimated_finish_date, :status, :customer_id
->>>>>>> static_pages
+
   belongs_to :customer
   belongs_to :company
 
