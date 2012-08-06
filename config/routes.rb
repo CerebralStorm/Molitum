@@ -6,6 +6,7 @@ Molitum::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
 
   devise_for :users
+  resources :companies
   resources :users
   resources :jobs
   resources :customers

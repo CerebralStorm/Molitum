@@ -14,8 +14,8 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@company = Company.find(1)
 		@user = User.find(params[:id])
+		@company = @user.company
 		@time_clocks = @user.time_clocks.order("created_at").page(params[:page]).per_page(10)
 		if @user == current_user
 			@title = 'My Account'
