@@ -1,0 +1,20 @@
+<div class="span2">
+  <ul class="nav nav-list">
+    <% if user_signed_in? %>
+      <li class="nav-header">Application</li>
+      <% if @title == 'Home' %><li class="active"><% else %><li><% end %><%= link_to "Home", root_path %></li>
+      <% if @title == 'My Account' %><li class="active"><% else %><li><% end %><%= link_to "My Account", user_path(current_user) %></li>
+      <% if @title == 'Employees' %><li class="active"><% else %><li><% end %><%= link_to "Employees", users_path%></li>
+      <% if @title == 'Customers' %><li class="active"><% else %><li><% end %><%= link_to "Customers", customers_path%></li>
+      <% if @title == 'Jobs' %><li class="active"><% else %><li><% end %><%= link_to "Jobs", jobs_path%></li>
+      <% if @title == 'Bids' %><li class="active"><% else %><li><% end %><%= link_to "Bids", bids_path%></li>
+      <% if @title == 'Invoices' %><li class="active"><% else %><li><% end %><%= link_to "Invoices", invoices_path%></li>
+    <% else %>
+      <li class="nav-header">Site Links</li>
+      <% if @title == 'Home' %><li class="active"><% else %><li><% end %><%= link_to "Home", root_path %></li>
+      <% if @title == 'Contact' %><li class="active"><% else %><li><% end %><%= link_to "Contact",contact_path %></li>
+      <% if @title == 'Help' %><li class="active"><% else %><li><% end %><%= link_to "Help", help_path %></li>
+      <% if @title == 'About' %><li class="active"><% else %><li><% end %><%= link_to "About Us", about_path %></li>
+    <% end %>
+  </ul>
+</div>

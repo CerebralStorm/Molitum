@@ -13,45 +13,36 @@
  */
 
 // Container
-#logo {
-  margin:0 auto;
-  float:none; 
+#main {
+  margin: 0 auto;
+  float: none; 
+  overflow: auto;
+  min-height: 100% !important;
+  height: 100% !important;
   h1 {
     font-size: 500%;
   }
 }
 
 #main_bar {
-  padding-top: 5px;
-  margin:0 auto;
-  float:none; 
-}
-
-#main {
-  margin:0 auto;
-  float:none; 
   padding-top: 10px;
+  margin:0 auto;
+  float:none; 
 }
 
-//body
+
 body { 
   padding-top: 20px;
 }
 
-// Footer
+//footer
 footer {
-  color: #000;
-  position:fixed;
-  left:0px;
-  bottom:0px;
-  height:30px;
-  width:100%;
-  background:#666;
-  padding: 10px;
+  border-top: 1px solid #999;
+  color: #999;
 }
 
 footer a {
-  color: #333;
+  color: #555;
 }  
 
 footer a:hover { 
@@ -60,11 +51,11 @@ footer a:hover {
 
 footer small {
   float: left;
-  margin-left: 20%;
+  margin-left: 20px;
 }
 
 footer ul {
-  margin-right: 20%;
+  padding-right: 20px;
   float: right;
   list-style: none;
 }
@@ -73,3 +64,4 @@ footer ul li {
   float: left;
   margin-left: 10px;
 }
+

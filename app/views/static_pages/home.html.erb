@@ -1,5 +1,4 @@
-<% provide(:title, 'Home') %>
-<div id="sign_in" class="pull-right border1">
+<div id="home_sign_in" class="pull-right border1">
   <h3>Sign In</h3>
   <%= simple_form_for("user", :url => user_session_path) do |f| %>
     <%= f.input :email, required: false %>
@@ -10,14 +9,21 @@
     <%= link_to "Forgot your password?", new_password_path('user') %>
   <% end %>
 </div>
-<div class="pull-left hero-unit span6">
+<div>
   <table>
     <tr>
-      <td> 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac dolor in nunc molestie gravida in quis felis. Nullam vestibulum adipiscing aliquet. Nunc sodales vehicula mauris ut semper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque adipiscing elit dictum quam egestas luctus. Maecenas posuere lacus non mauris porttitor in elementum felis tincidunt. Proin semper feugiat mattis.</p>
+      <td><%= image_tag "wrench.png" %></td>
+    </tr>
+    <tr>
+      <td>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac dolor in nunc molestie gravida in quis felis. Nullam vestibulum adipiscing aliquet. Nunc sodales vehicula mauris ut semper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque adipiscing elit dictum quam egestas luctus. Maecenas posuere lacus non mauris porttitor in elementum felis tincidunt. Proin semper feugiat mattis.
       </td>
     </tr>
-  </table>
-
-  <%= link_to "Sign up Now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+    <tr>
+      <td><%= link_to "Sign up Now!", new_user_registration_path, class: "btn btn-large btn-primary" %></td>
+    </tr>
 </div>
+        
+
+
+  

@@ -1,47 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Molitum | <%= yield(:title) %></title>
+  <title>Molitum | <%= @title %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %> 
 </head>
 <body>
-  <div id="logo" class="span10" >
-    <h1>Molitum</h1>
-    </br>
-    <h6>Useful Solutions for General Contractors</h6>
-  </div>
-  <div id="main_bar" class="container-fluid span10">
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container">
-          <ul class="nav pull-left">
-            <li><%= link_to "Home", root_path, class: "brand" %></li>
-            <li class="divider-vertical"></li>
-          </ul>
-            <ul class="nav pull-right">
-              <li class="divider-vertical"></li>
-              <% if user_signed_in? %>
-                <li><%= link_to "Account Settings", root_path %></li>
-                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-              <% else %>
-                <li><%= link_to "Sign up", new_user_registration_path %></li>
-              <% end %>
-            </ul>
+  <div id="wrap">
+    <div id="main" class="container-fluid span10" >
+      <%= render 'layouts/header' %> 
+      <%= render 'layouts/alert' %>  
+      <div class="row-fluid">
+        <%= render 'layouts/sidebar' %>
+        <div class="span10">
+          <%= yield %>
         </div>
       </div>
-    </div>
+    </div>    
   </div>
-    <div id="main" class="span10">
-      <%= render 'layouts/tabs' %>
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %><button class="close" data-dismiss="alert">×</button></div>
-      <% end %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
-    </div> 
+  <div class="navbar navbar-fixed-bottom center span10">
+    <%= render 'layouts/footer' %> 
+  </div>
 </body>
-
 </html>
