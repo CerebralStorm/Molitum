@@ -9,12 +9,11 @@
       <% if @title == 'Jobs' %><li class="active"><% else %><li><% end %><%= link_to "Jobs", jobs_path%></li>
       <% if @title == 'Bids' %><li class="active"><% else %><li><% end %><%= link_to "Bids", bids_path%></li>
       <% if @title == 'Invoices' %><li class="active"><% else %><li><% end %><%= link_to "Invoices", invoices_path%></li>
-    <% else %>
-      <li class="nav-header">Site Links</li>
-      <% if @title == 'Home' %><li class="active"><% else %><li><% end %><%= link_to "Home", root_path %></li>
-      <% if @title == 'Contact' %><li class="active"><% else %><li><% end %><%= link_to "Contact",contact_path %></li>
-      <% if @title == 'Help' %><li class="active"><% else %><li><% end %><%= link_to "Help", help_path %></li>
-      <% if @title == 'About' %><li class="active"><% else %><li><% end %><%= link_to "About Us", about_path %></li>
     <% end %>
+    <li class="nav-header">Site Links</li>
+    <% if @title == 'Home' %><li class="active"><% else %><li><% end %><%= link_to "Home", root_path %></li>
+    <% if @title == 'Contact' %><li class="active"><% else %><li><% end %><%= link_to "Contact",contact_path %></li>
+    <% if @title == 'Help' %><li class="active"><% else %><li><% end %><%= link_to "Help", help_path %></li>
+    <% if @title == 'About' %><li class="active"><% else %><li><% end %><%= link_to "About Us", about_path %></li>
   </ul>
 </div>
