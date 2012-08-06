@@ -8,14 +8,15 @@
   <%= render 'layouts/shim' %> 
 </head>
 <body>
-    <div id="main" class="container-fluid span10" >
+    <div id="main" class="container-fluid span10 border round" >
       <%= render 'layouts/header' %> 
       <%= render 'layouts/alert' %>  
       <div class="row-fluid">
-        <%= render 'layouts/sidebar' %>
-        <div class="span10">
+        <%= render 'layouts/sidebar1' %>
+        <div class="span8">
           <%= yield %>
         </div>
+        <%= render 'layouts/sidebar2' %>
       </div>
     </div> 
   <div class="navbar navbar-fixed-bottom center span10">

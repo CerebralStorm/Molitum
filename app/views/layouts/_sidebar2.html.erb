@@ -1,0 +1,13 @@
+<div id="home_sign_in" class="span2 round border">
+  <h3>Sign In</h3>
+  <%= simple_form_for("user", :url => user_session_path) do |f| %>
+    <div id="login_sidebar" class="inputs">
+      <%= f.input :email, required: false, :input_html => { :class => 'input-small' }  %>
+      <%= f.input :password, required: false, :input_html => { :class => 'input-small' }  %>
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me, required: false %>
+      <%= f.submit 'Sign in' %>
+    </div>
+    <%= link_to "Forgot your password?", new_password_path('user') %>
+  <% end %>
+</div>

@@ -1,14 +1,3 @@
-<div id="home_sign_in" class="pull-right border round">
-  <h3>Sign In</h3>
-  <%= simple_form_for("user", :url => user_session_path) do |f| %>
-    <%= f.input :email, required: false %>
-    <%= f.input :password, required: false %>
-    <%= f.check_box :remember_me %>
-    <%= f.label :remember_me, required: false %>
-    <%= f.submit 'Sign in' %>
-    <%= link_to "Forgot your password?", new_password_path('user') %>
-  <% end %>
-</div>
 <div class="home-div">
   <table id="home_table" class="table table-bordered table-condensed round">
     <tr>

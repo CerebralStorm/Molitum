@@ -15,6 +15,7 @@
 // Container
 #main {
   margin: 0 auto;
+  padding-top: 20px;
   float: none; 
   overflow: auto;
   min-height: 100% !important;
@@ -25,13 +26,12 @@
 }
 
 #main_bar {
-  padding-top: 10px;
   margin:0 auto;
   float:none; 
 }
 
 body { 
-  padding-top: 20px;
+  padding-top: 5px;
   height: 100%;
 }
 

@@ -8,7 +8,7 @@
       <%= f.input :name, autofocus: true, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-xlarge' } %>
   </div>
   <div class="control-group">
-      <%= f.input :email, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-xlarge' } %>
+      <%= f.input :email, :label_html => { :class => 'control-label' }, :input_html => { :class => 'span2' } %>
   </div>
   <div class="control-group">
       <%= f.input :admin, label: "Owner?", :as => :radio_buttons, :html => { :class => 'inline' } %>
@@ -17,7 +17,8 @@
       <%= f.input :password, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-xlarge' } %>
   </div>
   <div class="control-group">
-      <%= f.input :password_confirmation, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-xlarge' } %>
+      <%= f.input :password_confirmation, label: "Confirmation", :label_html => { :class => 'control-label' }, 
+                  :input_html => { :class => 'input-xlarge' } %>
   </div>
   <div class="form-actions">
     <button type="submit" class="btn btn-primary">Save</button>
