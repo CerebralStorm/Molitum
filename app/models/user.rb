@@ -1,6 +1,14 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
+  #:lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
@@ -14,7 +22,7 @@ class User < ActiveRecord::Base
   VALID_ZIP_REGEX = /\d{5}/i
   VALID_ADDRESS_REGEX = /\d{1,5}\s[nsewNSEW]\s\d{1,5}\s[nsewNSEW]|\d{1,4}\s[a-zA-Z]+\s[a-zA-Z]+[.]?/i
 
-  validates :name,  presence: true, length: { maximum: 50 }
+  #validates :name,  presence: true, length: { maximum: 50 }
   #validates :city, presence: true
   #validates :state, presence: true
   #validates :address,  presence: true, format: { with: VALID_ADDRESS_REGEX }
@@ -53,10 +61,6 @@ class User < ActiveRecord::Base
 
   def earnings_ytd
     (self.total_hours * pay_rate) - (self.unpaid_hours * pay_rate)
-  end
-
-  def full_address
-    self.address + "  |  " + self.city + ", " + self.state + ", " + self.zip.to_s 
   end
 
   def set_blank_attributes

@@ -21,10 +21,16 @@
   }
 }
 
-#main {
-  padding-top: 10px;
+#main_bar {
+  padding-top: 5px;
   margin:0 auto;
   float:none; 
+}
+
+#main {
+  margin:0 auto;
+  float:none; 
+  padding-top: 10px;
 }
 
 //body
@@ -34,16 +40,18 @@ body {
 
 // Footer
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #999;
-  margin:0 auto !important; 
-  float:none !important; 
+  color: #000;
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:30px;
+  width:100%;
+  background:#666;
+  padding: 10px;
 }
 
 footer a {
-  color: #555;
+  color: #333;
 }  
 
 footer a:hover { 
@@ -52,9 +60,11 @@ footer a:hover {
 
 footer small {
   float: left;
+  margin-left: 20%;
 }
 
 footer ul {
+  margin-right: 20%;
   float: right;
   list-style: none;
 }

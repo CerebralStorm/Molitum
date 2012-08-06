@@ -13,33 +13,35 @@
     </br>
     <h6>Useful Solutions for General Contractors</h6>
   </div>
-  <div id="main" class="container-fluid span10">
+  <div id="main_bar" class="container-fluid span10">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container">
-          <ul class="nav">
+          <ul class="nav pull-left">
             <li><%= link_to "Home", root_path, class: "brand" %></li>
             <li class="divider-vertical"></li>
           </ul>
-          <div class="container pull-right">
-          <ul class="nav">
-            <% if user_signed_in? %>
+            <ul class="nav pull-right">
               <li class="divider-vertical"></li>
-              <li><%= link_to "Account Settings", root_path %></li>
-              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-            <% end %>
-          </ul>
+              <% if user_signed_in? %>
+                <li><%= link_to "Account Settings", root_path %></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <% end %>
+            </ul>
         </div>
       </div>
     </div>
-    <% flash.each do |key, value| %>
+  </div>
+    <div id="main" class="span10">
+      <%= render 'layouts/tabs' %>
+      <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %><button class="close" data-dismiss="alert">×</button></div>
-    <% end %>
-
-    <%= render 'layouts/tabs' %>
-    <%= yield %>
-  </div>  
-<%= render 'layouts/footer' %>
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div> 
 </body>
 
 </html>

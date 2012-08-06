@@ -4,7 +4,7 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "noreply@molitum.com"
+  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -82,7 +82,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "444b0366903524213ff14032ddf2460baceffc0b4b9958e113b24db4fc28538da326afc0e8ef7d2ff8db813eea5988a0b158a18308abd69b70c9e468fcf8a3be"
+  # config.pepper = "aad1923ac0a06eb33731ede70456bc3e8f7a9e77b5fb6149f90f5f0ed294a0a285e535fe926078a9377a842a0ba51c182e60fe3a0ff012f20d85720f124f01b8"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
