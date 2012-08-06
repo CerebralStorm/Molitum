@@ -1,0 +1,23 @@
+<% provide(:title, 'Home') %>
+<div id="sign_in" class="pull-right border1">
+  <%= simple_form_for("user", :url => user_session_path) do |f| %>
+    <%= f.input :email, required: false %>
+    <%= f.input :password, required: false %>
+    <%= f.check_box :remember_me %>
+    <%= f.label :remember_me, required: false %>
+    <%= f.submit 'Sign in' %>
+    <%= link_to "Forgot your password?", new_password_path('user') %>
+  <% end %>
+</div>
+<div class="pull-left hero-unit span6">
+  <table "border1">
+    <tr>
+      <td> 
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac dolor in nunc molestie gravida in quis felis. Nullam vestibulum adipiscing aliquet. Nunc sodales vehicula mauris ut semper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque adipiscing elit dictum quam egestas luctus. Maecenas posuere lacus non mauris porttitor in elementum felis tincidunt. Proin semper feugiat mattis.</p>
+      </td>
+    </tr>
+  </table>
+
+
+  <%= link_to "Sign up now!", new_company_path, class: "btn btn-large btn-primary" %>
+</div>

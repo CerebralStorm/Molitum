@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
   <title>Molitum | <%= @title %></title>
+=======
+  <title>Molitum | <%= yield(:title) %></title>
+>>>>>>> static_pages
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %> 
 </head>
 <body>
+<<<<<<< HEAD
   <div class="navbar navbar-fixed-top">
     <div>
         <% flash.each do |key, value| %>
@@ -29,15 +35,33 @@
             <% else %>
               <li><%= link_to "Sign in", new_user_session_path %></li>
             <% end %>
+=======
+  <div id="logo" class="span10" >
+    <h1>Molitum</h1>
+    </br>
+    <h6>Useful Solutions for General Contractors</h6>
+  </div>
+  <div id="main" class="container-fluid span10">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li><%= link_to "Home", root_path, class: "brand" %></li>
+            <li class="divider-vertical"></li>
+
+>>>>>>> static_pages
           </ul>
         </div>
       </div>
     </div>
-  </div>
-	<div id="main" class="container-fluid span9">
+    <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %><button class="close" data-dismiss="alert">×</button></div>
+    <% end %>
+
     <%= render 'layouts/tabs' %>
     <%= yield %>
-    <%= render 'layouts/footer' %>
   </div>  
+<%= render 'layouts/footer' %>
 </body>
+
 </html>

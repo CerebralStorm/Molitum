@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe TaxExpense do
+describe "companies/edit.html.erb" do
   pending "add some examples to (or delete) #{__FILE__}"
 end

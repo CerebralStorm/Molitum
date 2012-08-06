@@ -10,7 +10,7 @@
 					<% @users.each do |employee| %>
 						<tr>
 							<td><%=link_to employee.name, user_path(employee) %></td>   
-							<td width="20%"><% if can? :edit, employee %><%= link_to "Edit", edit_user_path(employee), confirm: "You Sure?", class: "btn" %><% end %></td>
+							<td width="20%"><% if can? :edit, employee %><%= link_to "Edit", edit_user_path(employee), class: "btn" %><% end %></td>
 							<td width="20%"><% if can? :delete, employee %><%= link_to "Delete", user_path(employee), confirm: "You Sure?", class: "btn", method: :delete %><% end %></td>
 						</tr>
 					<% end %>

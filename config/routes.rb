@@ -1,6 +1,12 @@
 Molitum::Application.routes.draw do
+  root :to => "static_pages#home"
+
+  match '/help', to: 'static_pages#help'
+  match '/about', to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
 
   devise_for :users
+  resources :companies
   resources :users
   resources :jobs
   resources :customers
@@ -11,10 +17,6 @@ Molitum::Application.routes.draw do
   resources :invoice_items, only: [:create, :destroy]
   resources :time_clocks, only: [:create, :update, :destroy]
   resources :job_expenses, only: [:create, :destroy]
-  
-authenticate :user do
-  root :to => "users#index"
-end
 
   #root :to => "home#index"
 

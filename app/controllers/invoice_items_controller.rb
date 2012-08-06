@@ -1,4 +1,5 @@
 class InvoiceItemsController < ApplicationController
+  before_filter :authenticate_user!
   include InvoicesHelper
 
   def create

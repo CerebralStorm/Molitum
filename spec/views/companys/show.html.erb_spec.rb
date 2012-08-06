@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe TaxForm do
+describe "companies/show.html.erb" do
   pending "add some examples to (or delete) #{__FILE__}"
 end
