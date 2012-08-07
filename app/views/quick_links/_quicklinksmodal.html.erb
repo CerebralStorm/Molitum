@@ -1,19 +1,7 @@
-<script>
-  $(document).ready(function() {
-    $('#add_quick_link').bind('show');
-    });
-  function closeDialog () {
-    $('#add_quick_link').modal('hide'); 
-    };
-</script>
-
-<h6>Quick Links</h6>
 <% unless current_user.quick_links.nil? %>
-  <ul>
-    <% current_user.quick_links.each do |link|  %>
-      <li><%= link_to link.name, link.link %></li>
-    <% end %>
-  </ul>
+  <% current_user.quick_links.each do |link|  %>
+    <li><%= link_to link.name, link.link %></li>
+  <% end %>
 <% end %>
 
 <div class="modal hide fade" id="add_quick_link">
@@ -40,11 +28,6 @@
       <% end %>
     </table>
   </div>
-  <div class="modal-footer">
-    <a href="#" class="btn btn-primary" onclick="closeDialog ();">OK</a>
-    </div>
-  </div>
-<div class="divButton">
-  <a data-toggle="modal" href="#add_quick_link" class="btn btn-primary">Add Time Clock</a>
 </div>
-</br>
+<li class="active"><a data-toggle="modal" href="#add_quick_link">Add Quick Link</a></li>
+
