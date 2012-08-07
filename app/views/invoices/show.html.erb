@@ -1,4 +1,4 @@
-<table class="table table-bordered table-condensed span8 shadow" cellpadding="5">
+<table class="table table-bordered table-condensed shadow" cellpadding="5">
   <th colspan="4">Invoice Number: <%= @invoice.id %></th>
   <tr>
     <td>
@@ -16,14 +16,14 @@
           <td><%= @invoice.status %></td>
         </tr>
       </table>
-      <table class="table table-bordered table-condensed table-left span8" cellpadding="5">
+      <table class="table table-bordered table-condensed">
         <%= render 'invoices/invoiceitems' %>
         </tr>
         <tr>
           <td class="highlight" colspan="4"></td>
         </tr>
       </table>
-        <table class="table table-bordered table-condensed table-left span8" cellpadding="5">
+        <table class="table table-bordered table-condensed">
         <tr>
           <td width="80%"></td>
           <td>Total</td>

@@ -1,9 +1,9 @@
-<table id="users_form" class="span8 shadow" cellpadding="5">
+<table id="users_form" class="shadow">
   <th class="header"><%= @head %> Customer</th>
   <%= simple_form_for(@customer) do |f| %>
   <tr>
     <td>
-      <table class="table-bordered table-condensed" width="100%" cellpadding="5">
+      <table class="table-bordered table-condensed">
         <tr>
           <td><%= f.input :name, :required => false %></td>
         </tr>

@@ -1,8 +1,8 @@
-<table class="table table-bordered table-condensed span8 shadow" cellpadding="5">
+<table class="table table-bordered table-condensed shadow">
 	<th class="header">Bid Information</th>
 	<tr>
 		<td>
-			<table class="table table-bordered table-condensed" cellpadding="5">
+			<table class="table table-bordered table-condensed">
 				<tr>	
 					<td class="highlight">Customer</td>
 					<td class="highlight">Location</td>
@@ -12,7 +12,7 @@
 					<td><%= @bid.location %></td>
 				</tr>
 			</table>
-			<table class="table table-bordered table-condensed" cellpadding="5">
+			<table class="table table-bordered table-condensed">
 				<tr>
 					<td class="highlight" width="50%">Start Date</td>
 					<td class="highlight">Finish Date</td>
@@ -30,7 +30,7 @@
 					<td><%= @bid.detail_of_work %></td>
 				</tr>
 			</table>
-			<table class="table table-bordered table-condensed" cellpadding="5">
+			<table class="table table-bordered table-condensed">
 				<% if @bid_items.present? %>
 					<% category = "" %>
 					<%  @bid_items.each do |b| %>
@@ -73,7 +73,7 @@
 				</tr>
 			</table>
 		</br>
-			<table class="table-left table table-bordered table-condensed" cellpadding="5">
+			<table class="table-left table table-bordered table-condensed">
 				<tr>
 					<td width="20%">Hours</td>
 					<td width="20%" colspan="2"><%= @bid.total_hours %></td>

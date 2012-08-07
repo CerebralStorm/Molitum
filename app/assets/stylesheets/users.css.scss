@@ -2,35 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
  
-#users_form {
-
-  label {
-    padding-left: 100px;
-    float: left;
-    width: 100px;
-    text-align: left;
-    font-size: 12px;
-    margin: 2px 10px;
-    }
-
-  .submit {
-    margin-left: 260px;
-    margin-bottom: 20px;
-  }
-
-   .hint, .error {
-    clear: left;
-    font-size: 12px;
-    color: #D00;
-    display: block;
-  }
-
-  INPUT { 
-     margin-left: 40px;
-    float:left
-  }
-}
-
 #time_clock_date{
 
   SELECT { 

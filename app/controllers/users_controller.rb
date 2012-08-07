@@ -46,7 +46,7 @@ class UsersController < ApplicationController
       redirect_to new_users_path
     else
     	flash[:error] = "Account Failed"
-      render 'new'
+      render 'users/usermodal'
     end
 	end
 
