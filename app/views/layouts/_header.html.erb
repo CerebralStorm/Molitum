@@ -2,20 +2,22 @@
 <h1>Molitum</h1>
 <div id="sublogo"><h6>Useful Solutions for General Contractors</h6></div>
 </div>
-<div id="header-signin-outer">
-  <div id="header-signin-inner" class="blue-gradient border round">
-    <form action="/users/sign_in" class="form-inline" method="post">
-      <label class="control-label" for="user_email">Email</label>
-      <input class="input-small" id="user_email" name="user[email]" size="50" type="email" />
-      <label class="control-label" for="user_password">Password</label>
-      <input class="input-small" id="user_password" name="user[password]" size="50" type="password" />
-      <input name="user[remember_me]" type="hidden" value="0" />
-      <input id="user_remember_me" name="user[remember_me]" type="checkbox" value="1" />
-      <label class="control-label" for="user_remember_me">Remember me</label>
-      <input class="btn" name="commit" type="submit" value="Sign in" />
-    </form>
+<% unless user_signed_in? %>
+  <div id="header-signin-outer">
+    <div id="header-signin-inner" class="blue-gradient border round">
+      <form action="/users/sign_in" class="form-inline" method="post">
+        <label class="control-label" for="user_email">Email</label>
+        <input class="input-small" id="user_email" name="user[email]" size="50" type="email" />
+        <label class="control-label" for="user_password">Password</label>
+        <input class="input-small" id="user_password" name="user[password]" size="50" type="password" />
+        <input name="user[remember_me]" type="hidden" value="0" />
+        <input id="user_remember_me" name="user[remember_me]" type="checkbox" value="1" />
+        <label class="control-label" for="user_remember_me">Remember me</label>
+        <input class="btn" name="commit" type="submit" value="Sign in" />
+      </form>
+    </div>
   </div>
-</div>
+<% end %>
 <div id="main_navbar" class="navbar">
   <div class="navbar-inner">
     <div class="container">

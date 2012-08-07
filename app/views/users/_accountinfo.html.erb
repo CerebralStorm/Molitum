@@ -1,16 +1,16 @@
 <% if User != current_user %>
   <table class="table table-bordered table-condensed round">
-    <th colspan="4">Personal Info</th>
+    <th class="highlight" colspan="4">Personal Info</th>
     <tr>
-      <td class="highlight" width="20%">Name</td>
+      <td width="20%">Name</td>
       <td><%= @user.name %></td>
-      <td class="highlight" width="20%">Email</td>
+      <td width="20%">Email</td>
       <td><%= @user.email %></td>
     </tr>
     <tr>
-      <td class="highlight" width="20%">Phone</td>
+      <td width="20%">Phone</td>
       <td><%= @user.phone %></td>
-      <td class="highlight">Address</td>
+      <td width="20%">Address</td>
       <td><address>
       <%= @user.address unless @user.address.nil? %>
       <%= @user.city unless @user.city.nil? %>
@@ -21,17 +21,17 @@
   </br>
 <% end %>
 <table class="table table-bordered table-condensed round">
-  <th colspan="4">Hours Info</th>
+  <th class="highlight" colspan="4">Hours Info</th>
   <tr>
-    <td class="highlight" width="20%">Hourly Wage:</td>
+    <td width="20%">Hourly Wage:</td>
     <td><%= @user.pay_rate %></td>
-    <td class="highlight">Unpaid Hours</td>
+    <td width="20%">Unpaid Hours</td>
     <td><%= @user.unpaid_hours %></td>
   </tr>
   <tr>
-    <td class="highlight" width="20%">Total Hours</td>
+    <td width="20%">Total Hours</td>
     <td><%= @user.total_hours %></td>
-    <td class="highlight">Unpaid Amount</td>
+    <td width="20%">Unpaid Amount</td>
     <td><%= @user.unpaid_dollar_amount %></td>
   </tr>
 </table>
