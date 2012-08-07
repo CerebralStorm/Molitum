@@ -49,19 +49,8 @@
   }
 }
 
-#quick_link_form {
-  display: inline-block;
-}
-
-ul#display-inline-block-example li {
-  margin: 0;
-  padding: 0;
-}
-
- 
-ul#display-inline-block-example li {
-  display: inline-block;
-  width: auto;
-  height: 30px;
-  position:relative;
+#quick_links {
+  padding-left: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

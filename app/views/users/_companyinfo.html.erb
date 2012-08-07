@@ -1,6 +1,13 @@
-<table class="table table-bordered table-condensed">
+<script>
+  $(document).ready(function() {
+    $('#add_company').bind('show');
+    });
+  function closeDialog () {
+    $('#add_company').modal('hide'); 
+    };
+</script>
   <% if current_user.admin? && current_user.company.nil? %>
-    <%= link_to "Click Create Your Company", new_company_path, class: "btn btn-primary" %>
+    <%= render 'companies/companyform' %>
   <% else %>
   <tr>
     <td class="highlight">Company</td>
@@ -18,4 +25,5 @@
   </tr>
   <% end %>
 </table>
+</br>
 

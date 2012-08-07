@@ -1,5 +1,14 @@
+<script>
+  $(document).ready(function() {
+    $('#add_quick_link').bind('show');
+    });
+  function closeDialog () {
+    $('#add_quick_link').modal('hide'); 
+    };
+</script>
+
 <% if user_signed_in? %>
-  <div id="quick_links" class="span2 round border center-text shadow">
+  <div id="quick_links" class="span2 round border shadow">
     <h6>Quick Links</h6>
     <% unless current_user.quick_links.nil? %>
       <ul>
@@ -8,6 +17,38 @@
         <% end %>
       </ul>
     <% end %>
+
+    <div class="modal hide fade" id="add_quick_link">
+      <div class="modal-header">
+        <a href="#" class="close" data-dismiss="modal">&times;</a>
+        <h3>Add a Quick Link</h3>
+      </div>
+      <div class="modal-body">
+          <table class="table table-bordered table-condensed">
+            <%= simple_form_for QuickLink.new do |f| %>
+            <tr>
+              <td>Name (15 Characters Max)</td>
+              <td colspan="2">URL</td>
+            </tr>
+            <tr>
+              <td><%= f.input :name, label: false, :input_html => { :class => 'input-medium' }  %></td>
+              <td>
+                <div class="input-prepend">
+                  <span class="add-on">http://</span><%= f.text_field :link, class: "input-large" %>
+                </div>
+              </td>
+              <td><button type="submit" class="btn-primary">Add Link</button></td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-primary" onclick="closeDialog ();">OK</a>
+        </div>
+      </div>
+    <div class="divButton">
+      <a data-toggle="modal" href="#add_quick_link" class="btn btn-primary">Add Quick Link</a>
+    </div>
   </div>
 <% else %>
 <div class="span2 round border center-text shadow">

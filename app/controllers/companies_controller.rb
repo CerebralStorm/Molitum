@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = current_user.company.build(params[:company])
+    @company = current_user.companies.build(params[:company])
     if @company.save
       flash[:success] = "Company Created"
       redirect_to user_path(current_user)

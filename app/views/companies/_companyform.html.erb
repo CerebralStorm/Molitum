@@ -1,21 +1,46 @@
 <% provide(:title, 'Create Company') %>
-<div class="span10 border round center">
-  <div class="highlight round"> <h2 class="center-text">Create Company</h2></div>
-</br>
-<%= simple_form_for(@company, :html => { :class => 'form-horizontal' }) do |f| %>
-  <%= f.error_notification %>
-  <div class="control-group">
-      <%= f.input :name, autofocus: true, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
-      <%= f.input :email, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
-      <%= f.input :address, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
-      <%= f.input :city, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large'} %>
-      <%= f.input :state, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large'} %>
-      <%= f.input :zip, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large'} %>
-      <%= f.input :phone, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
-  </div>
-  <div class="form-actions">
-    <button type="submit" class="btn btn-primary">Create Company</button>
-    <button class="btn">Cancel</button>
-  </div>
-<% end %>
-</div>
+<script>
+  $(document).ready(function() {
+    $('#add_company').bind('show');
+    });
+  function closeDialog () {
+    $('#add_company').modal('hide'); 
+    };
+</script>
+
+<table class="table table-bordered table-condensed">
+  <th class="highlight">Company Information</th>
+  <tr>
+    <td>
+      <div class="modal hide fade" id="add_company">
+        <div class="modal-header">
+          <a href="#" class="close" data-dismiss="modal">&times;</a>
+          <h3>Enter Your Company Information</h3>
+        </div>
+        <div class="modal-body">
+          <div class="highlight round"> <h2 class="center-text">Create Company</h2></div>
+            </br>
+            <%= simple_form_for(Company.new, :html => { :class => 'form-horizontal' }) do |f| %>
+              <%= f.error_notification %>
+              <div class="control-group">
+                <%= f.input :name, autofocus: true, :label_html => { :class => 'control-label' }, 
+                            :input_html => { :class => 'input-large' } %>
+                <%= f.input :email, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
+                <%= f.input :address, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
+                <%= f.input :city, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large'} %>
+                <%= f.input :state, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large'} %>
+                <%= f.input :zip, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large'} %>
+                <%= f.input :phone, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
+                <button type="submit" class="btn btn-primary">Create Company</button>
+              </div>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="btn btn-primary" onclick="closeDialog ();">Cancel</a>
+          </div>
+        </div>
+      <div class="divButton">
+        <a data-toggle="modal" href="#add_company" class="btn btn-primary">Add a Company</a>
+      </div>
+    </td>
+  </tr>

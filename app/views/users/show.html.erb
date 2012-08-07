@@ -9,22 +9,6 @@
   <%= render 'users/timeclockform' %></td>
 <% end %>
 
-<table class="table table-bordered table-condensed">
-  <th colspan="2">Add a Quick Link</th>
-  <%= simple_form_for QuickLink.new do |f| %>
-  <tr>
-    <td width="15%">Name of Link</td>
-    <td><%= f.input :name, label: false, :input_html => { :class => 'input-medium' }  %></td>
-    <td>
-      <div class="input-prepend">
-        <span class="add-on">http://</span><%= f.text_field :link, class: "input-large" %>
-      </div>
-    </td>
-    <td><button type="submit" class="btn-primary">Add Link</button></td>
-  </tr>
-  <% end %>
-</table>
-
 
 
 

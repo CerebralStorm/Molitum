@@ -3,7 +3,7 @@ class QuickLink < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :name,  presence: true, length: { maximum: 20 }
+  validates :name,  presence: true, length: { maximum: 15 }
 
   before_save :add_http
 
