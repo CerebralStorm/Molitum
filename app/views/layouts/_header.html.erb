@@ -34,8 +34,8 @@
               </form>
           </div>
         </li>
-        <li class="divider-vertical"></li>
         <% if user_signed_in? %>
+          <li class="divider-vertical"></li>
           <li><%= link_to(edit_user_path(current_user)) do %><span><i class="icon-cog"></i>Account Settings</span><% end %></li>
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <% end %>
