@@ -2,6 +2,8 @@
   <ul class="nav nav-list">
     <% if user_signed_in? %>
       <li class="nav-header">Application</li>
+      <% if @title == 'My Company' %><li class="active"><% else %><li><% end %>
+      <%= link_to(company_path(current_user)) do %><span><i class="icon-star"></i>My Company</span><% end %></li>
       <% if @title == 'My Account' %><li class="active"><% else %><li><% end %>
       <%= link_to(current_user) do %><span><i class="icon-star"></i>My Account</span><% end %></li>
       <% if @title == 'Employees' %><li class="active"><% else %><li><% end %>

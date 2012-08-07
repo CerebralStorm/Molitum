@@ -1,4 +1,4 @@
-
+  <% if current_user.admin? && current_user.company.present? %>
   <table class="table table-bordered table-condensed round">
     <th colspan="4">Company Info</th>
   <tr>
@@ -15,6 +15,7 @@
     <td><%= @company.gross_profit %></td>
     <td><%= @company.avg_profit_per_job %></td>
   </tr>
+  <% end %>
 </table>
-
+</br>
 

@@ -1,13 +1,7 @@
 <% provide(:title, "Account For #{@user.name}") %>
 <%= render 'users/accountinfo' %>
 <%= render 'users/personalinfo' %>
-<% if current_user.admin? %>
-  <%= render 'users/companyinfo' %>
-<% end %>
 <%= render 'users/showtimeclocks' %>
-<% if current_user == @user %>
-  <%= render 'users/timeclockform' %></td>
-<% end %>
 
 
 

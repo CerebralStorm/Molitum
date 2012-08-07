@@ -16,11 +16,13 @@ class CompaniesController < ApplicationController
   def create
     @company = current_user.companies.build(params[:company])
     if @company.save
+      current_user.company = @company
+      current_user.save
       flash[:success] = "Company Created"
       redirect_to user_path(current_user)
     else
       flash[:error] = "Creation Failed"
-      render 'new'
+      redirect_to user_path(current_user)
     end
   end
 
