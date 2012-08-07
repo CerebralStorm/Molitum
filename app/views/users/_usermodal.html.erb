@@ -1,0 +1,18 @@
+<div class="modal hide fade" id="add_user">
+  <div class="modal-header">
+    <a href="#" class="close" data-dismiss="modal">&times;</a>
+    <h3>Create Account</h3>
+  </div>
+  <div class="modal-body">
+    <%= simple_form_for(User.new) do |f| %>
+      <%= f.input :name, required: false %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation, label: "Confirmation" %>
+      <%= f.button :submit, class: "submit btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<a data-toggle="modal" href="#add_user" class="btn btn-primary btn-large">Sign up Now!</a>
+</br>
+
