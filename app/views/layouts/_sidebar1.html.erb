@@ -1,14 +1,19 @@
-<div class="span2 round border">
+<div class="span2 round border shadow">
   <ul class="nav nav-list">
     <% if user_signed_in? %>
       <li class="nav-header">Application</li>
-      <% if @title == 'Home' %><li class="active"><% else %><li><% end %></i><%= link_to "Home", root_path %></li>
-      <% if @title == 'My Account' %><li class="active"><% else %><li><% end %><%= link_to "My Account", user_path(current_user) %></li>
-      <% if @title == 'Employees' %><li class="active"><% else %><li><% end %><%= link_to "Employees", users_path%></li>
-      <% if @title == 'Customers' %><li class="active"><% else %><li><% end %><%= link_to "Customers", customers_path%></li>
-      <% if @title == 'Jobs' %><li class="active"><% else %><li><% end %><%= link_to "Jobs", jobs_path%></li>
-      <% if @title == 'Bids' %><li class="active"><% else %><li><% end %><%= link_to "Bids", bids_path%></li>
-      <% if @title == 'Invoices' %><li class="active"><% else %><li><% end %><%= link_to "Invoices", invoices_path%></li>
+      <% if @title == 'My Account' %><li class="active"><% else %><li><% end %>
+      <%= link_to(current_user) do %><span><i class="icon-star"></i>My Account</span><% end %></li>
+      <% if @title == 'Employees' %><li class="active"><% else %><li><% end %>
+      <%= link_to(users_path) do %><span><i class="icon-user"></i>Employees</span><% end %></li>
+      <% if @title == 'Customers' %><li class="active"><% else %><li><% end %>
+      <%= link_to(customers_path) do %><span><i class="icon-user"></i>Customers</span><% end %></li>
+      <% if @title == 'Jobs' %><li class="active"><% else %><li><% end %>
+      <%= link_to(jobs_path) do %><span><i class="icon-briefcase"></i>Jobs</span><% end %></li>
+      <% if @title == 'Bids' %><li class="active"><% else %><li><% end %>
+      <%= link_to(bids_path) do %><span><i class="icon-folder-open"></i>Bids</span><% end %></li>
+      <% if @title == 'Invoices' %><li class="active"><% else %><li><% end %>
+      <%= link_to(invoices_path) do %><span><i class="icon-folder-open"></i>Invoices</span><% end %></li>
     <% end %>
     <li class="nav-header">Site Links</li>
     <% if @title == 'Home' %><li class="active"><% else %><li><% end %><a href="/"><i class="icon-home"></i>Home</a></li>
@@ -17,3 +22,4 @@
     <% if @title == 'About' %><li class="active"><% else %><li><% end %><a href="/about"><i class="icon-info-sign"></i>About Us</a></li>
   </ul>
 </div>
+

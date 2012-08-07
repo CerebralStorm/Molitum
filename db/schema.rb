@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120720020036) do
+ActiveRecord::Schema.define(:version => 20120807022538) do
 
   create_table "bid_items", :force => true do |t|
     t.string   "category"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20120720020036) do
     t.string   "zip"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
+    t.integer  "user_id"
   end
 
   create_table "customers", :force => true do |t|
@@ -124,6 +125,14 @@ ActiveRecord::Schema.define(:version => 20120720020036) do
     t.integer  "status",         :default => 0
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+  end
+
+  create_table "quick_links", :force => true do |t|
+    t.string   "name"
+    t.string   "link"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "time_clocks", :force => true do |t|

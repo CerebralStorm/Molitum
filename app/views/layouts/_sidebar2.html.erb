@@ -1,5 +1,17 @@
-<div id="home_sign_in" class="span2 round border">
-  <h3>Sign In</h3>
+<% if user_signed_in? %>
+  <div id="quick_links" class="span2 round border center-text shadow">
+    <h6>Quick Links</h6>
+    <% unless current_user.quick_links.nil? %>
+      <ul>
+        <% current_user.quick_links.each do |link|  %>
+          <li><%= link_to link.name, link.link %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+<% else %>
+<div class="span2 round border center-text shadow">
+  <h6>Sign In</h6>
   <%= simple_form_for("user", :url => user_session_path) do |f| %>
     <div id="login_sidebar" class="inputs">
       <%= f.input :email, required: false, :input_html => { :class => 'input-small' }  %>
@@ -9,5 +21,6 @@
       <%= f.submit 'Sign in' %>
     </div>
     <%= link_to "Forgot your password?", new_password_path('user') %>
-  <% end %>
+    <% end %>
 </div>
+<% end %>

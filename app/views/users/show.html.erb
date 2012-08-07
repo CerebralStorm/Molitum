@@ -1,40 +1,35 @@
+<% provide(:title, "Account For #{@user.name}") %>
 <%= render 'users/accountinfo' %>
-<table class="table table-bordered table-condensed span8 shadow">
-   <tr>
-    <th class="header">Account Information</th>
-  </tr>
+<%= render 'users/personalinfo' %>
+<% if current_user.admin? %>
+  <%= render 'users/companyinfo' %>
+<% end %>
+<%= render 'users/showtimeclocks' %>
+<% if current_user == @user %>
+  <%= render 'users/timeclockform' %></td>
+<% end %>
+
+<table class="table table-bordered table-condensed">
+  <th colspan="2">Add a Quick Link</th>
+  <%= simple_form_for QuickLink.new do |f| %>
   <tr>
-    <td></td>
-  </tr>
-  <tr>
-    <th class="header">Personal Information</th>
-  </tr>
-    <td><%= render 'users/personalinfo' %>
-  <% if current_user.admin? %>
-  <tr>
-    <th class="header">Company Information</th>
-  </tr>
-  <tr>
-    <td><%= render 'users/companyinfo' %>
-  </tr>
-  <% end %>
-  <tr>
-    <th class="header">Time Clock Information</th>
-  </tr>
-  <tr>
+    <td width="15%">Name of Link</td>
+    <td><%= f.input :name, label: false, :input_html => { :class => 'input-medium' }  %></td>
     <td>
-      <%= render 'users/showtimeclocks' %>
+      <div class="input-prepend">
+        <span class="add-on">http://</span><%= f.text_field :link, class: "input-large" %>
+      </div>
     </td>
-  </tr>
-  <% if current_user == @user %>
-  <tr>
-    <th class="header" width="100%">Time Clock Form</th>
-  </tr>
-  <tr>
-    <td><%= render 'users/timeclockform' %></td>
+    <td><button type="submit" class="btn-primary">Add Link</button></td>
   </tr>
   <% end %>
 </table>
+
+
+
+
+       
+
 
 
 

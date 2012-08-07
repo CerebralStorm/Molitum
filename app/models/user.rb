@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
 	has_many :jobs
   has_many :customers
   has_many :time_clocks, dependent: :destroy
+  has_many :quick_links, dependent: :destroy
+  has_one :company
 
   before_save :set_blank_attributes
 

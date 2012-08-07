@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :authenticate_user!, except: [:new, :create]
+	before_filter :authenticate_user!
 	load_and_authorize_resource
 	require 'will_paginate/array'
 	
@@ -28,7 +28,6 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
-
 	def update
 		if @user.update_attributes(params[:user])
 			sign_in @user, :bypass => true
@@ -43,10 +42,10 @@ class UsersController < ApplicationController
 	def create	
     @user = User.new(params[:user])
     if @user.save
-      flash[:success] = "Employee Added"
-      redirect_to users_path
+      flash[:success] = "Account Created"
+      redirect_to new_users_path
     else
-    	flash[:error] = "Employee Failed"
+    	flash[:error] = "Account Failed"
       render 'new'
     end
 	end

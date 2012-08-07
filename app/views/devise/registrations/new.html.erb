@@ -1,14 +1,15 @@
-<div class="span10 border round">
+<% provide(:title, 'Sign Up') %>
+<div class="span10 border round center">
+  <div class="highlight round"> <h2 class="center-text">Sign Up</h2></div>
+</br>
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), 
                     :html => { :class => 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
-<h2 class="offset1">Sign Up</h2></br>
-
   <div class="control-group">
       <%= f.input :name, autofocus: true, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-xlarge' } %>
   </div>
   <div class="control-group">
-      <%= f.input :email, :label_html => { :class => 'control-label' }, :input_html => { :class => 'span2' } %>
+      <%= f.input :email, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-xlarge' } %>
   </div>
   <div class="control-group">
       <%= f.input :admin, label: "Owner?", :as => :radio_buttons, :html => { :class => 'inline' } %>
@@ -21,10 +22,8 @@
                   :input_html => { :class => 'input-xlarge' } %>
   </div>
   <div class="form-actions">
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary">Create Account</button>
     <button class="btn">Cancel</button>
   </div>
-
 <% end %>
-
 </div>

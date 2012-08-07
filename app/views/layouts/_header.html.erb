@@ -5,13 +5,13 @@
   <div class="navbar-inner">
     <div class="container">
       <ul class="nav pull-left">
-        <li class="brand"><%= @title %></a></li>
+        <li class="brand"><%= yield(:title) %></a></li>
         <li class="divider-vertical"></li>
       </ul>
       <ul class="nav pull-right">
         <li class="divider-vertical"></li>
         <% if user_signed_in? %>
-          <li><%= link_to "Account Settings", root_path %></li>
+          <li><%= link_to(edit_user_path(current_user)) do %><span><i class="icon-cog"></i>Acount Settings</span><% end %></li>
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Sign up", new_user_registration_path %></li>

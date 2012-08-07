@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Molitum | <%= @title %></title>
+  <title>Molitum | <%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -9,8 +9,8 @@
 </head>
 <body>
     <div id="main" class="container-fluid span10 border round" >
-      <%= render 'layouts/header' %> 
-      <%= render 'layouts/alert' %>  
+      <%= render 'layouts/alert' %> 
+      <%= render 'layouts/header' %>
       <div class="row-fluid">
         <%= render 'layouts/sidebar1' %>
         <div class="span8">

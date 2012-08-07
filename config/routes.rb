@@ -1,4 +1,6 @@
 Molitum::Application.routes.draw do
+  resources :quick_links
+
   root :to => "static_pages#home"
 
   match '/help', to: 'static_pages#help'
@@ -12,7 +14,7 @@ Molitum::Application.routes.draw do
   resources :customers
   resources :bids
   resources :invoices
-  resources :receipts
+  resources :quick_links, only: [:create, :destroy]
   resources :bid_items, only: [:create, :destroy]
   resources :invoice_items, only: [:create, :destroy]
   resources :time_clocks, only: [:create, :update, :destroy]

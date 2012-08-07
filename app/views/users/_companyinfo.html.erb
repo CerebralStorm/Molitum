@@ -1,14 +1,21 @@
-<table class="table table-bordered table-condensed" cellpadding="5">
+<table class="table table-bordered table-condensed">
+  <% if current_user.admin? && current_user.company.nil? %>
+    <%= link_to "Click Create Your Company", new_company_path, class: "btn btn-primary" %>
+  <% else %>
   <tr>
+    <td class="highlight">Company</td>
     <td class="highlight">Earnings Year To Date</td>
     <td class="highlight">Expenses Year To Date</td>
     <td class="highlight">Gross Profit</td>
     <td class="highlight">Average Dollar Profit Per Job</td>
   </tr>
   <tr>
+    <td><%= @company.name %></td>
     <td><%= @company.income %></td>
     <td><%= @company.expense %></td>
     <td><%= @company.gross_profit %></td>
     <td><%= @company.avg_profit_per_job %></td>
   </tr>
+  <% end %>
 </table>
+

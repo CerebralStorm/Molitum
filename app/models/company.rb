@@ -1,11 +1,14 @@
 class Company < ActiveRecord::Base
   attr_accessible :expense, :income, :name, :email, :address, :phone, :city, :state, :zip
 
+  belongs_to :user
   has_many :users
   has_many :customers
   has_many :jobs
   has_many :bids
   has_many :invoices
+
+  validates_presence_of :name
 
   def add_expense(amount)
     self.expense += amount

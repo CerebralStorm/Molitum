@@ -1,43 +1,21 @@
-<table id="users_form" class="span8 shadow" cellpadding="5">
-  <th class="header">New Company</th>
-  <tr>
-    <td>
-      <table class="table-bordered table-condensed" width="100%" cellpadding="5">
-        <%= simple_form_for(@company) do |f| %>
-        <tr>
-          <td><%= f.input :name, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :website, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :email %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :address, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :city, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :state, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :zip, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :phone, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :password %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :password_confirmation, label: "Confirmation" %></td>
-        </tr>
-        <tr>
-          <td><%= f.button :submit, class: "submit btn btn-large btn-primary" %></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
+<% provide(:title, 'Create Company') %>
+<div class="span10 border round center">
+  <div class="highlight round"> <h2 class="center-text">Create Company</h2></div>
+</br>
+<%= simple_form_for(@company, :html => { :class => 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+  <div class="control-group">
+      <%= f.input :name, autofocus: true, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
+      <%= f.input :email, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
+      <%= f.input :address, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
+      <%= f.input :city, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large'} %>
+      <%= f.input :state, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large'} %>
+      <%= f.input :zip, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large'} %>
+      <%= f.input :phone, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
+  </div>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Create Company</button>
+    <button class="btn">Cancel</button>
+  </div>
 <% end %>
+</div>

@@ -1,29 +1,37 @@
-<table class="pull-right span2 table table-bordered table-condensed" cellpadding="5">
+<% if User != current_user %>
+  <table class="table table-bordered table-condensed round">
+    <th colspan="4">Personal Info</th>
+    <tr>
+      <td class="highlight" width="20%">Name</td>
+      <td><%= @user.name %></td>
+      <td class="highlight" width="20%">Email</td>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <td class="highlight" width="20%">Phone</td>
+      <td><%= @user.phone %></td>
+      <td class="highlight">Address</td>
+      <td><address>
+      <%= @user.address unless @user.address.nil? %>
+      <%= @user.city unless @user.city.nil? %>
+      <%= @user.state unless @user.state.nil? %>
+      <%= @user.zip unless @user.zip.nil? %></address></td>
+    </tr>
+  </table>
+  </br>
+<% end %>
+<table class="table table-bordered table-condensed round">
   <tr>
-    <td class="highlight" width="20%">Name</td>
-    <td><%= @user.name %></td>
     <td class="highlight" width="20%">Hourly Wage:</td>
     <td><%= @user.pay_rate %></td>
-  </tr>
-  <tr>
-    <td class="highlight" width="20%">Address</td>
-    <td><%= @user.address unless @user.address.nil? %></td>
-    <td><%= @user.city unless @user.city.nil? %></td>
-    <td><%= @user.state unless @user.state.nil? %></td>
-    <td><%= @user.zip unless @user.zip.nil? %></td>
-    <td class="highlight" width="20%">Total Hours</td>
-    <td><%= @user.total_hours %></td>
-  </tr>
-  <tr>
-    <td class="highlight" width="20%">Email</td>
-    <td><%= @user.email %></td>
     <td class="highlight">Unpaid Hours</td>
     <td><%= @user.unpaid_hours %></td>
   </tr>
   <tr>
-    <td class="highlight" width="20%">Phone</td>
-    <td><%= @user.phone %></td>
+    <td class="highlight" width="20%">Total Hours</td>
+    <td><%= @user.total_hours %></td>
     <td class="highlight">Unpaid Amount</td>
     <td><%= @user.unpaid_dollar_amount %></td>
   </tr>
 </table>
+</br>

@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   def show
     @company = Company.find(params[:id])
   end
@@ -12,6 +14,14 @@ class CompaniesController < ApplicationController
   end
 
   def create
+    @company = current_user.company.build(params[:company])
+    if @company.save
+      flash[:success] = "Company Created"
+      redirect_to user_path(current_user)
+    else
+      flash[:error] = "Creation Failed"
+      render 'new'
+    end
   end
 
   def update
