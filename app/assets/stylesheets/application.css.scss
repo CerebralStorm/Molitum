@@ -17,7 +17,6 @@
   margin: 0 auto;
   padding-top: 20px;
   float: none; 
-  overflow: auto;
   min-height: 100% !important;
   height: 100% !important;
   h1 {
@@ -26,10 +25,8 @@
 }
 
 .alert {
-  position: fixed;
-  width: 400px;
-  left: 620px;
-  top: 60px;
+  position: relative;
+  width: auto;
 }
 
 #main_bar {
@@ -46,6 +43,7 @@ html{ height: 100%; }
 
 //footer
 footer {
+  margin-top:20px;
   border-top: 1px solid #999;
   color: #999;
 }
