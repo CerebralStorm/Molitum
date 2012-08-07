@@ -2,26 +2,29 @@
   <ul class="nav nav-list">
     <% if user_signed_in? %>
       <li class="nav-header">Application</li>
-      <% if @title == 'My Company' %><li class="active"><% else %><li><% end %>
-      <%= link_to(company_path(current_user)) do %><span><i class="icon-star"></i>My Company</span><% end %></li>
-      <% if @title == 'My Account' %><li class="active"><% else %><li><% end %>
+      <% unless current_user.company.nil? %>
+        <% if yield(:title) == '#{current_user.company.name}' %><li class="active"><% else %><li><% end %>
+        <%= link_to(company_path(current_user)) do %><span><i class="icon-star"></i>My Company</span><% end %></li>
+      <% end %>
+      <% if yield(:title) == "Account For #{current_user.name}" %><li class="active"><% else %><li><% end %>
       <%= link_to(current_user) do %><span><i class="icon-star"></i>My Account</span><% end %></li>
-      <% if @title == 'Employees' %><li class="active"><% else %><li><% end %>
+      <% if yield(:title) == 'Employees' %><li class="active"><% else %><li><% end %>
       <%= link_to(users_path) do %><span><i class="icon-user"></i>Employees</span><% end %></li>
-      <% if @title == 'Customers' %><li class="active"><% else %><li><% end %>
+      <% if yield(:title) == 'Customers' %><li class="active"><% else %><li><% end %>
       <%= link_to(customers_path) do %><span><i class="icon-user"></i>Customers</span><% end %></li>
-      <% if @title == 'Jobs' %><li class="active"><% else %><li><% end %>
+      <% if yield(:title) == 'Jobs' %><li class="active"><% else %><li><% end %>
       <%= link_to(jobs_path) do %><span><i class="icon-briefcase"></i>Jobs</span><% end %></li>
-      <% if @title == 'Bids' %><li class="active"><% else %><li><% end %>
+      <% if yield(:title) == 'Bids' %><li class="active"><% else %><li><% end %>
       <%= link_to(bids_path) do %><span><i class="icon-folder-open"></i>Bids</span><% end %></li>
-      <% if @title == 'Invoices' %><li class="active"><% else %><li><% end %>
+      <% if yield(:title) == 'Invoices' %><li class="active"><% else %><li><% end %>
       <%= link_to(invoices_path) do %><span><i class="icon-folder-open"></i>Invoices</span><% end %></li>
     <% end %>
     <li class="nav-header">Site Links</li>
-    <% if @title == 'Home' %><li class="active"><% else %><li><% end %><a href="/"><i class="icon-home"></i>Home</a></li>
-    <% if @title == 'Contact' %><li class="active"><% else %><li><% end %><a href="/contact"><i class="icon-envelope"></i>Contact</a></li>
-    <% if @title == 'Help' %><li class="active"><% else %><li><% end %><a href="/help"><i class="icon-question-sign"></i>Help</a></li>
-    <% if @title == 'About' %><li class="active"><% else %><li><% end %><a href="/about"><i class="icon-info-sign"></i>About Us</a></li>
+    <% if yield(:title) == 'Home' %><li class="active"><% else %><li><% end %><a href="/"><i class="icon-home"></i>Home</a></li>
+    <% if yield(:title) == 'Contact' %><li class="active"><% else %><li><% end %>
+                                        <a href="/contact"><i class="icon-envelope"></i>Contact</a></li>
+    <% if yield(:title) == 'Help' %><li class="active"><% else %><li><% end %><a href="/help"><i class="icon-question-sign"></i>Help</a></li>
+    <% if yield(:title) == 'About' %><li class="active"><% else %><li><% end %><a href="/about"><i class="icon-info-sign"></i>About Us</a></li>
   </ul>
 </div>
 

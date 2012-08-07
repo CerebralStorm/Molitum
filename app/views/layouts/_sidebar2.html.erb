@@ -1,9 +1,8 @@
-
 <% if user_signed_in? %>
   <div id="quick_links" class="span2 round border shadow">
-    <%= render 'users/quicklinksmodal' %>
+    <%= render 'quick_links/quicklinksmodal' %>
     <h6>Account Links</h6>
-    <%= render 'users/timeclockmodal' %>
+    <%= render 'time_clocks/timeclockmodal' %>
     <% if current_user.admin? && current_user.company.nil? %>
       <%= render 'companies/companymodal' %>
     <% end %>

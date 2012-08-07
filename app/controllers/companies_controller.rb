@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   before_filter :authenticate_user!
-  load_and_authorize_resource
+
   def show
     @company = Company.find(params[:id])
   end
@@ -11,6 +11,7 @@ class CompaniesController < ApplicationController
 
   def edit
     @company = Company.find(params[:id])
+    @title = 'My Company'
   end
 
   def create
