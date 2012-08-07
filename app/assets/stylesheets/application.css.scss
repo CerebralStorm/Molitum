@@ -29,13 +29,38 @@
   width: auto;
 }
 
+#logo {
+  width: 360px;
+}
+
+#sublogo {
+  padding-top:10px;
+}
+
 #main_bar {
   margin:0 auto;
   float:none; 
 }
 
+#main_navbar {
+  margin-top: 65px; 
+}
+
 body { 
   padding-top: 5px;
+}
+
+#header-signin-outer {
+  margin-top: 20px;
+  height: 40px;
+  width: 500px;
+  position: relative;
+  float: right;
+}
+
+#header-signin-inner {
+  padding-left: 13px;
+  height: 30px;
 }
 
 

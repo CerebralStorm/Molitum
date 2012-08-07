@@ -8,17 +8,9 @@
     <% end %>
   </div>
 <% else %>
-<div class="span2 round border center-text shadow">
-  <h6>Sign In</h6>
-  <%= simple_form_for("user", :url => user_session_path) do |f| %>
-    <div id="login_sidebar" class="inputs">
-      <%= f.input :email, required: false, :input_html => { :class => 'input-small' }  %>
-      <%= f.input :password, required: false, :input_html => { :class => 'input-small' }  %>
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me, required: false %>
-      <%= f.submit 'Sign in' %>
-    </div>
-    <%= link_to "Forgot your password?", new_password_path('user') %>
-    <% end %>
+<div id="quick_links" class="span2 round border shadow">
+  <h6>Why Us?</h6>
+  <p>We have found that most people don't need a full blown software suite to manage their business. Therefore most of the extra features just end up being wasted. The advantage of an online application is that it is everything you need, and nothing you don't. Simple forms keeps your paperwork simple. In addition, since they are online, you can access them from anywhere you need to.</p>
+  <%= link_to "Sign up Now!", new_user_registration_path, class: "btn btn-primary btn-large" %>
 </div>
 <% end %>
