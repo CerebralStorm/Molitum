@@ -34,7 +34,31 @@
     <tr>
       <td colspan="4">
         <div class="center-image highlight round">
-            <%= image_tag "framing1.png", class: "round" %>
+          <!--  Carousel -->
+          <div id="this-carousel-id" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="item active">
+                <%= image_tag "carousel1.png", class: "round" %>
+                <div class="carousel-caption">
+                  <p>A Strong Foundation For Your Business</p>
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag "carousel2.png", class: "round" %>
+                <div class="carousel-caption">
+                  <p>That Keeps Everything From Cracking</p>
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag "carousel3.png", class: "round" %>
+                <div class="carousel-caption">
+                  <p>So You Can Focus On What You Do Best</p>
+                </div>
+              </div>
+            </div>
+              <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
+              <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
+          </div><!--/.carousel -->
         </div>
       </td>
     </tr>
@@ -69,6 +93,12 @@
     </tr>
   </table>
 </div>
+
+<script>
+  $(document).ready(function(){
+    $('.carousel').carousel();
+  });
+</script>
 
         
 
