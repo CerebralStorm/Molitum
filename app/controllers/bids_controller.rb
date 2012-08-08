@@ -1,6 +1,5 @@
 class BidsController < ApplicationController
-	include BidsHelper
-
+	before_filter :authenticate_user!
 	def index
 		@title = 'Bids'
 		@bids = Bid.order("created_at").page(params[:page]).per_page(10)

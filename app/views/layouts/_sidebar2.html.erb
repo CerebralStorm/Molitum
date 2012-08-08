@@ -4,7 +4,7 @@
     <li><%= render 'quick_links/quicklinksmodal' %></li>
     <li class="nav-header">Account Links</li>
     <%= render 'time_clocks/timeclockmodal' %>
-    <% if current_user.admin? && current_user.company.nil? %>
+    <% if current_user.company.nil? %>
       <li><a href="/companies/new" ><i class="icon-map-marker"></i>Add Company</a></li>
     <% end %>
   </ul>

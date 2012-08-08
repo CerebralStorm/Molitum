@@ -1,6 +1,5 @@
 class InvoicesController < ApplicationController
-  include InvoicesHelper
-
+  before_filter :authenticate_user!
   def index
     @title = 'Invoices'
     @invoices = Invoice.order("created_at").page(params[:page]).per_page(10)

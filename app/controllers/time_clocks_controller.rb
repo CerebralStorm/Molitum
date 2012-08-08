@@ -1,4 +1,5 @@
 class TimeClocksController < ApplicationController	
+	before_filter :authenticate_user!
 	def create
 		@time_clock = current_user.time_clocks.build(params[:time_clock])
 		@job = @time_clock.job

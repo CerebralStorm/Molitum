@@ -1,6 +1,5 @@
 class JobExpensesController < ApplicationController
-	include JobsHelper
-
+	before_filter :authenticate_user!
 	def create
 		@job = Job.find(current_job)
 		@company = @job.company

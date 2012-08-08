@@ -1,6 +1,5 @@
 class JobsController < ApplicationController
-	include JobsHelper
-
+	before_filter :authenticate_user!
 	def index
 		@title = 'Jobs'
 		@jobs = Job.order("created_at").page(params[:page]).per_page(10)

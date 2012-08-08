@@ -1,6 +1,5 @@
 class InvoiceItemsController < ApplicationController
-  include InvoicesHelper
-
+  before_filter :authenticate_user!
   def create
     @invoice = Invoice.find(current_invoice)
     @invoice_item = @invoice.invoice_items.build(params[:invoice_item])

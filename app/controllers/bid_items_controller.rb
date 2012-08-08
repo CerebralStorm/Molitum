@@ -1,6 +1,5 @@
 class BidItemsController < ApplicationController
-	include BidsHelper
-
+	before_filter :authenticate_user!
 	def create
 		@bid = Bid.find(current_bid)
 		@bid_item = @bid.bid_items.build(params[:bid_item])

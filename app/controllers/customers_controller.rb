@@ -1,6 +1,5 @@
 class CustomersController < ApplicationController
-	include CustomersHelper
-
+	before_filter :authenticate_user!
 	def index
 		@title = 'Customers'
 		@customers = Customer.order("name").page(params[:page]).per_page(10)
