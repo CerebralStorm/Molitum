@@ -1,6 +1,5 @@
 <div class="span2 round border shadow">
   <ul class="nav nav-list">
-  <% if user_signed_in? %>
     <li class="nav-header">Quick Links</li>
     <li><%= render 'quick_links/quicklinksmodal' %></li>
     <li class="nav-header">Account Links</li>
@@ -8,11 +7,6 @@
     <% if current_user.admin? && current_user.company.nil? %>
       <%= render 'companies/companymodal' %>
     <% end %>
-  <% else %>
-      <li class="nav-header">Why Us?</li>
-        <p>Most people don't need a full blown software suite to manage their business. It is with that in mind that we provide the <strong>meat and potatos</strong> of what general contractors really need. We will <strong>simplify</strong> your business, so you can spend more time doing what's important.</p>
-      <%= render 'users/usermodal' %>
-  <% end %>
   </ul>
 </br>
 </div>

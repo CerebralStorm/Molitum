@@ -12,11 +12,13 @@
       <%= render 'layouts/header' %>
       <div class="row-fluid">
         <%= render 'layouts/sidebar1' %>
-        <div class="span8">
+        <div class=<%= user_signed_in? ? "span8" : "span10" %> >
           <%= render 'layouts/alert' %>
           <%= yield %>
         </div>
-        <%= render 'layouts/sidebar2' %>
+        <% if user_signed_in? %>
+          <%= render 'layouts/sidebar2' %>
+        <% end %>
       </div>
     </div> 
   <div class="navbar navbar-bottom center span10">

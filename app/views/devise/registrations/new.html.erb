@@ -1,29 +1,31 @@
 <% provide(:title, 'Sign Up') %>
-<div class="span10 border round center">
-  <div class="highlight round"> <h2 class="center-text">Sign Up</h2></div>
-</br>
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), 
-                    :html => { :class => 'form-horizontal' }) do |f| %>
-  <%= f.error_notification %>
-  <div class="control-group">
-      <%= f.input :name, autofocus: true, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-xlarge' } %>
-  </div>
-  <div class="control-group">
-      <%= f.input :email, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-xlarge' } %>
-  </div>
-  <div class="control-group">
-      <%= f.input :admin, label: "Owner?", :as => :radio_buttons, :html => { :class => 'inline' } %>
-  </div>
-  <div class="control-group">
-      <%= f.input :password, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-xlarge' } %>
-  </div>
-  <div class="control-group">
-      <%= f.input :password_confirmation, label: "Confirmation", :label_html => { :class => 'control-label' }, 
-                  :input_html => { :class => 'input-xlarge' } %>
-  </div>
-  <div class="form-actions">
-    <button type="submit" class="btn btn-primary">Create Account</button>
-    <button class="btn">Cancel</button>
-  </div>
-<% end %>
-</div>
+<form class="contact_form" action="#" method="post" name="contact_form">
+    <ul>
+        <li>
+             <h2>Create Account</h2>
+             <span class="required_notification">* Denotes Required Field</span>
+        </li>
+        <li>
+            <label for="name">Name:</label>
+            <input type="text"  placeholder="John Doe" required />
+        </li>
+        <li>
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="john_doe@example.com" required />
+            <span class="form_hint">Proper format "name@something.com"</span>
+        </li>
+        <li>
+            <label for="website">Website:</label>
+            <input type="url" name="website" placeholder="http://johndoe.com" required pattern="(http|https)://.+"/>
+            <span class="form_hint">Proper format "http://someaddress.com"</span>
+        </li>
+        <li>
+            <label for="message">Message:</label>
+            <textarea name="message" cols="40" rows="6" required ></textarea>
+        </li>
+        <li>
+          <button class="submit" type="submit">Submit Form</button>
+        </li>
+    </ul>
+</form>
+

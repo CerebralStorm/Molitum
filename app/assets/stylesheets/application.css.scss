@@ -24,15 +24,6 @@
   }
 }
 
-#sign_up_button{
-  height: 40px;  
-}
-
-.alert {
-  position: relative;
-  width: auto;
-}
-
 #logo {
   width: 360px;
 }
@@ -57,13 +48,11 @@ body {
 #header-signin-outer {
   margin-top: 20px;
   height: 40px;
-  width: 500px;
   position: relative;
   float: right;
 }
 
 #header-signin-inner {
-  padding-left: 13px;
   height: 30px;
 }
 
@@ -124,4 +113,3 @@ footer ul li {
   float: left;
   margin-left: 10px;
 }
-
