@@ -1,36 +1,49 @@
-<table class="table table-bordered table-condensed">
-  <th class="highlight">Company Information</th>
-  <tr>
-    <td>
-      <div class="modal hide fade" id="add_company">
-        <%= simple_form_for(Company.new, :html => { :class => 'form-horizontal' }) do |f| %>
-          <div class="modal-header">
-            <a href="#" class="close" data-dismiss="modal">&times;</a>
-            <h3>Enter Your Company Information</h3>
-          </div>
-          <div class="modal-body">
-            <div class="highlight round"> <h2 class="center-text">Create Company</h2></div>
-            <%= f.error_notification %>
-            <div class="control-group">
-              <%= f.input :name, autofocus: true, :label_html => { :class => 'control-label' }, 
-                          :input_html => { :class => 'input-large' } %>
-              <%= f.input :email, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
-              <%= f.input :address, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
-              <%= f.input :city, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large'} %>
-              <%= f.input :state, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large'} %>
-              <%= f.input :zip, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large'} %>
-              <%= f.input :phone, :label_html => { :class => 'control-label' }, :input_html => { :class => 'input-large' } %>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <a href="#" class="btn btn-primary" onclick="closeDialog ();">OK</a>
-            <button type="submit" class="btn btn-primary">Create Company</button>
-          </div>
-        </div>
-       <% end %>
-      <div class="divButton">
-        <a data-toggle="modal" href="#add_company" class="btn btn-primary">Add a Company</a>
-      </div>
-    </td>
-  </tr>
-</table>
+<div class="modal hide fade" id="add_company">
+    <div class="modal-header">
+      <a href="#" class="close" data-dismiss="modal">&times;</a>
+      <h3>Enter Your Company Information</h3>
+    </div>
+    <div id="company_modal" class="modal-body">
+      <form accept-charset="UTF-8" action="/companies" class="contact_form new_company" id="new_company" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="L091X9g7AsjtXVC7hUXkn53kU+3hwHGFatEHFy6bqgs=" /></div>
+        <ul>
+          <li>
+             <h2>Enter Your Company Information</h2>
+             <span class="required_notification">* Denotes Required Field</span>
+          </li>
+          <li>
+            <label for="name">Company Name:</label>
+            <input class="string required" name="company[name]" placeholder="Your Companies Name" type="text" required/>
+            <span class="form_hint">Ex: JOHN DOE LTD.</span>
+          </li>
+          <li>
+            <label for="email">Address:</label>
+            <input class="string" name="company[address]" placeholder="1234 Washington Ln." type="text"/>
+          </li>
+          <li>
+            <label for="email">City:</label>
+            <input class="string" name="company[city]" placeholder="Los Angeles" type="text"/>
+            <span class="form_hint">You could use an abbreviation such as L.A.</span>
+          </li>
+          <li>
+            <label for="email">State:</label>
+            <input class="string" name="company[state]" placeholder="California" type="text"/>
+            <span class="form_hint">You could use an abbreviation such as CA</span>
+          </li>
+          <li>
+            <label for="email">Zip Code:</label>
+            <input class="string" name="company[zip]" placeholder="90001" type="text"/>
+            <span class="form_hint">Ex: 90001</span>
+          </li>
+          <li>
+            <label for="password">Phone Number:</label>
+            <input class="string required" name="company[phone]" type="text"/>
+            <span class="form_hint">Ex: (818)882-5795</span>
+          </li>
+          <li>
+            <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create Company">Submit</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+<li><a data-toggle="modal" href="#add_company" ><i class="icon-map-marker"></i>Add Company</a></li>

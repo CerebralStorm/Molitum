@@ -1,34 +1,10 @@
-<table id="users_form" class="shadow">
-  <th class="header"><%= @head %> Customer</th>
-  <%= simple_form_for(@customer) do |f| %>
-  <tr>
-    <td>
-      <table class="table-bordered table-condensed">
-        <tr>
-          <td><%= f.input :name, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :email, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :address, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :city, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :state, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :zip, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :phone, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.button :submit, class: "submit btn btn-large btn-primary"%></td>
-        </tr>
-      </td>
-    </tr>
-    <% end %>
-</table>
+<%= simple_form_for(@customer) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email, :required => false %>
+  <%= f.input :address, :required => false %>
+  <%= f.input :city, :required => false %>
+  <%= f.input :state, :required => false %>
+  <%= f.input :zip, :required => false %>
+  <%= f.input :phone, :required => false %>
+  <%= f.button :submit, class: "submit btn btn-large btn-primary"%>
+<% end %>

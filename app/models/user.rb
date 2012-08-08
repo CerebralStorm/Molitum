@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :pay_rate, :address,
                   :total_hours, :unpaid_hours, :customer_id, :city, :state, :zip, :phone, :admin
 
-  belongs_to :company
-
   VALID_PHONE_REGEX = /\d{3}[-]\d{3}[-]\d{4}/i
   VALID_ZIP_REGEX = /\d{5}/i
   VALID_ADDRESS_REGEX = /\d{1,5}\s[nsewNSEW]\s\d{1,5}\s[nsewNSEW]|\d{1,4}\s[a-zA-Z]+\s[a-zA-Z]+[.]?/i
@@ -26,7 +24,7 @@ class User < ActiveRecord::Base
   has_many :customers
   has_many :time_clocks, dependent: :destroy
   has_many :quick_links, dependent: :destroy
-  has_many :companies
+  has_one :company
 
   before_save :set_blank_attributes
 

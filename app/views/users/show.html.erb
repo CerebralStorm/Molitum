@@ -1,7 +1,13 @@
 <% provide(:title, "Account For #{@user.name}") %>
+<% if @user.company.nil? %>
+  <h3><%= image_tag "invalid.png" %>You don't currently have a company registered 
+    <%= link_to "Click Here", new_company_path %> to add one</h3>
+<% end %>
 <%= render 'users/accountinfo' %>
 <%= render 'users/personalinfo' %>
 <%= render 'users/showtimeclocks' %>
+
+
 
 
 
