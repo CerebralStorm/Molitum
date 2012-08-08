@@ -16,6 +16,13 @@
       <span class="form_hint">Proper format "name@something.com"</span>
     </li>
     <li>
+      <div id="radio_buttons">
+        <label for="admin">Owner?</label>
+        <span>Yes</span><input class="radio_buttons optional" name="user[admin]" type="radio" value="true" />
+        <span>No</span><input checked="checked" class="radio_buttons optional" name="user[admin]" type="radio" value="false" />
+      </div>
+    </li>
+    <li>
       <label for="password">Password:</label>
       <input class="password required" name="user[password]" type="password" required/>
     </li>
@@ -27,4 +34,4 @@
       <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
     </li>
   </ul>
-</form>
+</form> 
