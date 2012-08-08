@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :authenticate_user!
+	#before_filter :authenticate_user!
 	load_and_authorize_resource
 	require 'will_paginate/array'
 	
@@ -40,13 +40,14 @@ class UsersController < ApplicationController
 	end
 
 	def create	
+		raise params
     @user = User.new(params[:user])
     if @user.save
       flash[:success] = "Account Created"
       redirect_to new_users_path
     else
     	flash[:error] = "Account Failed"
-      render 'users/usermodal'
+    	'new'
     end
 	end
 

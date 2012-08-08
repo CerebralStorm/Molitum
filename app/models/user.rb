@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   VALID_ZIP_REGEX = /\d{5}/i
   VALID_ADDRESS_REGEX = /\d{1,5}\s[nsewNSEW]\s\d{1,5}\s[nsewNSEW]|\d{1,4}\s[a-zA-Z]+\s[a-zA-Z]+[.]?/i
 
-  #validates :name,  presence: true, length: { maximum: 50 }
+  validates :name,  presence: true, length: { maximum: 50 }
   #validates :city, presence: true
   #validates :state, presence: true
   #validates :address,  presence: true, format: { with: VALID_ADDRESS_REGEX }

@@ -2,8 +2,6 @@
 *:focus {outline: none;}
 
 /* === Form Typography === */
-body {font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;}
-.contact_form h2, .contact_form label {font-family:Georgia, Times, "Times New Roman", serif;}
 .form_hint, .required_notification {font-size: 11px;}
 
 /* === List Styles === */
@@ -145,37 +143,4 @@ button.submit:active {
   -ms-box-shadow: 0 0 10px 5px #356b0b inset;
   -o-box-shadow: 0 0 10px 5px #356b0b inset;
   
-}
-
-input:focus:required:invalid {
-  background: pink url(ico_validation.png) 379px 3px no-repeat;
-}
-input:required:valid {
-  background-color: #fff;
-  background-position: 379px -61px;
-}
-
-.validation01 {
-  background: red;
-  color: #fff;
-  display: none;
-  font-size: 12px;
-  padding: 3px;
-  position: absolute;
-  right: -110px;
-  text-align: center;
-  top: 0;
-  width: 100px;
-}
-input:focus + .validation01 {
-  display: block;
-}
-input:focus:required:valid + .validation01 {
-  background: green;
-}
-input:focus:required:valid + .validation01 .invalid {
-  display: none;
-}
-input:focus:required:invalid + .validation01 .valid {
-  display: none;
 }

@@ -1,31 +1,29 @@
 <% provide(:title, 'Sign Up') %>
-<form class="contact_form" action="#" method="post" name="contact_form">
-    <ul>
-        <li>
-             <h2>Create Account</h2>
-             <span class="required_notification">* Denotes Required Field</span>
-        </li>
-        <li>
-            <label for="name">Name:</label>
-            <input type="text"  placeholder="John Doe" required />
-        </li>
-        <li>
-            <label for="email">Email:</label>
-            <input type="email" name="email" placeholder="john_doe@example.com" required />
-            <span class="form_hint">Proper format "name@something.com"</span>
-        </li>
-        <li>
-            <label for="website">Website:</label>
-            <input type="url" name="website" placeholder="http://johndoe.com" required pattern="(http|https)://.+"/>
-            <span class="form_hint">Proper format "http://someaddress.com"</span>
-        </li>
-        <li>
-            <label for="message">Message:</label>
-            <textarea name="message" cols="40" rows="6" required ></textarea>
-        </li>
-        <li>
-          <button class="submit" type="submit">Submit Form</button>
-        </li>
-    </ul>
+<form accept-charset="UTF-8" action="/users" class="contact_form new_user" id="new_user" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="L091X9g7AsjtXVC7hUXkn53kU+3hwHGFatEHFy6bqgs=" /></div>
+  <ul>
+    <li>
+       <h2>Create Account</h2>
+       <span class="required_notification">* Denotes Required Field</span>
+    </li>
+    <li>
+      <label for="name">Name:</label>
+      <input class="string required" name="user[name]" placeholder="John Doe" type="text" required/>
+    </li>
+    <li>
+      <label for="email">Email:</label>
+      <input class="string email required" name="user[email]" placeholder="john@doe.com" type="email" required />
+      <span class="form_hint">Proper format "name@something.com"</span>
+    </li>
+    <li>
+      <label for="password">Password:</label>
+      <input class="password required" name="user[password]" type="password" required/>
+    </li>
+    <li>
+      <label for="confirmation">Confirmation:</label>
+      <input class="password required" name="user[password_confirmation]" type="password" required/>
+    </li>
+    <li>
+      <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
+    </li>
+  </ul>
 </form>
-
