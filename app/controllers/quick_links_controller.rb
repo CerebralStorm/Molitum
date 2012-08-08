@@ -1,5 +1,4 @@
 class QuickLinksController < ApplicationController
-  before_filter :authenticate_user!
   def create
     @quick_link = current_user.quick_links.build(params[:quick_link])
     if @quick_link.save

@@ -1,5 +1,4 @@
 class CustomersController < ApplicationController
-	before_filter :authenticate_user!
 	include CustomersHelper
 
 	def index

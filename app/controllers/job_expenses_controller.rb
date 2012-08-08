@@ -1,5 +1,4 @@
 class JobExpensesController < ApplicationController
-	before_filter :authenticate_user!
 	include JobsHelper
 
 	def create

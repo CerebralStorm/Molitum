@@ -1,12 +1,12 @@
 class Company < ActiveRecord::Base
-  attr_accessible :expense, :income, :name, :email, :address, :phone, :city, :state, :zip
+  attr_accessible :expense, :income, :name, :email, :address, :phone, :city, :state, :zip, :website
 
   belongs_to :user
-  has_many :users
+  #has_many :employees yet to be added
   has_many :customers
-  has_many :jobs
-  has_many :bids
-  has_many :invoices
+  has_many :jobs, through: :customers
+  has_many :bids, through: :customers
+  has_many :invoices, through: :customers
 
   validates_presence_of :name
 

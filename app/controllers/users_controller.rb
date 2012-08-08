@@ -1,59 +1,21 @@
 class UsersController < ApplicationController
-	before_filter :authenticate_user!
-	load_and_authorize_resource
-	require 'will_paginate/array'
-	
-	def index
-		@title = 'Employees'
-		@users = @users.order("name").page(params[:page]).per_page(10)
-	end
+  def index
+  end
 
-	def new
-	end
+  def show
+    @user = User.find(params[:id])
+    @time_clocks = @user.time_clocks
+  end
 
-	def show
-		@user = User.find(params[:id])
-		@company = @user.company
-		@time_clocks = @user.time_clocks.order("created_at").page(params[:page]).per_page(10)
-		if @user == current_user
-			@title = 'My Account'
-		else
-			@title = 'Employees'
-		end
-	end
+  def edit
+  end
 
-	def edit
-		@title = 'Employees'
-		@head = 'Edit'
-		@user = User.find(params[:id])
-	end
+  def update
+  end
 
-	def update
-		if @user.update_attributes(params[:user])
-			sign_in @user, :bypass => true
-			flash[:success] = "Employee Updated"
-			redirect_to user_path(@user)
-		else
-			flash[:error] = "Update Failed"
-			render 'edit'
-		end
-	end
+  def create
+  end
 
-	def create	
-		raise params
-    @user = User.new(params[:user])
-    if @user.save
-      flash[:success] = "Account Created"
-      redirect_to new_users_path
-    else
-    	flash[:error] = "Account Failed"
-    	'new'
-    end
-	end
-
-	def destroy
-		User.find(params[:id]).destroy
-		flash[:success] = "Employee Deleted"
-		redirect_to :back
-	end
+  def delete
+  end
 end

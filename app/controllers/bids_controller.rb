@@ -1,5 +1,4 @@
 class BidsController < ApplicationController
-	before_filter :authenticate_user!
 	include BidsHelper
 
 	def index

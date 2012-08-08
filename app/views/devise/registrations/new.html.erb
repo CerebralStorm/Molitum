@@ -1,37 +1,19 @@
-<% provide(:title, 'Sign Up') %>
-<form accept-charset="UTF-8" action="/users" class="contact_form new_user" id="new_user" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="L091X9g7AsjtXVC7hUXkn53kU+3hwHGFatEHFy6bqgs=" /></div>
-  <ul>
-    <li>
-       <h2>Create Account</h2>
-       <span class="required_notification">* Denotes Required Field</span>
-    </li>
-    <li>
-      <label for="name">Name:</label>
-      <input class="string required" name="user[name]" placeholder="John Doe" type="text" required/>
-      <span class="form_hint">Proper format "John Smith"</span>
-    </li>
-    <li>
-      <label for="email">Email:</label>
-      <input class="string email required" name="user[email]" placeholder="john@doe.com" type="email" required />
-      <span class="form_hint">Proper format "name@something.com"</span>
-    </li>
-    <li>
-      <div id="radio_buttons">
-        <label for="admin">Owner?</label>
-        <span>Yes</span><input class="radio_buttons optional" name="user[admin]" type="radio" value="true" />
-        <span>No</span><input checked="checked" class="radio_buttons optional" name="user[admin]" type="radio" value="false" />
-      </div>
-    </li>
-    <li>
-      <label for="password">Password:</label>
-      <input class="password required" name="user[password]" type="password" required/>
-    </li>
-    <li>
-      <label for="confirmation">Confirmation:</label>
-      <input class="password required" name="user[password_confirmation]" type="password" required/>
-    </li>
-    <li>
-      <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
-    </li>
-  </ul>
-</form> 
+<h2>Sign up</h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, :required => true, :autofocus => true %>
+    <%= f.input :username, :required => true %>
+    <%= f.input :email, :required => true %>
+    <%= f.input :password, :required => true %>
+    <%= f.input :password_confirmation, :required => true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
