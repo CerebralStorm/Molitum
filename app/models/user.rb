@@ -8,11 +8,11 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :username, 
                   :pay_rate, :admin, :unpaid_hours, :paid_hours, :total_hours, :city, :state, :employee,
-                  :zip, :phone, :address
+                  :zip, :phone, :address, :company_id, :role
 
   validates :name,  presence: true, length: { maximum: 50 }
-  
-  has_one :company
+  validates :company_id,  presence: true
+  belongs_to :company
   
   has_many :time_clocks, dependent: :destroy
   has_many :quick_links, dependent: :destroy
@@ -46,10 +46,10 @@ class User < ActiveRecord::Base
   end
 
   def employee?
-    is_employee
+    role == "Employee"
   end
 
-  def track_hours?
-    track_hours
+  def employer?
+    role == "Employer"
   end
 end

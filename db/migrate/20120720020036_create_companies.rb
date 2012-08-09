@@ -11,7 +11,6 @@ class CreateCompanies < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :zip
-      t.integer :user_id
 
       t.timestamps
     end

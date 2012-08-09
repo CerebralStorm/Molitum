@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:create]
   def index
     @companies = Company.all
   end
@@ -18,13 +18,13 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = current_user.build_company(params[:company])
+    @company = Company.create(params[:company])
     if @company.save
       flash[:success] = "Company Created"
-      redirect_to user_path(current_user)
+      redirect_to :back
     else
       flash[:error] = "Creation Failed"
-      redirect_to user_path(current_user)
+      redirect_to :back
     end
   end
 

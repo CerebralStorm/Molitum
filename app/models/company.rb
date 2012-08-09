@@ -1,8 +1,7 @@
 class Company < ActiveRecord::Base
   attr_accessible :expense, :income, :name, :email, :address, :phone, :city, :state, :zip, :website
 
-  belongs_to :user
-  #has_many :employees yet to be added
+  has_many :users
   has_many :customers
   has_many :jobs, through: :customers
   has_many :bids, through: :customers

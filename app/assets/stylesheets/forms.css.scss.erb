@@ -74,3 +74,21 @@
 .simple_form input:required:valid + .help-block {background: #28921f;}
 .simple_form input:required:valid + .help-block::before {color:#28921f;}
 
+  /* form element visual styles */
+  .simple_form:button input { 
+    border:15px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+    padding-right:30px;
+    -moz-transition: padding .25s; 
+    -webkit-transition: padding .25s; 
+    -o-transition: padding .25s;
+    transition: padding .25s;
+  }
+  .simple_form input:focus, .simple_form textarea:focus {
+    background: #fff; 
+    border:1px solid #555; 
+    box-shadow: 0 0 3px #aaa; 
+    padding-right:70px;
+  }
+

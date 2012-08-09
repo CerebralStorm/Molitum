@@ -34,7 +34,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string :authentication_token
 
       ## User attributes
-      t.boolean :track_hours, default: false
       t.string :name 
       t.string :username, unique: true 
       t.float :unpaid_hours, default: 0
@@ -42,7 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.float :pay_rate,  default: 0
       t.float :total_hours, default: 0
       t.integer :company_id
-      t.boolean :is_employee
+      t.string :role
       t.string :city, default: ""
       t.string :state, default: ""
       t.string :zip, default: ""
