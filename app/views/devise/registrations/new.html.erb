@@ -13,9 +13,9 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :company_id, required: false, collection: Company.all, input_html: { required: "required"} %>
-      <%= f.input :role, label: "Account Type", collection: ["Owner", "Employee"], input_html: { required: "required"} %>
-      <%= f.input :name, autofocus: true, hint: "First and Last", required: false,  input_html: { required: "required"}  %>
+      <%= f.input :company_id, autofocus: true, required: false, collection: Company.all, input_html: { required: "required"}, include_blank: false %>
+      <%= f.input :role, label: "Account Type", collection: ["Owner", "Employee"], include_blank: false, input_html: { required: "required"} %>
+      <%= f.input :name, hint: "First and Last", required: false,  input_html: { required: "required"}  %>
       <%= f.input :username, hint: "Not Case Sensitive", input_html: { required: "required"} %>
       <%= f.input :email, hint: "Format: yourname@email.com", input_html: { required: "required"} %>
       <%= f.input :password, input_html: { required: "required"} %>
@@ -26,7 +26,10 @@
       <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
     </div>
   <% end %>
-</div>
+
+<meta http-equiv=”Content-Type” content=”text/html; charset=iso-8859-1″>
+
+
 
 <div class="span4 border round highlight ">
   <h2>Step 1</h2>
@@ -38,3 +41,4 @@
 </div>
 
 </div>
+

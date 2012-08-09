@@ -19,26 +19,44 @@
 .simple_form textarea {padding:8px; width:300px;}
 .simple_form button {margin-left:67px;}
 
-  /* form element visual styles */
-  .simple_form input, .simple_form textarea { 
-    border:1px solid #aaa;
-    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
-    border-radius:2px;
-    padding-right:30px;
-    -moz-transition: padding .25s; 
-    -webkit-transition: padding .25s; 
-    -o-transition: padding .25s;
-    transition: padding .25s;
-  }
-  .simple_form input:focus, .simple_form textarea:focus {
-    background: #fff; 
-    border:1px solid #555; 
-    box-shadow: 0 0 3px #aaa; 
-    padding-right:70px;
-  }
+/* form element visual styles */
+.simple_form input, .simple_form textarea .simple_form select { 
+  border:1px solid #aaa;
+  box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+  border-radius:2px;
+  padding-right:30px;
+  -moz-transition: padding .25s; 
+  -webkit-transition: padding .25s; 
+  -o-transition: padding .25s;
+  transition: padding .25s;
+}
+
+.simple_form input:focus, .simple_form textarea:focus {
+  background: #fff; 
+  border:1px solid #555; 
+  box-shadow: 0 0 3px #aaa; 
+  padding-right:70px;
+}
+
+.simple_form select {
+   overflow:hidden; width:350px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 11px #d45252;
+}
+
+select { 
+  font-size:20px; 
+  font-weight:bold; 
+  padding:2px 10px; 
+  width:300px;
+  *width:300px;
+  -webkit-appearance: none;  
+}
 
 /* === HTML5 validation styles === */ 
-.simple_form input:required, .simple_form textarea:required {
+.simple_form input:required, .simple_form textarea:required, .simple_form select:required {
   background: #fff url('<%= asset_path 'red_asterisk.png' %>') no-repeat 98% center;
 }
 .simple_form input:required:valid, .simple_form textarea:required:valid {
@@ -50,6 +68,18 @@
   background: #fff url('<%= asset_path 'invalid.png' %>') no-repeat 98% center;
   box-shadow: 0 0 5px #d45252;
   border-color: #b03535
+}
+
+.simple_form select:required:valid {
+  color: #000;
+  background: #fff url('<%= asset_path 'valid.png' %>') no-repeat 80% center;
+  box-shadow: 0 0 5px #5cd053;
+  border-color: #28921f;
+}
+.simple_form select:focus:invalid {
+  background: url('<%= asset_path 'invalid.png' %>') no-repeat 80% center;
+  box-shadow: 0 0 5px #d45252;
+  *background: #fff;
 }
 
 /* === Form hints === */
@@ -74,21 +104,6 @@
 .simple_form input:required:valid + .help-block {background: #28921f;}
 .simple_form input:required:valid + .help-block::before {color:#28921f;}
 
-  /* form element visual styles */
-  .simple_form:button input { 
-    border:15px solid #aaa;
-    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
-    border-radius:2px;
-    padding-right:30px;
-    -moz-transition: padding .25s; 
-    -webkit-transition: padding .25s; 
-    -o-transition: padding .25s;
-    transition: padding .25s;
-  }
-  .simple_form input:focus, .simple_form textarea:focus {
-    background: #fff; 
-    border:1px solid #555; 
-    box-shadow: 0 0 3px #aaa; 
-    padding-right:70px;
-  }
+
+
 
