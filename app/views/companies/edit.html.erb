@@ -1,0 +1,32 @@
+<div class="row-fluid">
+
+  <div class="span8 form-highlight round padding2">
+    <h2>Company Settings for <%= @company.name %></h2>
+    <div class="line"></div>
+    <span class="required_notification">* Denotes Required Field</span>
+    <%= simple_form_for(@company) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :name, :autofocus => true, required: false, input_html: { required: "required"}  %>
+        <%= f.input :website %>
+        <%= f.input :address %>
+        <%= f.input :city %>
+        <%= f.input :state %>
+        <%= f.input :zip %>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="span4 border round highlight ">
+    <h2>Company Settings</h2>
+    </br>
+    <h3> Note:</h3>
+    <p>It is a good idea to double check that the information you enter is correct. Typo's may lead to lost business.</p>
+  </div>
+
+</div>

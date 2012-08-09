@@ -30,6 +30,13 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
+    if @company.save
+      flash[:success] = "Company Updated"
+      redirect_to company_path(current_user.company)
+    else
+      flash[:error] = "Update Failed"
+      redirect_to :back
+    end
   end
 
   def destroy

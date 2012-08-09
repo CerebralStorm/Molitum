@@ -1,33 +1,34 @@
 <div class="row-fluid">
-  <%= simple_form_for (@user), :url => registration_path(@user), :html => { :method => :put } do |f| %>
-    <%= f.error_notification %>
 
-  <div class="span5 border form-highlight round padding2">
-    <h2>Account Settings for <%= @user.name %></h2>
+  <div class="span8 form-highlight round padding2">
+    <h2>Welcome <%= @user.name %></h2>
+    <h4>Take a minute to tell us about yourself</h4>
     <div class="line"></div>
     <span class="required_notification">* Denotes Required Field</span>
-    <div class="form-inputs">
-      <%= f.input :username, hint: "Not Case Sensitive", input_html: { required: "required"} %>
-      <%= f.input :name, hint: "First and Last", required: false,  input_html: { required: "required"}  %>
-      <%= f.input :email, :required => true, input_html: { required: "required"}  %>
-      <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
-      <%= f.input :password_confirmation, :required => false %>
-      <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
-    </div>
+    <%= simple_form_for (@user), :html => {:method => :put } do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :address %>
+        <%= f.input :city %>
+        <%= f.input :state %>
+        <%= f.input :pay_rate, label: "Hourly Wage", hint: "How much do you get paid per hour?" %>
+        <%= f.input :phone, label: "Phone Number", hint: "Recommended Format: (888)444-555" %>
+        <%= f.input :employee, label: "Do you want to be able to log your hours?", as: :radio %></br>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
+      </div>
+    <% end %>
   </div>
 
-  <div class="span5 border form-highlight round padding2 ">
-    <div class="form-inputs">
-      <%= f.input :address %>
-      <%= f.input :city %>
-      <%= f.input :state %>
-      <%= f.input :pay_rate, label: "Hourly Wage", hint: "How much do you get paid per hour?" %>
-      <%= f.input :phone, label: "Phone Number", hint: "Recommended Format: (888)444-555" %>
-      <%= f.input :employee, label: "Do you want to be able to log your hours?", as: :radio %></br>
-    </div>
+  <div class="span4 border round highlight ">
+    <h2>Step 2 (Optional)</h2>
+    <h6>Just about done</h6>
+    </br>
+    <h3> Step 2: Optional Information</h3>
+    <p>If you want to skip this step for now you can alwasy add this later. However this information is required for you to generate invoices and estimates and those save you time!</p>
   </div>
-    <div class="form-actions">
-      <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
-    </div>
-  <% end %>
+
 </div>
