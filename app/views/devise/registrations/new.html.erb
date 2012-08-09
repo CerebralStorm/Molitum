@@ -11,25 +11,16 @@
 
   <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
-
-    <div class="form-inputs">
-      <%= f.input :company_id, autofocus: true, required: false, collection: Company.all, input_html: { required: "required"}, include_blank: false %>
-      <%= f.input :role, label: "Account Type", collection: ["Owner", "Employee"], include_blank: false, input_html: { required: "required"} %>
-      <%= f.input :name, hint: "First and Last", required: false,  input_html: { required: "required"}  %>
-      <%= f.input :username, hint: "Not Case Sensitive", input_html: { required: "required"} %>
-      <%= f.input :email, hint: "Format: yourname@email.com", input_html: { required: "required"} %>
-      <%= f.input :password, input_html: { required: "required"} %>
-      <%= f.input :password_confirmation, input_html: { required: "required"} %>
-    </div>
-
-    <div class="form-actions">
-      <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
-    </div>
+    <%= f.input :company_id, autofocus: true, required: false, collection: Company.all, input_html: { required: "required"}, include_blank: false %>
+    <%= f.input :role, label: "Account Type", collection: ["Owner", "Employee"], include_blank: false, input_html: { required: "required"} %>
+    <%= f.input :name, hint: "First and Last", required: false,  input_html: { required: "required"}  %>
+    <%= f.input :username, hint: "Not Case Sensitive", input_html: { required: "required"} %>
+    <%= f.input :email, hint: "Format: yourname@email.com", input_html: { required: "required"} %>
+    <%= f.input :password, input_html: { required: "required"} %>
+    <%= f.input :password_confirmation, input_html: { required: "required"} %>
+    <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
   <% end %>
-
-<meta http-equiv=”Content-Type” content=”text/html; charset=iso-8859-1″>
-
-
+</div>
 
 <div class="span4 border round highlight ">
   <h2>Step 1</h2>
@@ -37,7 +28,6 @@
   </br>
   <h3> Step 1: Required Information</h3>
   <p>The information you are entering here is required for you to manage your account. You will login using your <strong>Username</strong> and your <strong>password</strong>.</p>
-
 </div>
 
 </div>
