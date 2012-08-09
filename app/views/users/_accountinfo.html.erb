@@ -4,8 +4,8 @@
     <tr>
       <td width="20%">Name</td>
       <td><%= @user.name %></td>
-      <td width="20%">Email</td>
-      <td><%= @user.email %></td>
+       <td width="20%">Account Type</td>
+      <td><%= @user.role %></td>
     </tr>
     <tr>
       <td width="20%">Phone</td>
@@ -16,6 +16,10 @@
       <%= @user.city unless @user.city.nil? %>
       <%= @user.state unless @user.state.nil? %>
       <%= @user.zip unless @user.zip.nil? %></address></td>
+    </tr>
+    <tr>
+      <td width="20%">Email</td>
+      <td><%= @user.email %></td>
     </tr>
   </table>
   </br>

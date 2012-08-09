@@ -52,4 +52,8 @@ class User < ActiveRecord::Base
   def employer?
     role == "Employer"
   end
+
+  def company_name
+    self.company.name
+  end
 end
