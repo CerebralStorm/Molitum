@@ -30,7 +30,7 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
-    if @company.save
+    if @company.update_attributes(params[:company])
       flash[:success] = "Company Updated"
       redirect_to company_path(current_user.company)
     else

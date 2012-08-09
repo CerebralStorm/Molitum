@@ -17,8 +17,6 @@ class User < ActiveRecord::Base
   has_many :time_clocks, dependent: :destroy
   has_many :quick_links, dependent: :destroy
 
-  before_save :set_blank_attributes
-
   def unpaid_dollar_amount
     amount = self.unpaid_hours * self.pay_rate
   end
@@ -47,11 +45,11 @@ class User < ActiveRecord::Base
     (self.total_hours * pay_rate) - (self.unpaid_hours * pay_rate)
   end
 
-  def set_blank_attributes
-    address.nil? ? "" : address
-    city.nil? ? "" : city
-    state.nil? ? "" : state
-    zip.nil? ? "" : zip
-    phone.nil? ? "" : phone
+  def employee?
+    is_employee
+  end
+
+  def track_hours?
+    track_hours
   end
 end
