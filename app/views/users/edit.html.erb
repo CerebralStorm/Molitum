@@ -1,0 +1,33 @@
+<div class="row-fluid">
+  <%= simple_form_for (@user), :url => registration_path(@user), :html => { :method => :put } do |f| %>
+    <%= f.error_notification %>
+
+  <div class="span5 border form-highlight round padding2">
+    <h2>Account Settings for <%= @user.name %></h2>
+    <div class="line"></div>
+    <span class="required_notification">* Denotes Required Field</span>
+    <div class="form-inputs">
+      <%= f.input :username, hint: "Not Case Sensitive", input_html: { required: "required"} %>
+      <%= f.input :name, hint: "First and Last", required: false,  input_html: { required: "required"}  %>
+      <%= f.input :email, :required => true, input_html: { required: "required"}  %>
+      <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
+      <%= f.input :password_confirmation, :required => false %>
+      <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+    </div>
+  </div>
+
+  <div class="span5 border form-highlight round padding2 ">
+    <div class="form-inputs">
+      <%= f.input :address %>
+      <%= f.input :city %>
+      <%= f.input :state %>
+      <%= f.input :pay_rate, label: "Hourly Wage", hint: "How much do you get paid per hour?" %>
+      <%= f.input :phone, label: "Phone Number", hint: "Recommended Format: (888)444-555" %>
+      <%= f.input :employee, label: "Do you want to be able to log your hours?", as: :radio %></br>
+    </div>
+  </div>
+    <div class="form-actions">
+      <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
+    </div>
+  <% end %>
+</div>

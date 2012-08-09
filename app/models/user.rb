@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :username, 
-                  :pay_rate, :admin, :unpaid_hours, :paid_hours, :total_hours, :city, :state,
+                  :pay_rate, :admin, :unpaid_hours, :paid_hours, :total_hours, :city, :state, :employee,
                   :zip, :phone, :address
 
   validates :name,  presence: true, length: { maximum: 50 }

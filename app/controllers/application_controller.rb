@@ -5,4 +5,7 @@ class ApplicationController < ActionController::Base
     sign_up2_path(current_user)
   end
 
+  def after_update_path_for(resource)
+      user_path(resource)
+  end
 end
