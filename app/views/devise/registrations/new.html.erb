@@ -1,19 +1,35 @@
 <h2>Create Account</h2>
-<span class="required_notification">* Denotes Required Field</span>
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+<div class="row-fluid">
 
-  <div class="form-inputs">
-    <%= f.input :name, autofocus: true, hint: "First and Last", required: false,  input_html: { required: "required"} %>
-    <%= f.input :username, hint: "Not Case Sensitive", input_html: { required: "required"} %>
-    <%= f.input :email, hint: "Format: yourname@email.com", input_html: { required: "required"} %>
-    <%= f.input :password, input_html: { required: "required"} %>
-    <%= f.input :password_confirmation, input_html: { required: "required"} %>
-  </div>
+<div class="span8">
+  <span class="required_notification">* Denotes Required Field</span>
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-actions">
-    <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
-  </div>
-<% end %>
+    <div class="form-inputs">
+      <%= f.input :name, autofocus: true, hint: "First and Last", required: false,  input_html: { required: "required"}  %>
+      <%= f.input :username, hint: "Not Case Sensitive", input_html: { required: "required"} %>
+      <%= f.input :email, hint: "Format: yourname@email.com", input_html: { required: "required"} %>
+      <%= f.input :employee, label: "Do you pay yourself hourly?", as: :radio %></br>
+      <%= f.input :password, input_html: { required: "required"} %>
+      <%= f.input :password_confirmation, input_html: { required: "required"} %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="form-actions">
+      <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
+    </div>
+  <% end %>
+</div>
+
+<div class="span4 border round">
+  <h2>Welcome</h2>
+  <h6>You're on the right track</h6>
+  </br>
+  <h3> Step 1: Required Information</h3>
+  <p>The information you are entering here is required for you to manage your account. You will login using your <strong>Username</strong> and your password.</p>
+
+  <h3> Step 2: Optional Information</h3>
+  <p>In step2 you don't have to enter the information. But it is helpful for us to help determine who you are, and what your needs are.</p>
+</div>
+
+</div>

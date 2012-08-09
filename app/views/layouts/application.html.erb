@@ -8,17 +8,15 @@
   <%= render 'layouts/shim' %> 
 </head>
 <body>
-    <div id="main" class="container span10 round shadow" >
+    <div id="main" class="container span12 round" >
       <%= render 'layouts/header' %>
       <div class="row-fluid">
         <%= render 'layouts/sidebar1' %>
-        <div class=<%= user_signed_in? ? "span8" : "span10" %> >
+        <div class="span8 border" %>
           <%= render 'layouts/alert' %>
           <%= yield %>
         </div>
-        <% if user_signed_in? %>
-          <%= render 'layouts/sidebar2' %>
-        <% end %>
+        <%= render 'layouts/sidebar2' %>
       </div>
     </div> 
   <div class="navbar navbar-bottom center span10">

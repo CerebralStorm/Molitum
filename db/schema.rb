@@ -166,6 +166,7 @@ ActiveRecord::Schema.define(:version => 20120808181622) do
     t.float    "pay_rate",               :default => 0.0
     t.float    "total_hours",            :default => 0.0
     t.integer  "company_id"
+    t.boolean  "employee"
     t.string   "city"
     t.string   "state"
     t.string   "zip"

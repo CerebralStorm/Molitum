@@ -1,0 +1,17 @@
+<h2>Take a minute to tell us about yourself</h2>
+<span class="required_notification">* Denotes Required Field</span>
+<%= simple_form_for @user do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :address %>
+    <%= f.input :city %>
+    <%= f.input :state %>
+    <%= f.input :pay_rate, label: "Hourly Wage", hint: "How much do you get paid per hour?" %>
+    <%= f.input :phone, label: "Phone Number", hint: "Recommended Format: (888)444-555" %>
+  </div>
+
+  <div class="form-actions">
+    <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
+  </div>
+<% end %>

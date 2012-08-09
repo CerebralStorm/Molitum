@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     @time_clocks = @user.time_clocks
   end
 
+  def sign_up2
+    @user = current_user
+  end
+
   def edit
   end
 
