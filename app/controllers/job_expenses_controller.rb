@@ -1,8 +1,8 @@
 class JobExpensesController < ApplicationController
 	before_filter :authenticate_user!
 	def create
-		@job = Job.find(current_job)
-		@company = @job.company
+		@job = Job.find(params[:job_id])
+		@company = @job.customer.company
 		@job_expense = @job.job_expenses.build(params[:job_expense])
 	    if @job_expense.save
 	      @job.add_to_total(@job_expense.cost)

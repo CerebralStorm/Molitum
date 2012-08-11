@@ -1,27 +1,36 @@
-	<tr>
-		<td class="highlight">Job Expense</td>
-		<td class="highlight">Cost</td>
-	</tr>
-	<tr>
-		<td>Labor</td>
-		<td><%= @job.labor_cost %></td>
-	</tr>
-	<% if @job_expenses.empty? %>
-	<% else %>
-		<%  @job_expenses.each do |job_expense| %>
-			<tr>
-				<td><%= job_expense.name %></td>
-				<td><%= job_expense.cost %></td>  
-				<td>
-					<% if can? :delete, job_expense %><%= link_to "Delete", job_expense, method: :delete %></td><% end %>        
-			</tr>	
-		<% end %>
-	<% end %>
 
-	<%= form_for JobExpense.new do |f| %>
+  <tr>
+    <td class="highlight">Category</td>
+    <td class="highlight">Description</td>
+    <td class="highlight" colspan="2">Cost</td>
+  </tr>
+  <tr>
+    <td>Labor</td>
+    <td>Total cost of labor for this job</td>
+    <td><%= @job.labor_cost %></td>
+  </tr>
+  <% if @job_expenses.present? %>
+      <% category = "" %>
+      <%  @job_expenses.each do |expense| %>
+      <tr>
+        <% if category != expense.category %>
+          <td><%= expense.category %><% category = expense.category %></td>
+        <% end %>
+        <td><%= expense.description %></td>
+        <td><%= expense.cost %></td>  
+        <td><% if can? :delete, expense %><%= link_to "Delete", expense, method: :delete, class: "btn"  %></td><% end %>  
+      </tr>      
+      <% end %>
+    <% end %>
+
+
+	<%= simple_form_for [@job, JobExpense.new] do |f| %>
 	<tr>
     <td>
-      <%= f.text_field :name %>
+      <%= f.collection_select :category, JobExpense::CATEGORIES, :to_s, :to_s, include_blank: false %>
+    </td>
+    <td>
+      <%= f.text_field :description %>
     </td>
     <td>
       <%= f.text_field :cost %>

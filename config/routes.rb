@@ -7,18 +7,23 @@ Molitum::Application.routes.draw do
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
 
-  resources :companies
+  resources :companies 
   resources :users
-  resources :jobs
   resources :customers
-  resources :bids
-  resources :invoices
   resources :quick_links, only: [:create, :destroy]
-  resources :bid_items, only: [:create, :destroy]
-  resources :invoice_items, only: [:create, :destroy]
   resources :time_clocks, only: [:create, :update, :destroy]
-  resources :job_expenses, only: [:create, :destroy]
 
+  resources :bids do
+    resources :bid_items, only: [:create, :destroy]
+  end
+  
+  resources :invoices do
+    resources :invoice_items, only: [:create, :destroy]
+  end
+  
+  resources :jobs do
+    resources :job_expenses, only: [:create, :destroy]
+  end
   #root :to => "home#index"
 
   # The priority is based upon order of creation:

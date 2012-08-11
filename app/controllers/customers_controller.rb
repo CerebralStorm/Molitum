@@ -14,7 +14,6 @@ class CustomersController < ApplicationController
 	def show
 		@title = 'Customers'
 		@customer = Customer.find(params[:id])
-		remember_customer(@customer)
 	end
 
 	def edit

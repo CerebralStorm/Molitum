@@ -7,7 +7,7 @@ class Company < ActiveRecord::Base
   has_many :bids, through: :customers
   has_many :invoices, through: :customers
 
-  validates_presence_of :name
+  validate :name, presence: true
 
   def add_expense(amount)
     self.expense += amount
