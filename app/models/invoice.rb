@@ -6,6 +6,8 @@ class Invoice < ActiveRecord::Base
   belongs_to :customer
   belongs_to :company
 
+  CATEGORIES = ['Demolition', 'Framing', 'Tile', 'Finish Work', 'Plumbing', 'Electrical', 'Other']
+
   validates :customer_id, presence: true
 
   def add_to_total_due (amount)

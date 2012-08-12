@@ -7,19 +7,19 @@
   <% else %>
     <%  @invoice_items.each do |invoice_item| %>
       <tr>
-        <td><%= invoice_item.activity %></td>
+        <td><%= invoice_item.category %></td>
         <td><%= invoice_item.description %></td>  
-        <td ><%= invoice_item.amount %></td>
+        <td ><%= invoice_item.cost %></td>
         <td>
           <% if can? :delete, invoice_item %><%= link_to "Delete", invoice_item_path(invoice_item), method: :delete %></td><% end %>        
       </tr> 
     <% end %>
   <% end %>
 
-  <%= form_for InvoiceItem.new do |f| %>
+  <%= form_for [@invoice, InvoiceItem.new] do |f| %>
   <tr>
     <td>
-      <%= f.text_field :category, class: "span2" %>
+      <%= f.collection_select :category, Bid::CATEGORIES, :to_s, :to_s, include_blank: false %>
     </td>
     <td>
       <%= f.text_field :description, class: "span4"%>

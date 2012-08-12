@@ -15,7 +15,6 @@ class InvoicesController < ApplicationController
   def show
     @title = 'Invoices'
     @invoice = Invoice.find(params[:id])
-    remember_invoice(@invoice)
     @invoice_items = @invoice.invoice_items.all
   end
 

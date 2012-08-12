@@ -1,7 +1,7 @@
 class BidItemsController < ApplicationController
 	before_filter :authenticate_user!
 	def create
-		@bid = Bid.find(current_bid)
+		@bid = Bid.find(params[:bid_id])
 		@bid_item = @bid.bid_items.build(params[:bid_item])
 	    if @bid_item.save
 	      @bid.add_to_total_hours(@bid_item.hours)

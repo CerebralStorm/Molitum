@@ -5,13 +5,7 @@
 <% unless user_signed_in? %>
   <div id="header-signin-outer">
     <div id="header-signin-inner" class="blue-gradient border round">
-      <%= simple_form_for :user, :method => 'get', :html => { :class => 'form-inline' } do |f| %>
-          <label>Username</label>
-          <%= f.input_field :username, :required => false  %>
-          <label>password</label>
-          <%= f.input_field :password, :required => false %>
-          <button class="btn btn-primary" name="commit" type="submit" value="Sign in">Sign In</button>
-      <% end %>
+      <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>

@@ -57,7 +57,7 @@
 			  	<td class="highlight">Hours</td>
 			  	<td class="highlight" colspan="2">Materials</td>
 				</tr>
-				<%= form_for @bid_item do |f| %>
+				<%= form_for [@bid, @bid_item] do |f| %>
 					<tr>
 				    <td><%= f.collection_select :category, Bid::CATEGORIES, :to_s, :to_s, include_blank: false %> </td>
 				    <td><%= f.text_field :description, class: "span4" %></td>

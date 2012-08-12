@@ -1,3 +1,3 @@
 class InvoiceItem < ActiveRecord::Base
-  attr_accessible :activity, :description, :amount
+  attr_accessible :category, :description, :cost
 end

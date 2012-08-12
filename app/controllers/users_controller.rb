@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @time_clocks = @user.time_clocks
+    @time_clocks = @user.time_clocks.order("created_at").page(params[:page]).per_page(10)
   end
 
   def edit
