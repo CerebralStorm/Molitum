@@ -1,5 +1,5 @@
 class JobExpense < ActiveRecord::Base
-  attr_accessible :job_id, :category, :description, :cost
+  attr_accessible :category, :description, :cost
 
   belongs_to :job
 

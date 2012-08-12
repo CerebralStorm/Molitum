@@ -14,15 +14,15 @@ Molitum::Application.routes.draw do
   resources :time_clocks, only: [:create, :update, :destroy]
 
   resources :bids do
-    resources :bid_items, only: [:create, :destroy]
+    resources :bid_items, only: [:create, :destroy], shallow: true
   end
   
   resources :invoices do
-    resources :invoice_items, only: [:create, :destroy]
+    resources :invoice_items, only: [:create, :destroy], shallow: true
   end
   
   resources :jobs do
-    resources :job_expenses, only: [:create, :destroy]
+    resources :job_expenses, only: [:create, :destroy], shallow: true
   end
   #root :to => "home#index"
 

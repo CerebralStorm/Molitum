@@ -41,7 +41,7 @@ class JobsController < ApplicationController
 
 	def destroy
 		Job.find(params[:id]).destroy
-		flash[:success] = "Job Removed"
+		flash[:success] = "Job Deleted"
 		redirect_to :back
 	end
 end

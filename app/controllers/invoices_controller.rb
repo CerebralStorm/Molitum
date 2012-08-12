@@ -51,7 +51,7 @@ class InvoicesController < ApplicationController
 
   def destroy
     @invoice = Invoice.find(params[:id])
-    @company = @invoice.company
+    @company = @invoice.customer.company
     @company.add_income(@invoice.total_due)
     if @invoice.destroy
       flash[:success] = "Invoice Deleted"

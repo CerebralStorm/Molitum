@@ -46,8 +46,11 @@ class CustomersController < ApplicationController
 	end
 
 	def destroy
-		Customer.find(params[:id]).destroy
-		flash[:success] = "Customer Deleted"
-		redirect_to customers_path
+		if Customer.find(params[:id]).destroy
+			flash[:success] = "Customer Deleted"
+			redirect_to customers_path
+		else
+			flash[:success] = "Delete Failed"
+			redirect_to :back
 	end
 end

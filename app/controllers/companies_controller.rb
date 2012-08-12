@@ -40,6 +40,13 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
-    @company = Company.find(params[:id]).destroy
+    
+    if @company = Company.find(params[:id]).destroy
+      flash[:success] = "Company Deleted"
+      redirect_to :back
+    else
+      flash[:error] = "Delete Failed"
+      redirect_to :back
+    end
   end
 end

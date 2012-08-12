@@ -13,8 +13,13 @@ class InvoiceItemsController < ApplicationController
 
   def destroy
     @invoice_item = InvoiceItem.find(params[:id])
-    @invoice.invoice.subtract_from_total_due(@invoice_item.amount)
-    @invoice_item.destroy
+    @invoice = @invoice_item.invoice
+    @invoice.subtract_from_total_due(@invoice_item.cost)
+    if @invoice_item.destroy
+      redirect_to invoice_path(@invoice)
+    else
+      redirect_to :back
+    end
   end
 
 end

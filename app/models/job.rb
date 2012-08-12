@@ -1,9 +1,8 @@
 class Job < ActiveRecord::Base
   attr_accessible :subtotal,  :location, :budget, :scope_of_work, :detail_of_work, :total, :labor_cost, :start_date, 
-  								:finish_date, :status, :customer_id
+  								:finish_date, :status
 
   belongs_to :customer
-  belongs_to :company
 
   has_many :job_expenses, dependent: :destroy
   has_many :invoices, dependent: :destroy

@@ -30,11 +30,19 @@ class UsersController < ApplicationController
       flash[:success] = "Profile Created"
       redirect_to user_path(@user)
     else
-      flash[:error] = "Update Error"
+      flash[:error] = "Creation Error"
       redirect_to :back
     end
   end
 
   def delete
+
+    if @user = User.find(params[:id]).destroy
+      flash[:success] = "Account Deleted"
+      redirect_to root
+    else
+      flash[:error] = "Delete Error"
+      redirect_to :back
+    end
   end
 end

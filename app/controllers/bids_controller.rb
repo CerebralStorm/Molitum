@@ -48,7 +48,7 @@ class BidsController < ApplicationController
 
 	def destroy
 		Bid.find(params[:id]).destroy
-		flash[:success] = "Bid Removed"
+		flash[:success] = "Bid Deleted"
 		redirect_to :back
 	end
 end
