@@ -5,7 +5,7 @@
     <h4>Take a minute to tell us about yourself</h4>
     <div class="line"></div>
     <span class="required_notification">* Denotes Required Field</span>
-    <%= simple_form_for (@user), :html => {:method => :put } do |f| %>
+    <%= simple_form_for (@user) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
@@ -14,7 +14,7 @@
         <%= f.input :state %>
         <%= f.input :pay_rate, label: "Hourly Wage", hint: "How much do you get paid per hour?" %>
         <%= f.input :phone, label: "Phone Number", hint: "Recommended Format: (888)444-555" %>
-        <%= f.input :employee, label: "Do you want to be able to log your hours?", as: :radio %></br>
+        <%#= f.input :employee, label: "Do you want to be able to log your hours?", as: :radio %></br>
       </div>
 
       <div class="form-actions">
