@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
 	before_filter :authenticate_user!
 	def index
-		@jobs = Job.order("created_at").page(params[:page]).per_page(10)
+		@jobs = current_user.company.jobs.order("created_at").page(params[:page]).per_page(10)
 	end
 
 	def new

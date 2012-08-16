@@ -19,12 +19,12 @@
           </div>
         </td>
       </tr>
+      <tr>
+        <td colspan="4"><% if can? :create, bid %><%= link_to "New Bid", new_bid_path, class: "btn" %><% end %></td>
+      </tr>
 	<% else %>
 	<tr>
 		<td>There are currently no bids</td>
 	</tr>
 	<% end %>
-	<tr>
-		<td colspan="4"><%= link_to "New Bid", new_bid_path, class: "btn" %></td>
-	</tr>
 </table>

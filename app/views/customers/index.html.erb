@@ -24,14 +24,14 @@
               </div>
             </td>
           </tr>
+          <tr>
+						<td colspan="4"><% if can? :create, customer %><%= link_to "New Customer", new_customer_path, class: "btn" %><% end %></td>
+					</tr>
 				<% else %>
 						<tr>
 							<td>There are currently no customers</td>
 						</tr>
 				<% end %>
-				<tr>
-					<td colspan="4"><%= link_to "New Customer", new_customer_path, class: "btn" %></td>
-				</tr>
 			</td>
 		</tr>
 	</table>

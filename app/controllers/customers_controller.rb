@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
 	before_filter :authenticate_user!
 	def index
 		@title = 'Customers'
-		@customers = Customer.order("name").page(params[:page]).per_page(10)
+		@customers = current_user.company.customers.order("name").page(params[:page]).per_page(10)
 	end
 
 	def new
@@ -52,5 +52,6 @@ class CustomersController < ApplicationController
 		else
 			flash[:success] = "Delete Failed"
 			redirect_to :back
+		end
 	end
 end

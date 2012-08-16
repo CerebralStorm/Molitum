@@ -15,20 +15,21 @@
 				<td><% if can? :edit, job %><%= link_to "Edit", edit_job_path(job), class: "btn" %><% end %></td>
 				<td><% if can? :delete, job %><%= link_to "Delete", job_path(job), confirm: "You Sure?", class: "btn", method: :delete %><% end %></td>
 			</tr>
-			<% end %>
 			<tr>
-				<td colspan="6">
-					<div class="digg_pagination">
-	         	<%= will_paginate @jobs, :container => false %>
-	       	</div>
-	      </td>
+				<td colspan="6"><% if can? :create, job %><%= link_to "New Job", new_job_path, class: "btn" %><% end %></td>
 			</tr>
+			<% end %>
+		<tr>
+			<td colspan="6">
+				<div class="digg_pagination">
+         	<%= will_paginate @jobs, :container => false %>
+       	</div>
+      </td>
+		</tr>
 	<% else %>
 	<tr>
 		<td>There are currently no jobs</td>
 	</tr>
 	<% end %>
-	<tr>
-		<td colspan="6"><%= link_to "New Job", new_job_path, class: "btn" %></td>
-	</tr>
+	
 </table>

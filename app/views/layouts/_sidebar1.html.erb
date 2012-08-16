@@ -3,7 +3,7 @@
   <ul class="nav nav-list">
     <% if user_signed_in? %>
       <li class="nav-header">Application</li>
-      <% unless current_user.company.nil? %>
+      <% if current_user.role == "Owner" %>
         <% if yield(:title) == '#{current_user.company.name}' %><li class="active"><% else %><li><% end %>
         <%= link_to(company_path(current_user)) do %><span><i class="icon-star"></i>My Company</span><% end %></li>
       <% end %>
