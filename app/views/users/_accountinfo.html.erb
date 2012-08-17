@@ -1,16 +1,16 @@
 <% if User != current_user %>
   <table class="table table-bordered table-condensed round">
-    <th class="header" colspan="4">Personal Info</th>
+    <th class="highlight" colspan="4">Personal Info</th>
     <tr>
-      <td class="highlight" width="20%">Name</td>
+      <td width="20%">Name</td>
       <td><%= @user.name %></td>
-       <td class="highlight" width="20%">Account Type</td>
+       <td width="20%">Account Type</td>
       <td><%= @user.role %></td>
     </tr>
     <tr>
-      <td class="highlight" width="20%">Phone</td>
+      <td width="20%">Phone</td>
       <td><%= @user.phone %></td>
-      <td class="highlight" rowspan="2" width="20%">Address</td>
+      <td rowspan="2" width="20%">Address</td>
       <td rowspan="2"><address>
       <%= @user.address unless @user.address.nil? %></br>
       <%= @user.city unless @user.city.nil? %></br>
@@ -18,28 +18,28 @@
       <%= @user.zip unless @user.zip.nil? %></address></td>
     </tr>
     <tr>
-      <td class="highlight" width="20%">Email</td>
+      <td width="20%">Email</td>
       <td><%= @user.email %></td>
     </tr>
   </table>
   </br>
 <% end %>
 <table class="table table-bordered table-condensed round">
-  <th class="header" colspan="4">Payroll Info</th>
+  <th class="highlight" colspan="4">Payroll Info</th>
   <tr>
-    <td class="highlight" width="20%">Hourly Wage:</td>
+    <td width="20%">Hourly Wage:</td>
     <td><%= @user.pay_rate %></td>
-    <td class="highlight" width="20%">Unpaid Hours</td>
+    <td width="20%">Unpaid Hours</td>
     <td><%= @user.unpaid_hours %></td>
   </tr>
   <tr>
-    <td class="highlight" width="20%">Total Hours</td>
+    <td width="20%">Total Hours</td>
     <td><%= @user.total_hours %></td>
-    <td class="highlight" width="20%">Unpaid Amount</td>
+    <td width="20%">Unpaid Amount</td>
     <td><%= @user.unpaid_dollar_amount %></td>
   </tr>
   <tr>
-    <td class="highlight" width="20%">Earning YTD</td>
+    <td width="20%">Earning YTD</td>
     <td colspan="3"><%= @user.earnings_ytd %></td>
   </tr>
 </table>

@@ -18,7 +18,7 @@
     <%= f.input :email, hint: "Format: yourname@email.com", input_html: { required: "required"} %>
     <%= f.input :password, input_html: { required: "required"} %>
     <%= f.input :password_confirmation, input_html: { required: "required"} %>
-    <button class="btn btn-primary btn-large" name="commit" type="submit" value="Create User">Submit</button>
+    <%= f.button :submit, class: "submit btn btn-large btn-primary" %>
   <% end %>
 </div>
 

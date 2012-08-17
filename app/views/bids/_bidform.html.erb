@@ -1,44 +1,33 @@
-<table id="bids_form" class="shadow">
-  <th class="header"><%= @head %> Bid</th>
-  <tr>
-    <td>
-      <%= simple_form_for(@bid) do |f| %>
-      <table>
-        <tr>
-          <td><%= f.association :customer, :include_blank => false, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :location, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :start_date, :as => :date, label: "Start Date" %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :finish_date, :as => :date, label: "Finish Date"  %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :scope_of_work, :as => :text %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :detail_of_work, :as => :text %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :hourly_rate, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :down_payment %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :discount %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :discount_description, label: "Discount Description" %></td>
-        </tr>
-        <tr>
-          <td><%= f.button :submit, class: "submit btn btn-large btn-primary" %></td>
-        </tr>
-      </table>
-      <% end %>
-    </td>
-  </tr>
-</table>
+<% provide(:title, "Bid Setup") %>
+<div class="row-fluid">
+
+<div class="span8 form-highlight round padding2">
+  <h2>Bid Setup</h2>
+  <div class="line"></div>
+  <span class="required_notification">* Denotes Required Field</span>
+  </br>
+  <%= simple_form_for(@bid) do |f| %>
+    <%= f.error_notification %>
+    <%= f.association :customer, include_blank: false, required: false, input_html: { required: "required"} %>
+    <%= f.input :location, required: false %>
+    <%= f.input :start_date, :as => :date, label: "Start Date" %>
+    <%= f.input :finish_date, :as => :date, label: "Finish Date"  %>
+    <%= f.input :scope_of_work, :as => :text %>
+    <%= f.input :detail_of_work, :as => :text %>
+    <%= f.input :hourly_rate, :required => false %>
+    <%= f.input :down_payment %>
+    <%= f.input :discount %>
+    <%= f.input :discount_description, label: "Discount Description" %>
+    <%= f.button :submit, class: "submit btn btn-large btn-primary"%>
+  <% end %>
+</div>
+
+<div class="span4 border round highlight ">
+  <h2>Bid Information</h2>
+  <h6>Details</h6>
+  </br>
+  <h3>Note:</h3>
+  <p>Start and Finish dates are not required</p>
+</div>
+
+</div>

@@ -1,16 +1,16 @@
 <table class="table table-bordered table-condensed">
-  <th colspan="5" class="header">Shift Info</th>
+  <th colspan="5" class="highlight">Shift Info</th>
     <% if @time_clocks.empty? %>
      <tr>
       <td>No Time Clock Entries</td>
     </tr>
     <% else %>
       <tr>
-          <td class="highlight">Date</td>
-          <td class="highlight">Hours</td>
-          <td class="highlight">Customer</td>
-          <td class="highlight">Job</td>
-          <td class="highlight" colspan="3">Status</td>
+          <td>Date</td>
+          <td>Hours</td>
+          <td>Customer</td>
+          <td>Job</td>
+          <td colspan="3">Status</td>
       </tr>
       <% @time_clocks.each do |time_clock|%>
       <tr>

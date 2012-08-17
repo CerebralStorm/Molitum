@@ -1,6 +1,6 @@
 class Job < ActiveRecord::Base
   attr_accessible :subtotal,  :location, :budget, :scope_of_work, :detail_of_work, :total, :labor_cost, :start_date, 
-  								:finish_date, :status
+  								:finish_date, :status, :customer_id
 
   belongs_to :customer
 

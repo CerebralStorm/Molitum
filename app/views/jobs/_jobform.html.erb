@@ -1,35 +1,30 @@
-<table id="jobs_form" class="shadow">
-  <th class="header"><%= @head %> Job</th>
-  <tr>
-    <td>
-      <%= simple_form_for(@job) do |f| %>
-      <table width="100%">
-        <tr>
-          <td><%= f.association :customer, :include_blank => false, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :location, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :budget, :required => false %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :start_date, :as => :date, :label => 'Start Date' %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :finish_date, :as => :date, :label => 'Finish Date' %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :scope_of_work, :as => :text %></td>
-        </tr>
-        <tr>
-          <td><%= f.input :detail_of_work, :as => :text %></td>
-        </tr>
-        <tr>
-          <td><%= f.button :submit, class: "submit btn btn-large btn-primary" %></td>
-        </tr>
-      </table>
-      <% end %>
-    </td>
-  </tr>
-</table>
+<% provide(:title, "Job Setup") %>
+<div class="row-fluid">
+
+<div class="span8 form-highlight round padding2">
+  <h2>Job Setup</h2>
+  <div class="line"></div>
+  <span class="required_notification">* Denotes Required Field</span>
+  </br>
+  <%= simple_form_for(@job) do |f| %>
+    <%= f.error_notification %>
+    <%= f.association :customer, :include_blank => false, :required => false, input_html: { required: "required"} %>
+    <%= f.input :location, :required => false %>
+    <%= f.input :budget, :required => false %>
+    <%= f.input :start_date, :as => :date, :label => 'Start Date' %>
+    <%= f.input :finish_date, :as => :date, :label => 'Finish Date' %>
+    <%= f.input :scope_of_work, :as => :text %>
+    <%= f.input :detail_of_work, :as => :text %>
+    <%= f.button :submit, class: "submit btn btn-large btn-primary" %>
+  <% end %>
+</div>
+
+<div class="span4 border round highlight ">
+  <h2>Customer Information</h2>
+  <h6>Details</h6>
+  </br>
+  <h3>Note:</h3>
+  <p>The information you are entering here will help you to generate invoices and bids with ease.</p>
+</div>
+
+</div>
