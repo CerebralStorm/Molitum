@@ -14,7 +14,6 @@ class CompaniesController < ApplicationController
 
   def edit
     @company = Company.find(params[:id])
-    @title = 'My Company'
   end
 
   def create

@@ -1,26 +1,20 @@
 class BidsController < ApplicationController
 	before_filter :authenticate_user!
 	def index
-		@title = 'Bids'
-		@bids = Bid.order("created_at").page(params[:page]).per_page(10)
+		@bids = current_user.company.bids.order("created_at").page(params[:page]).per_page(10)
 	end
 
 	def new
-		@title = 'Bids'
-		@head = 'Add'
 		@bid = Bid.new
 	end
 
 	def show
-		@title = 'Bids'
 		@bid = Bid.find(params[:id])
 		@bid_item = BidItem.new
 		@bid_items = @bid.bid_items.find(:all, :order => 'category')
 	end
 
 	def edit
-		@title = 'Bids'
-		@head = 'Edit'
 		@bid = Bid.find(params[:id])
 	end
 

@@ -1,13 +1,10 @@
 class InvoicesController < ApplicationController
   before_filter :authenticate_user!
   def index
-    @title = 'Invoices'
-    @invoices = Invoice.order("created_at").page(params[:page]).per_page(10)
+    @invoices = current_user.company.invoices.order("created_at").page(params[:page]).per_page(10)
   end
 
   def new
-    @title = 'Invoices'
-    @head = 'Add'
     @invoice = Invoice.new
     @customers = Customer.all
   end

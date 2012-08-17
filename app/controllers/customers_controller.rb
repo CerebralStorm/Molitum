@@ -1,24 +1,18 @@
 class CustomersController < ApplicationController
 	before_filter :authenticate_user!
 	def index
-		@title = 'Customers'
 		@customers = current_user.company.customers.order("name").page(params[:page]).per_page(10)
 	end
 
 	def new
-		@title = 'Customers'
-		@head = 'Add'
 		@customer = Customer.new
 	end
 
 	def show
-		@title = 'Customers'
 		@customer = Customer.find(params[:id])
 	end
 
 	def edit
-		@title = 'Customers'
-		@head = 'Edit'
 		@customer = Customer.find(params[:id])
 	end
 

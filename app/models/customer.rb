@@ -3,6 +3,7 @@ class Customer < ActiveRecord::Base
   
   has_many :jobs, dependent: :destroy
   has_many :bids, dependent: :destroy
+  has_many :invoices, dependent: :destroy
   belongs_to :company
 
   validates :name,  presence: true, length: { maximum: 50 }
