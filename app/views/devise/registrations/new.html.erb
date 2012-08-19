@@ -14,7 +14,7 @@
     <%= f.input :company_id, autofocus: true, required: false, collection: Company.all, input_html: { required: "required"}, include_blank: false %>
     <%= f.input :role, label: "Account Type", collection: ["Owner", "Employee"], include_blank: false, input_html: { required: "required"} %>
     <%= f.input :name, hint: "First and Last", required: false,  input_html: { required: "required"}  %>
-    <%= f.input :username, hint: "Not Case Sensitive", input_html: { required: "required"} %>
+    <%= f.input :username, required: false, hint: "Not Case Sensitive", input_html: { required: "required"} %>
     <%= f.input :email, hint: "Format: yourname@email.com", input_html: { required: "required"} %>
     <%= f.input :password, input_html: { required: "required"} %>
     <%= f.input :password_confirmation, input_html: { required: "required"} %>
