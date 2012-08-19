@@ -10,6 +10,7 @@ class BidsController < ApplicationController
 
 	def show
 		@bid = Bid.find(params[:id])
+		@company = @bid.customer.company
 		@bid_item = BidItem.new
 		@bid_items = @bid.bid_items.find(:all, :order => 'category')
 	end

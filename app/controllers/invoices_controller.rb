@@ -10,8 +10,8 @@ class InvoicesController < ApplicationController
   end
 
   def show
-    @title = 'Invoices'
     @invoice = Invoice.find(params[:id])
+    @company = @invoice.customer.company
     @invoice_items = @invoice.invoice_items.all
   end
 

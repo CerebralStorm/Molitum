@@ -1,9 +1,10 @@
 prawn_document do |pdf|
   #title
-  pdf.text "Grindstone Properties", size: 20, style: :bold
-  pdf.text "1271 Westminster Ave.", size: 10
-  pdf.text "801-347-4984", size: 10
-  pdf.text "Salt Lake City, UT, 84105", size: 10
+  pdf.text "#{@company.name}", size: 20, style: :bold
+  pdf.text "#{@company.email}", size: 10
+  pdf.text "#{@company.address}", size: 10
+  pdf.text "#{@company.phone}", size: 10
+  pdf.text "#{@company.city}, #{@company.state}, #{@company.zip}", size: 10
 
   # Invoice For
   data = []
@@ -41,9 +42,9 @@ prawn_document do |pdf|
   pdf.move_down(30)
 
   data = []
-    data << ["ACTIVITY", "DESCRIPTION", "AMOUNT"]
+    data << ["CATEGORY", "DESCRIPTION", "AMOUNT"]
     @invoice.invoice_items.each do |invoice_item|
-      data << [invoice_item.activity, invoice_item.description,  number_with_precision(invoice_item.amount, :precision => 2)]
+      data << [invoice_item.category, invoice_item.description,  number_with_precision(invoice_item.cost, :precision => 2)]
     end
     
     data << ["", "TOTAL", number_to_currency(@invoice.total_due)]
@@ -91,13 +92,11 @@ prawn_document do |pdf|
 
     pdf.move_down(30)
 
-    
     data = []
     data << ["DIRECT ALL INQUIRIES TO:", "MAKE ALL CHECKS PAYABLE TO:"]
-    data << ["Brandon Petersen", "Grindstone Properties"]
-    data << ["N/A", "1271 Westminster Ave."]
-    data << ["801-347-4984", "Salt Lake City, UT 84105"]
-    
+    data << ["#{current_user.name}", "#{@company.name}"]
+    data << ["#{@company.email}", "#{@company.address}"]
+    data << ["#{@company.phone}", "#{@company.city}, #{@company.state}, #{@company.zip}"]
     
     pdf.table(data) do
       cells.style :borders => [], :padding => [0, 30, 0, 4]

@@ -1,9 +1,10 @@
 prawn_document do |pdf|
   #title
-  pdf.text "Grindstone Properties", size: 20, style: :bold
-  pdf.text "1271 Westminster Ave.", size: 10
-  pdf.text "801-347-4984", size: 10
-  pdf.text "Salt Lake City, UT, 84105", size: 10
+  pdf.text "#{@company.name}", size: 20, style: :bold
+  pdf.text "#{@company.email}", size: 10
+  pdf.text "#{@company.address}", size: 10
+  pdf.text "#{@company.phone}", size: 10
+  pdf.text "#{@company.city}, #{@company.state}, #{@company.zip}", size: 10
 
   # Bid For
   data = []
@@ -25,8 +26,8 @@ prawn_document do |pdf|
   #Bid Info
   data = []
   data << ["ESTIMATE NUMBER:", @bid.id]
-  data << ["START:", @bid.estimated_start_date.to_s(:short)]
-  data << ["FINISH:", @bid.estimated_finish_date.to_s(:short)]
+  data << ["START:", @bid.start_date.to_s(:short)]
+  data << ["FINISH:", @bid.finish_date.to_s(:short)]
   data << ["LOCATION", @bid.location]
 
   pdf.bounding_box([290, 650], :width => 300) do   
@@ -48,11 +49,11 @@ prawn_document do |pdf|
 
     @bid.bid_items.each do |bid_item|
       data << [
-                  (category == bid_item.item_type ? "" : bid_item.item_type), 
+                  (category == bid_item.category ? "" : bid_item.category), 
                   bid_item.description, 
                   number_with_precision(bid_item.cost, :precision => 2)
               ]
-      category = bid_item.item_type
+      category = bid_item.category
     end
     
     data << ["", "SUBTOTAL", number_to_currency(@bid.subtotal)]
@@ -78,10 +79,10 @@ prawn_document do |pdf|
 
       # Subtotal
       subtotal_row = row(data.size - 5)
-      subtotal_row.style :align => :right, :padding => 5
+      subtotal_row.style :align => :right, :padding => 5, :background_color => 'AAAAAA'
       subtotal_row.column(0).style :borders => [:top, :bottom, :left]
       subtotal_row.column(1).style :borders => [:top, :bottom, :right]
-      subtotal_row.column(2).style :align => :center
+      subtotal_row.column(2).style :borders => [:top, :bottom, :right], :align => :center
 
       # Total
       total_row = row(data.size - 2)
@@ -128,9 +129,9 @@ prawn_document do |pdf|
     
     data = []
     data << ["DIRECT ALL INQUIRIES TO:", "MAKE ALL CHECKS PAYABLE TO:"]
-    data << ["Brandon Petersen", "Grindstone Properties"]
-    data << ["N/A", "1271 Westminster Ave."]
-    data << ["801-347-4984", "Salt Lake City, UT 84105"]
+    data << ["#{current_user.name}", "#{@company.name}"]
+    data << ["#{@company.email}", "#{@company.address}"]
+    data << ["#{@company.phone}", "#{@company.city}, #{@company.state}, #{@company.zip}"]
 
     pdf.table(data) do
       cells.style :borders => [], :padding => [0, 30, 0, 4]
