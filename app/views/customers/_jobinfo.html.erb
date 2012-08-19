@@ -10,8 +10,8 @@
 		<tr>
 			<td><%= link_to job.location %></td>
 			<td><%= link_to job.created_at.to_date, job_path(job) %></td>
-			<td><%= job.estimated_start_date.to_date unless job.estimated_start_date.nil? %></td>
-			<td><%= job.estimated_finish_date.to_date unless job.estimated_finish_date.nil? %></td>
+			<td><%= job.start_date.to_date unless job.start_date.nil? %></td>
+			<td><%= job.finish_date.to_date unless job.finish_date.nil? %></td>
 			<td><% if can? :edit, job %><%= link_to "Edit", edit_job_path(job), class: "btn" %><% end %></td>
 			<td><% if can? :delete, job %><%= link_to "Delete", job_path(job), method: :delete , class: "btn" %><% end %></td>
 		</tr>

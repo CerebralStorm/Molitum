@@ -1,0 +1,23 @@
+<table class="table table-bordered table-condensed">
+  <% unless @customer.invoices.empty? %>
+    <tr>
+      <td>Created At</td>
+      <td>Billing Period</td>
+      <td>Paid?</td>
+    </tr>
+    <% @customer.invoices.each do |invoice| %>
+    <tr>
+      <td><%= link_to invoice.created_at.to_date, invoice_path(invoice)  %></td> 
+      <td><%= invoice.billing_start.to_date %> to <%= invoice.billing_end.to_date %></td>
+      <td><%= invoice.total_due ? "Yes" : "No" %></td>
+      <td><% if can? :edit, invoice %><%= link_to "Edit", edit_invoice_path(invoice), class: "btn" %><% end %></td>
+      <td><% if can? :delete, invoice %><%= link_to "Delete", invoice_path(invoice), method: :delete , class: "btn" %><% end %></td>
+    </tr>
+    <% end %>
+  <% else %>
+  <tr>
+    <td>There are currently no Jobs for this customer</td>
+  </tr>
+  <% end %>
+    </tr>
+  </table>

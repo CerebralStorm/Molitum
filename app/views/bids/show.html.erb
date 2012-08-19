@@ -57,15 +57,15 @@
 			  	<td class="highlight">Hours</td>
 			  	<td class="highlight" colspan="2">Materials</td>
 				</tr>
-				<%= form_for [@bid, @bid_item] do |f| %>
-					<tr>
-				    <td><%= f.collection_select :category, Bid::CATEGORIES, :to_s, :to_s, include_blank: false %> </td>
-				    <td><%= f.text_field :description, class: "span4" %></td>
-				    <td><%= f.text_field :hours, class: "span1" %></td>
-				    <td><%= f.text_field :materials, class: "span1" %></td>
-				    <td><%= f.submit "Add", class: "btn" %></td>
-				  </tr>
-				<% end %>
+				<tr>
+						<%= simple_form_for [@bid, @bid_item] do |f| %>
+						  <td><%= f.input :category, label: false, required: false, collection: Bid::CATEGORIES, include_blank: false %></td>
+						  <td><%= f.input :description, label: false %></td>
+						  <td><%= f.input :hours, label: false %></td>
+						  <td><%= f.input  :materials, label: false %></td>
+						  <td><%= f.submit "Add" %></td>
+						<% end %>
+				 </tr>
 			</table>
 			<table width="100%" cellpadding="5">
 			  <tr>

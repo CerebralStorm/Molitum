@@ -1,3 +1,4 @@
+  <table width="100%" id="invoice_items_form">
   <tr>
     <td class="highlight">Activity</td>
     <td class="highlight">Description</td>
@@ -16,7 +17,7 @@
     <% end %>
   <% end %>
 
-  <%= form_for [@invoice, InvoiceItem.new] do |f| %>
+  <%= simple_form_for [@invoice, InvoiceItem.new] do |f| %>
   <tr>
     <td>
       <%= f.collection_select :category, Bid::CATEGORIES, :to_s, :to_s, include_blank: false %>
@@ -32,3 +33,4 @@
     </td> 
   </tr>
 <% end %>
+</table>
