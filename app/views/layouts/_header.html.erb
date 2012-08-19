@@ -4,8 +4,8 @@
 </div>
 <% unless user_signed_in? %>
   <div id="header-signin-outer">
-    <div id="header-signin-inner" class="blue-gradient border round">
-      <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary" %>
+    <div id="header-signin-inner">
+      <%= link_to "Sign In", new_user_session_path, class: "btn btn-large btn-primary" %>
     </div>
   </div>
 <% end %>

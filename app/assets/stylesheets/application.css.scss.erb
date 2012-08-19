@@ -14,7 +14,7 @@
 
 // Container
 #main {
-  background: #FFF;
+  background: url('<%= asset_path 'texture4.jpg' %>');
   margin: 0 auto;
   padding: 10px;
   float: none; 
@@ -23,6 +23,10 @@
   h1 {
     font-size: 500%;
   }
+}
+
+table{
+  background: #FFFFFF !important;
 }
 
 #logo {
@@ -40,7 +44,7 @@
 
 body { 
   padding-top: 5px;
-  background: url('<%= asset_path 'texture2.png' %>')
+  background: url('<%= asset_path 'texture2.png' %>');
 }
 
 #header-signin-outer {
@@ -51,9 +55,8 @@ body {
 }
 
 #header-signin-inner {
-  padding-top: 17px;
-  padding-right: 25px;
-  padding-left: 25px;
+  padding-top: 15px;
+  padding-right: 23px;
   float:right;
   height: 40px;
 }
