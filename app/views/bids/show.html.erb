@@ -31,17 +31,22 @@
 				</tr>
 			</table>
 			<table class="table table-bordered table-condensed">
+
 				<% if @bid_items.present? %>
+					<tr>
+						<td class="highlight">Category</td>
+						<td class="highlight">Description</td>
+						<td class="highlight">Hours</td>
+						<td class="highlight" colspan="3">Materials</td>
+					</tr>
+					<tr>
 					<% category = "" %>
 					<%  @bid_items.each do |b| %>
 						<% if category != b.category %>
-							<tr>
-								<td class="highlight span6"><%= b.category %><% category = b.category %></td>
-								<td class="highlight">Hours</td>
-								<td class="highlight" colspan="2">Materials</td>
-							</tr>
+							<td><%= b.category %><% category = b.category %></td>
+						<% else %>
+							<td></td>
 						<% end %>
-						<tr>
 							<td><%= b.description %></td>
 							<td><%= b.hours %></td>
 							<td><%= b.materials %></td>  
