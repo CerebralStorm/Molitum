@@ -5,10 +5,9 @@
   <h2>Create Account</h2>
   <div class="line"></div>
   <span class="required_notification">* Denotes Required Field</span>
-  </br>
-  <h4> Select a Company </h4>
-  <%= render 'companies/companymodal' %>
-
+  <div class="company_modal">
+    <%= render 'companies/companymodal' %>
+  </div>
   <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
     <%= f.input :company_id, autofocus: true, required: false, collection: Company.all, input_html: { required: "required"}, include_blank: false %>
