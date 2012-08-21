@@ -11,8 +11,8 @@
   <%= simple_form_for(@invoice) do |f| %>
     <%= f.error_notification %>
     <%= f.association :customer , include_blank: false, :required => false %>
-    <%= f.input :billing_start,  label: "Billing Start Date" %>
-    <%= f.input :billing_end, label: "Billing End Date" %>
+    <%= f.input :billing_start, :as => :string %>
+    <%= f.input :billing_end, :as => :string %>
     <%= f.button :submit, class: "submit btn btn-large btn-primary" %>
   <% end %>
 </div>

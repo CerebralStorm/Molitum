@@ -1,9 +1,9 @@
 <% provide(:title, "Invoices") %>
 <table class="table table-bordered table-condensed shadow" cellpadding="5">
-  <th colspan="4">Invoice Number: <%= @invoice.id %></th>
+  <th class="header" colspan="4">Invoice Number: <%= @invoice.id %></th>
   <tr>
     <td>
-      <table class="table-left" cellpadding="5">
+      <table class="table table-bordered table-condensed">
         <tr>
           <td class="highlight">Customer</td>
           <td class="highlight">Billing Start</td>
@@ -17,21 +17,14 @@
           <td><%= @invoice.status %></td>
         </tr>
       </table>
+      <%= render 'invoices/invoiceitems' %>
       <table class="table table-bordered table-condensed">
-        <%= render 'invoices/invoiceitems' %>
-        </tr>
         <tr>
-          <td class="highlight" colspan="4"></td>
-        </tr>
-      </table>
-        <table class="table table-bordered table-condensed">
-        <tr>
-          <td width="80%"></td>
-          <td>Total</td>
+          <td width="20%">Total</td>
           <td><%= @invoice.total_due %></td>
         </tr>
         <tr>
-          <td colspan="3">
+          <td colspan="2">
             <%= link_to "Download Invoice (PDF)", invoice_path(@invoice, :format => "pdf"), class: "btn" %>
           </td>
         </tr>
@@ -44,7 +37,7 @@
               </td>
             <% end %>
           <% end %>
-      </tr>
+        </tr>
       </table>
     </td>
   </tr>

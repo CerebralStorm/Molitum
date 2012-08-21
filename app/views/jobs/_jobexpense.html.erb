@@ -1,42 +1,42 @@
-
+<table class="table table-bordered table-condensed" id="job_expenses_form">
+  <th class="highlight" colspan="4">Job Expenses</th>
   <tr>
-    <td class="highlight">Category</td>
-    <td class="highlight">Description</td>
-    <td class="highlight" colspan="2">Cost</td>
+    <td>Category</td>
+    <td>Description</td>
+    <td colspan="2">Cost</td>
   </tr>
   <tr>
     <td>Labor</td>
     <td>Total cost of labor for this job</td>
-    <td><%= @job.labor_cost %></td>
+    <td colspan="2"><%= @job.labor_cost %></td>
   </tr>
   <% if @job_expenses.present? %>
-      <% category = "" %>
-      <%  @job_expenses.each do |expense| %>
-      <tr>
-        <% if category != expense.category %>
-          <td><%= expense.category %><% category = expense.category %></td>
-        <% end %>
-        <td><%= expense.description %></td>
-        <td><%= expense.cost %></td>  
-        <td><% if can? :delete, expense %><%= link_to "Delete", expense, method: :delete, class: "btn"  %></td><% end %>  
-      </tr>      
+    <% category = "" %>
+    <%  @job_expenses.each do |expense| %>
+    <tr>
+      <% if category != expense.category %>
+        <td><%= expense.category %><% category = expense.category %></td>
       <% end %>
+      <td><%= expense.description %></td>
+      <td><%= expense.cost %></td>  
+      <td><% if can? :delete, expense %><%= link_to "Delete", expense, method: :delete, class: "btn"  %></td><% end %>  
+    </tr>      
     <% end %>
-
-
+  <% end %>
 	<%= simple_form_for [@job, JobExpense.new] do |f| %>
-	<tr>
-    <td>
-      <%= f.collection_select :category, JobExpense::CATEGORIES, :to_s, :to_s, include_blank: false %>
-    </td>
-    <td>
-      <%= f.text_field :description %>
-    </td>
-    <td>
-      <%= f.text_field :cost %>
-    </td>
-    <td>
-     	<%= f.submit "Add", class: "btn" %>
-    </td>	
-  </tr>
-<% end %>
+  	<tr>
+      <td>
+        <%= f.collection_select :category, JobExpense::CATEGORIES, :to_s, :to_s, include_blank: false %>
+      </td>
+      <td>
+        <%= f.text_field :description %>
+      </td>
+      <td>
+        <%= f.text_field :cost %>
+      </td>
+      <td>
+       	<%= f.submit "Add", class: "btn" %>
+      </td>	
+    </tr>
+  <% end %>
+</table>

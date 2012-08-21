@@ -1,9 +1,0 @@
- <h3>Create Account</h3>
- 
-<%= simple_form_for(User.new) do |f| %>
-  <%= f.input :name, required: false %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation, label: "Confirmation" %>
-  <%= f.button :submit, class: "submit btn btn-large btn-primary" %>
-<% end %>

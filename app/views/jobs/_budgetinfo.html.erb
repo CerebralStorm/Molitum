@@ -1,18 +1,17 @@
 <% if @job.budget.present? %>
 <div>
-	<table class="table table-bordered table-condensed shadow">
-		<th class="header" colspan="2">Budget Information</th>
+	<table class="table table-bordered table-condensed">
+		<th class="highlight" colspan="2">Budget Information</th>
 		<tr>
-			<td><b>Budget</b></td>
+			<td width="20%">Budget</td>
 			<td><%= @job.budget %></td>
 		</tr>
 		<tr>
-			<td><b>Expense</b></td>
+			<td width="20%">Expense</td>
 			<td><%= @job.total_cost %></td>
 		</tr>
-		<th class="highlight" colspan="2"></th>
 		<tr>
-			<td><b>Balance</b></td>
+			<td width="20%">Balance</td>
 			<td><%= @job.remaining_budget %></td>
 		</tr>
 	</table>

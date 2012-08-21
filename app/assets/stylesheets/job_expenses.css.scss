@@ -1,3 +1,36 @@
 // Place all the styles related to the job_expenses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#job_expenses_form {
+  SELECT { 
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+    float: left;
+    width: 120px;
+  }
+
+  input[type="number"] { 
+    width: 50px;
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+    padding-right:30px;
+    -moz-transition: padding .25s; 
+    -webkit-transition: padding .25s; 
+    -o-transition: padding .25s;
+    transition: padding .25s;
+  }
+
+  input[type="text"] { 
+    width: 95%;
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+    -moz-transition: padding .25s; 
+    -webkit-transition: padding .25s; 
+    -o-transition: padding .25s;
+    transition: padding .25s;
+  }
+}

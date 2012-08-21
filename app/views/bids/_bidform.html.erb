@@ -10,8 +10,8 @@
     <%= f.error_notification %>
     <%= f.association :customer, include_blank: false, required: false, input_html: { required: "required"} %>
     <%= f.input :location, required: false %>
-    <%= f.input :start_date, :as => :date, label: "Start Date" %>
-    <%= f.input :finish_date, :as => :date, label: "Finish Date"  %>
+    <%= f.input :start_date, :as => :string %>
+    <%= f.input :finish_date, :as => :string %>
     <%= f.input :scope_of_work, :as => :text %>
     <%= f.input :detail_of_work, :as => :text %>
     <%= f.input :hourly_rate, :required => false %>

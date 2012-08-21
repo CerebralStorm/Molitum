@@ -1,62 +1,64 @@
 <% provide(:title, "Jobs") %>
-<%= render "jobs/budgetinfo" %>
 <table class="table table-bordered table-condensed shadow">
   <th class="header">Job Information</th>
   <tr>
     <td>
 			<table class="table table-bordered table-condensed">
+				<th class="highlight" colspan="4">Job Details</th>
 				<tr>
-					<td class="highlight">Customer</td>
-					<td class="highlight">Location</td>
-					<td class="highlight">Status</td>
-				</tr>
-				<tr>
+					<td width="20%">Customer</td>
 					<td><%= @job.customer.name %></td>
+				</tr>
+				<tr>
+					<td width="20%">Location</td>
 					<td><%= @job.location %></td>
-					<td><%= @job.status_in_words %>
 				</tr>
 				<tr>
-					<td class="highlight">Start Date</td>
-					<td class="highlight">Finish Date</td>
+					<td width="20%">Status</td>
+					<td><%= @job.status_in_words %></td>
 				</tr>
 				<tr>
+					<td width="20%">Start Date</td>
 					<td><%= @job.start_date.to_date %></td>
+				</tr>
+				<tr>
+					<td width="20%">Finish Date</td>
 					<td><%= @job.finish_date.to_date %></td>
 				</tr>
-				<% if @job.started? %>
-					<%= render 'jobs/jobexpense' %>
-			  <% end %>
+			</table>
+			<%= render "jobs/budgetinfo" %>
+			<% if @job.started? %>
+				<%= render 'jobs/jobexpense' %>
+		  <% end %>
+		  <table class="table table-bordered table-condensed">
+				<tr>
+					<% if @job.scope_of_work.present? %>
+						<td width="20%">Scope of Work</td>
+						<td><%= @job.scope_of_work %></td>
+					<% end %>
 				</tr>
 				<tr>
-					<table width="100%">
-						<tr>
-							<td class="highlight">Scope of Work</td>
-						</tr>
-						<tr>
-							<td><%= @job.scope_of_work %></td>
-						</tr>
-						<tr>
-							<td class="highlight">Detail of Work</td>
-						</tr>
-						<tr>
-							<td><%= @job.detail_of_work %></td>
-						</tr>
-						<tr>
-							<%= form_for(@job) do |f| %>
-								<% if @job.started? %>
-									<td colspan="3">
-										<%= f.hidden_field :status, :value => 4 %>
-							      <%= f.submit "Finish", class: "btn btn-primary" %>
-							    </td>
-								<% else %>
-									<td colspan="3">
-										<%= f.hidden_field :status, :value => 1 %>
-							      <%= f.submit "Start", class: "btn btn-primary" %>
-							    </td>
-							  <% end %>
-						  <% end %>
-						</tr>
-					</table>
+					<% if @job.detail_of_work.present? %>
+						<td width="20%">Detail of Work</td>
+						<td><%= @job.detail_of_work %></td>
+					<% end %>
+				</tr>
+			</table>
+			<table class="table table-bordered table-condensed">
+				<tr>
+					<%= form_for(@job) do |f| %>
+						<% if @job.started? %>
+							<td>
+								<%= f.hidden_field :status, :value => 4 %>
+					      <%= f.submit "Finish", class: "btn btn-primary" %>
+					    </td>
+						<% else %>
+							<td>
+								<%= f.hidden_field :status, :value => 1 %>
+					      <%= f.submit "Start", class: "btn btn-primary" %>
+					    </td>
+					  <% end %>
+				  <% end %>
 				</tr>
 			</table>
 		</td>
