@@ -1,26 +1,34 @@
+<% provide(:title, "Customers") %>
 <table class="table table-bordered table-condensed shadow">
-  <th class="header">Customer Information</th>
+  <th class="header" colspan="3">Customer Page For <%= @customer.name %></th>
   <tr>
     <td>
-      <%= render 'customers/customerinfo' %>
-    </td>
-  </tr>
-  <th class="header">Bid Information</th>
-  <tr>
-    <td>
-      <%= render 'customers/bidinfo' %>
-    </td>
-  </tr>
-  <th class="header">Job Information</th>
-  <tr>
-    <td>     
-      <%= render 'customers/jobinfo' %>
-    </td>
-  </tr>
-  <th class="header">Invoice Information</th>
-  <tr>
-    <td>     
-      <%= render 'customers/invoiceinfo' %>
+      <table class="table table-bordered table-condensed shadow">
+        <th class="highlight">Customer Information</th>
+        <tr>
+          <td>
+            <%= render 'customers/customerinfo' %>
+          </td>
+        </tr>
+        <th class="highlight">Bid Information</th>
+        <tr>
+          <td>
+            <%= render 'customers/bidinfo' %>
+          </td>
+        </tr>
+        <th class="highlight">Job Information</th>
+        <tr>
+          <td>     
+            <%= render 'customers/jobinfo' %>
+          </td>
+        </tr>
+        <th class="highlight">Invoice Information</th>
+        <tr>
+          <td>     
+            <%= render 'customers/invoiceinfo' %>
+          </td>
+        </tr>
+      </table>
     </td>
   </tr>
 </table>

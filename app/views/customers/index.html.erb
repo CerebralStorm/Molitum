@@ -14,7 +14,7 @@
 						<td><%= link_to customer.name, customer_path(customer) %></td>
 						<td><%= customer.jobs.count %>
 						<td width="20%"><% if can? :edit, customer %><%= link_to "Edit", edit_customer_path(customer), class: "btn" %><% end %></td>
-						<td width="20%"><% if can? :delete, customer %><%= link_to "Delete", customer_path(customer), class: "btn", method: :delete %><% end %></td>
+						<td width="20%"><% if can? :delete, customer %><%= link_to "Delete", customer_path(customer), confirm: "You Sure?", class: "btn", method: :delete %><% end %></td>
 					</tr>
 					<% end %>
 					<tr>

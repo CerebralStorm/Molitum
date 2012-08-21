@@ -1,3 +1,9 @@
 <% provide(:title, "#{current_user.company.name}") %>
-<h2> Account Page for <%= current_user.company_name %></h2>
-<%= render 'companies/companyinfo' %>
+<table class="table table-bordered table-condensed shadow">
+  <th class="header" colspan="3">Account Page for <%= current_user.company_name %></th>
+  <tr>
+    <td>
+      <%= render 'companies/companyinfo' %>
+    </td>
+  </tr>
+</table>

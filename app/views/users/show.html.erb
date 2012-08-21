@@ -1,7 +1,13 @@
-<% provide(:title, "Account For #{@user.name}") %>
-<h2> Account Page for <%= current_user.name %> </h2>
-<%= render 'users/accountinfo' %>
-<%= render 'users/showtimeclocks' %>
+<% provide(:title, "Account Page For #{@user.name}") %>
+<table class="table table-bordered table-condensed shadow">
+  <th class="header" colspan="3">Account Page For <%= current_user.name %></th>
+  <tr>
+    <td>
+      <%= render 'users/accountinfo' %>
+      <%= render 'users/showtimeclocks' %>
+    </td>
+  </tr>
+</table>
 
 
 
