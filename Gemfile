@@ -6,19 +6,15 @@ gem 'rails', '3.2.6'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'thin'
 gem 'devise'
 gem 'cancan'
 gem 'twitter-bootstrap-rails'
-gem 'nokogiri'
-gem 'mechanize'
 gem "prawn"
 gem 'prawn_rails'
 gem 'simple_form'
 gem 'will_paginate'
 
 group :test, :development do
-	gem 'capybara-webkit'
 	gem 'rspec-rails'
 	gem 'database_cleaner'
 	gem 'pry'
@@ -43,6 +39,7 @@ gem 'jquery-rails'
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
+
 # gem 'jbuilder'
 
 # Use unicorn as the app server
